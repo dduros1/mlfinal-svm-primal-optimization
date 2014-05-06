@@ -5,17 +5,18 @@ from data import *
 import time
 import numpy
 
-reader = DataReader('data/test.tsv', test=1)
+print('Begin smalltest')
+reader = DataReader('data/smalltest.tsv', test=1)
 start = time.time()
 reader.readInput()
 end = time.time()
 data = reader.getData()
 words = reader.getWords()
-print 'Time to read train data: ', (end-start), ' seconds'
+print ('Time to read test data: ', (end-start), ' seconds')
 
 
-print 'Number of words: ', len(words)
-print 'Number of data instances: ', len(data)
+print ('Number of words: ', len(words))
+print ('Number of data instances: ', len(data))
 
 
 labelcounts = [0] * 5
@@ -29,9 +30,13 @@ for instance in data:
     for word in instance.getWords():
         featurecounts[word] += feature.get(word)  #count number of non-zero appearances per feature
 
-ave = np.average(numfeatures)
-ave = np.average(featurecounts.getValues())
-
+ave = numpy.average(numfeatures)
+print('Average number of features per word: ', ave)
+featurecountlist = []
+for value in featurecounts.values():
+    featurecountlist.append(int(value))
+    ave = numpy.average(featurecountlist)
+print('Average number of appeareances per feature: ', ave)
 
 
 

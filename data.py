@@ -19,7 +19,8 @@ class Instance:
             return True
         return False
             
-
+    def getWords(self):
+        return self.feature.getWords()
 
 
 
@@ -65,7 +66,7 @@ class Feature:
         return false
 
     def getWords(self):
-        return features.getKeys()
+        return self.features.keys()
 
     def __len__(self):
         return len(self.features)
