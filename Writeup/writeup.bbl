@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{chapelle2007training}
+Olivier Chapelle.
+\newblock Training a support vector machine in the primal.
+\newblock {\em Neural Computation}, 19(5):1155--1178, 2007.
+
+\bibitem{melacci2011laplacian}
+Stefano Melacci and Mikhail Belkin.
+\newblock Laplacian support vector machines trained in the primal.
+\newblock {\em The Journal of Machine Learning Research}, 12:1149--1184, 2011.
+
+\bibitem{rupnik2008stochastic}
+Jan Rupnik.
+\newblock {\em STOCHASTIC SUBGRADIENT APPROACH FOR SOLVING LINEAR SUPPORT
+  VECTOR MACHINES--AN OVERVIEW}.
+\newblock SiKDD, 2008.
+
+\end{thebibliography}
