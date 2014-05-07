@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3
 
 from dataparser import *
 from data import *
@@ -7,7 +7,7 @@ import numpy
 import operator
 
 #print('Begin smalltest')
-print 'running on training data'
+print ('running on training data')
 #reader = DataReader('data/smalltest.tsv', test=1)
 reader = DataReader('data/train.tsv', punct=1)
 start = time.time()
