@@ -18,7 +18,7 @@ class DataReader:
     #       Only req. param: input file         #
     #                                           #
     #############################################
-    def __init__(self, f, opt=0, test=0, punct=0, binary=0):
+    def __init__(self, f, opt = 0, test = 0, punct = 0, binary = 0):
         self.inputfile = f
         self.datainstances = []     #list of instances (label, feature)
         self.words = []             #list of all words
@@ -42,7 +42,7 @@ class DataReader:
                     if first:
                         first = False
                         continue
-                    label = self.createLabel(row[3])#Label(row[3])
+                    label = self.createLabel(int(row[3]))#Label(row[3])
                     
                 else:
                     label = Label(-1)
@@ -79,12 +79,14 @@ class DataReader:
                     continue
             if not word in self.words:
                 self.words.append(word)
+                
             if (self.opt == 0):
                 feature.add(word, 1)
             else:
+                #Possibly just replace with feature.add(word, count+1) since get returns 0?
                 if word in feature:
                     count = feature.get(word)
-                    feature.add(word, count+1)
+                    feature.add(word, count + 1)
                 else:
                     feature.add(word, 1)
         return feature

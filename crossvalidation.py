@@ -19,29 +19,29 @@ class CrossValidationTester:
         self.alldata = instances
 
     def runtest(self):
-        for round in xrange(0, 10):
+        for round in range(0, 10):
             print ('Round', round)
             start = time.time()
             mysvm = SVM(GradientDescent())
             self.formSets()
             print ('Number of test samples:', len(self.test))
-            self.trainshit(mysvm)
+            self.runtraining(mysvm)
             self.evaluate(mysvm)
             end = time.time()
 
-            print ('Total time for round:', (end-start)/60 , 'minutes')
+            print ('Total time for round:', (end - start) / 60 , 'minutes')
 
     def formSets(self):
-        self.test = random.sample(self.alldata, int(len(self.alldata)*.1))
+        self.test = random.sample(self.alldata, int(len(self.alldata) * 0.1))
         self.train = copy.copy(self.alldata)
         for ele in self.test:
             self.train.remove(ele)
    
-    def trainshit(self, mysvm):
+    def runtraining(self, mysvm):
         mysvm.train(self.train)
 
     def evaluate(self, mysvm):
-        correct = 0
+        correct = 0.0
         for instance in self.test:
             newlabel = mysvm.predict(instance)
             if newlabel.equals(instance.getLabel()):
@@ -52,14 +52,13 @@ class CrossValidationTester:
 
 ###########################  TEST  #########################################
 
+def main():
+    reader = DataReader('data/smalltrain.tsv', punct=1)
+    reader.readInput()
+    data = reader.getData()
+    print('Data Read :)')
+    tester = CrossValidationTester(data)
+    tester.runtest()
 
-reader = DataReader('data/smalltrain.tsv', punct=1)
-reader.readInput()
-data = reader.getData()
-print(type(data[0]))
-print(data[0])
-print 'Data Read :)'
-tester = CrossValidationTester(data)
-tester.runtest()
-
-
+if __name__ == "__main__":
+    main()
