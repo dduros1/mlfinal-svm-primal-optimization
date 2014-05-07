@@ -23,9 +23,10 @@ class SVM:
     #                                           #
     #############################################
     def predict(self, instance):
-        if sign(instance) > 0:
+        if self.sign(instance) > 0:
             return Label(1)
-
+        else:
+            return Label(0)
 
     #############################################
     #                                           #
@@ -33,8 +34,6 @@ class SVM:
     #                                           #
     #############################################
     def train(self, instances):
-        print(type(instances[0]))
-        print(instances[0])
         self.weights = self.optimizer.train(instances)
 
 
@@ -47,11 +46,9 @@ class SVM:
     #                                           #
     #############################################
     def sign(self, instance):
-        if instance.getFeature().dot(weights) >= 0:
+        if instance.getFeature().dot(self.weights) >= 0:
             return 1
         return -1
-
-
 
 
 #class LaplacianSVM:
@@ -59,7 +56,7 @@ class SVM:
 
 ##################################### TESTING #########################################
 
-mysvm = SVM(GradientDescent())
+#mysvm = SVM(GradientDescent())
 
 
     

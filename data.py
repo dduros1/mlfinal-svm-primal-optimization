@@ -94,7 +94,7 @@ class Label:
     #                                           #
     #############################################
     def equals(self, l2):
-        if (self.label == l2.getLabel):
+        if (self.getLabel() == l2.getLabel()):
             return True
         return False
 
@@ -138,7 +138,7 @@ class Feature:
             self.features[word] = value
         else:
             if word in self.features:
-                self.features.remove(word)
+                del self.features[word]
     #############################################
     #                                           #
     #       Override contains method            #
