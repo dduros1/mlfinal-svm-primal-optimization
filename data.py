@@ -218,7 +218,7 @@ class Feature:
         diffs = []
         for word in allwords:
             diff = self.get(word) - f2.get(word)
-            diff = diff*diff
+            diff = diff * diff
             diffs.append(diff)
         return sum(diffs)
 

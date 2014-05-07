@@ -89,7 +89,7 @@ class NewtonApproximation(Optimizer):
         else:
             sv = copy.copy(instances)
         oldsv = copy.copy(sv)
-        while (oldsv == sv):
+        while (oldsv.equals(sv)):
             #beta = invert(k_sv + lambda on the diagonals) * labels_sv
             pass
         return beta
@@ -104,6 +104,7 @@ class NewtonApproximation(Optimizer):
                     kval = self.kernel.K(instance.getFeature(), instance2.getFeature())
                     instdict[instance2] = kval
             kernels[instance] = instdict
+        return kernels
 
     def form_matrix(self, kernelinstances, sv):
         from numpy import matrix
