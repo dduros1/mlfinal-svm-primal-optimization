@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python
 
 
 from svm import *
@@ -15,6 +15,7 @@ class CrossValidationTester:
 
     test = []
     train = []
+    results = []
 
     def __init__(self, instances):
         self.alldata = instances
@@ -48,7 +49,16 @@ class CrossValidationTester:
             if newlabel.equals(instance.getLabel()):
                 correct += 1
 
+        self.results.append(correct/len(self.test))
         print ('Correct:', correct/len(self.test))
+
+
+
+    def average(self):
+        total = sum(self.results)
+        ave = total/len(self.results)
+        return ave
+        
 
 
 ###########################  TEST  #########################################
@@ -60,6 +70,7 @@ def main():
     print('Data Read :)')
     tester = CrossValidationTester(data)
     tester.runtest()
+    print ('Average accuracy:', tester.average())
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python
+
 
 from dataparser import *
 from data import *
@@ -8,8 +9,8 @@ import operator
 
 #print('Begin smalltest')
 print ('running on training data')
-#reader = DataReader('data/smalltest.tsv', test=1)
-reader = DataReader('data/train.tsv', punct=1)
+reader = DataReader('data/smalltest.tsv', test=1)
+#reader = DataReader('data/train.tsv', punct=1)
 start = time.time()
 reader.readInput()
 end = time.time()
@@ -33,24 +34,24 @@ for instance in data:
     for word in instance.getWords():
         featurecounts[word] += feature.get(word)  #count number of non-zero appearances per feature
 
-ave = numpy.average(numfeatures)
-print('Average number of features per word: ', ave)
+ave = numpy.mean(numfeatures)
+#print('Average number of features per word: ', ave)
 featurecountlist = []
 for value in featurecounts.values():
     featurecountlist.append(int(value))
 ave = numpy.average(featurecountlist)
 print('Average number of appeareances per feature: ', ave)
 
-sorted_features = sorted(featurecounts.iteritems(), key=operator.itemgetter(1))
+#sorted_features = sorted(featurecounts.iteritems(), key=operator.itemgetter(1))
 
 #print sorted_features[:10]
-print ('10 most common words')
-print sorted_features[len(sorted_features)-10:]
+#print ('10 most common words')
+#print sorted_features[len(sorted_features)-10:]
 
-num_one = 0
-for (word, count) in sorted_features:
-    if count==1:
-        num_one += 1
-print ('number of words that appear once', num_one)
+#num_one = 0
+#for (word, count) in sorted_features:
+#    if count==1:
+#        num_one += 1
+#print ('number of words that appear once', num_one)
 
 

@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python
 
 
 #############################################
@@ -94,6 +94,8 @@ class Label:
     #                                           #
     #############################################
     def equals(self, l2):
+        if not isinstance(l2, Label):
+            return False
         if (self.getLabel() == l2.getLabel()):
             return True
         return False
@@ -204,5 +206,19 @@ class Feature:
     def __str__(self):
         return self.features
 
+    #############################################
+    #                                           #
+    #        Norm method for RBF kernel         #
+    #                                           #
+    #############################################
+    def squared_norm(self, f2):
+        norm = Feature()
+        allwords = self.getWords() + f2.getWords()
 
+        diffs = []
+        for word in allwords:
+            diff = self.get(word) - f2.get(word)
+            diff = diff*diff
+            diffs.append(diff)
+        return sum(diffs)
 

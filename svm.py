@@ -1,4 +1,5 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python
+
 
 from optimizer import *
 from data import *
