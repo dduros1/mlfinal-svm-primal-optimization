@@ -1,11 +1,13 @@
-import optimizer
+#!/usr/bin/python
+
+from optimizer import *
 import pickle
 import time
 from dataparser import *
 from optimizer import *
 
 start = time.time()
-reader = DataReader('data/train.tsv', punct=1)
+reader = DataReader('data/smalltrain.tsv', punct=1)
 reader.readInput()
 data = reader.getData()
 tester = NewtonApproximation(RBF())

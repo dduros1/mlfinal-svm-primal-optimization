@@ -108,11 +108,16 @@ class NewtonApproximation(Optimizer):
 
     def form_matrix(self, kernelinstances, sv):
         from numpy import matrix
-        from scipy import linalg
 
         n = len(kernelinstances)
-        np.empty([n,n]) 
+        listmatrix = []
+        for i in range(n):
+            row = []
+            for j in range(n):
+                row[j] = kernel.k(sv[i], sv[j])  #todo put right things in this
+            listmatrix[i] = row
 
+        nmatrix = matrix(listmatrix)            #should make 2d array into numpy matrix
 
 
 
