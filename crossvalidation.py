@@ -25,7 +25,8 @@ class CrossValidationTester:
             print ('Round', round)
             start = time.time()
             #mysvm = SVM(GradientDescent())
-            mysvm = SVM(NewtonApproximation(RBF(sigma=6,caching = 1),huberparam=.01))
+            #mysvm = SVM(NewtonApproximation(RBF(sigma=6,caching = 1),huberparam=.01))
+            mysvm = SVM(StochasticSubgradient(param = 0.001, sample_portion = 8, iterations = 2000))
             self.formSets()
             print ('Number of test samples:', len(self.test))
             self.runtraining(mysvm)
@@ -35,11 +36,18 @@ class CrossValidationTester:
             print ('Total time for round:', (end - start) / 60 , 'minutes')
 
     def formSets(self):
-        self.test = random.sample(self.alldata, int(len(self.alldata) * 0.1))
-        self.train = copy.copy(self.alldata)
-        for ele in self.test:
-            self.train.remove(ele)
-   
+#        self.test = random.sample(self.alldata, int(len(self.alldata) * 0.1))
+#        self.train = copy.copy(self.alldata)
+#        for ele in self.test:
+#            self.train.remove(ele)
+        start = time.time()
+        datalist =  copy.copy(self.alldata)
+        random.shuffle(datalist)
+        self.test = datalist[:int(len(self.alldata) * 0.1)]
+        self.train = datalist[int(len(self.alldata) * 0.1):]   
+        end = time.time()
+        print('time to sample: ', end - start)
+
     def runtraining(self, mysvm):
         mysvm.train(self.train)
 
@@ -65,7 +73,7 @@ class CrossValidationTester:
 ###########################  TEST  #########################################
 
 def main():
-    reader = DataReader('data/smalltrain.tsv', punct=1)
+    reader = DataReader('data/train.tsv', punct=1)
     reader.readInput()
     data = reader.getData()
     print('Data Read :)')

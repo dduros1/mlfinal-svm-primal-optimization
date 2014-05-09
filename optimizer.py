@@ -8,6 +8,7 @@ import math
 from numpy import matrix
 from numpy import array
 import numpy
+import random
 
 
 class Optimizer:
@@ -248,6 +249,46 @@ class RBF(Kernel):
             return self.cache[id1][id2]
         else:
             return math.exp(-1*x1.squared_norm(x2)/(2*self.sigma*self.sigma))
+
+#############################################
+#                                           #
+#       Gradient Descent Optimizer          #
+#                                           #
+#############################################
+class StochasticSubgradient(Optimizer):
+    
+    def __init__(self, param = 1.0, iterations = 25, sample_portion = 10):
+        self.param = param
+        self.iterations = iterations
+        self.sample_portion = sample_portion
+
+    def train(self, instances):
+        w = Feature()
+        for t in range(1, self.iterations+1):
+            if t % 10 == 0:
+                print('iteration', t)
+            A = random.sample(instances, self.sample_portion)            
+            newA = []            
+            for inst in A:
+                if inst.getLabel().getLabel() == 0:
+                    w.scalar_multiply(-1)
+                if w.dot(inst.getFeature()) < 1:
+                    newA.append(inst)
+                #undo the negativity, if needed.
+                if inst.getLabel().getLabel() == 0:
+                    w.scalar_multiply(-1)                
+            eta = 1.0 / (self.param * t)
+            w.scalar_multiply(1 - eta * self.param)
+            for inst in newA:
+                x = copy.copy(inst.getFeature())
+                x.scalar_multiply(eta / self.sample_portion)
+                if inst.getLabel().getLabel() == 0:
+                    x.scalar_multiply(-1)
+                w.plusall(x)
+            norm = 1.0 / (w.self_norm() * math.sqrt(self.param))
+            if norm < 1:
+                w.scalar_multiply(norm)
+        return w
 
 #############################################
 def main():

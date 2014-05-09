@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import math
 
 #############################################
 #                                           #
@@ -184,7 +185,7 @@ class Feature:
     #############################################
     def dot(self, f2):
         sumval = 0
-        for word in self.features:
+        for word in self.getWords():
             sumval += self.get(word)*f2.get(word)
         return sumval
 
@@ -204,7 +205,7 @@ class Feature:
     #                                           #
     #############################################
     def scalar_multiply(self, val):
-        for word in self.features:
+        for word in self.getWords():
             self.add(word, val*self.get(word))
 
     #############################################
@@ -231,4 +232,11 @@ class Feature:
             diff = diff * diff
             diffs.append(diff)
         return sum(diffs)
+
+    def self_norm(self):
+        return self.dot(self)        
+        #val = 0        
+        #for word in self.getWords():
+        #    val += self.get(word) * self.get(word)
+        #return math.sqrt(val)
 
