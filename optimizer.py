@@ -67,59 +67,114 @@ class NewtonApproximation(Optimizer):
         self.huberparam = huberparam
         self.kernel = kernel
 
-
+    #############################################
+    #                                           #
+    #      Train function: calls recursive      #
+    #       function, then transforms beta      #
+    #       into svm weights                    #
+    #                                           #
+    #############################################
     def train(self, instances):
-        start = time.time()
-        kernelinstances = self.compute_kernel(instances)
-        end = time.time()
-        print ('Kernel computed in', (end-start)/60, 'seconds')
-        beta = self.primalsvm(instances, kernelinstances)
+        beta = self.primalsvm(instances)
         #weights = sum beta * inst
-        
-        
-    def primalsvm(self, instances, kernelinstances):
+        for inst in instances:
+            for word in inst.getWords():
+                weights.add(word, weights.get(word) + beta[inst] * inst.get(word))
+
+    #############################################
+    #                                           #
+    #      Recursive function for train         #
+    #                                           #
+    #############################################    
+    def primalsvm(self, instances):
         num = len(instances)
         sv = []
         if num > 1000:
             small_instances = instances[:num/2]
-            beta = self.primalsvm(small_instances, kernelinstances)
+            beta = self.primalsvm(small_instances)
             for key, value in beta:
                 if not value == 0:
                     sv.append(key)
         else:
             sv = copy.copy(instances)
-        oldsv = copy.copy(sv)
-        while (oldsv.equals(sv)):
-            #beta = invert(k_sv + lambda on the diagonals) * labels_sv
-            pass
-        return beta
+        oldsv = []
+        while (not oldsv.equals(sv)):
+            oldsv = copy.copy(sv)
+            kmatrix = self.form_matrix(sv)
+            tempmatrix = copy.copy(kmatrix)
+            for i in range(n):
+                tempmatrix[i][i] += self.huberparm
+            inverse = tempmatrix.I
+            labels = self.form_label_vec(sv)
+            beta = inverse.dot(labels)
+            sv = self.update(instances, beta, kmatrix, oldsv)
+
+        return self.formdictionary(beta, sv)
 
 
-    def compute_kernel(self, instances):
-        kernels ={}
-        for instance in instances:
-            instdict = {}
-            for instance2 in instances:
-                if not instance.equals(instance2):
-                    kval = self.kernel.K(instance.getFeature(), instance2.getFeature())
-                    instdict[instance2] = kval
-            kernels[instance] = instdict
-        return kernels
+    def formdictionary(self, beta, sv):
+        mydict = {}
+        for i in len(sv):
+            mydict[sv[i]] = beta[i]
+        return mydict
 
-    def form_matrix(self, kernelinstances, sv):
+    #############################################
+    #                                           #
+    #           update sv step                  #
+    #                                           #
+    #############################################
+    def update(self, instances, beta, kmatrix, oldsv):
+        newsv = []
+        for i in len(instances):
+           val = 0.0
+           for j in len(oldsv):
+                val += self.kernel.k(instances[i].getFeature(), sv[j].getFeature()) * beta[j]
+           label = instances[i].getLabel().getLabel()
+           if label == 0:
+               val *= -1
+           if val < 1:
+               newsv.append(instances[i])
+
+        return newsv
+
+    #############################################
+    #                                           #
+    #      invertible matrix calculation        #
+    #       returns matrix inverse yay          #
+    #                                           #
+    #############################################
+    def form_matrix(self, sv):
         from numpy import matrix
 
-        n = len(kernelinstances)
+        n = len(sv)
         listmatrix = []
         for i in range(n):
             row = []
-            for j in range(n):
-                row[j] = kernel.k(sv[i], sv[j])  #todo put right things in this
+            for j in range(0,i):
+                row[j] = listmatrix[j][i]
+            for j in range(i,n):                #only compute for upper triangle
+                row[j] = self.kernel.k(sv[i].getFeature(), sv[j].getFeature()) 
             listmatrix[i] = row
 
         nmatrix = matrix(listmatrix)            #should make 2d array into numpy matrix
+        return nmatrix
 
+    #############################################
+    #                                           #
+    #   forms label vector for multiplication   #
+    #                                           #
+    #############################################
+    def form_label_vec(self, sv):
+        from numpy import array
+        
+        ra = []
+        for ele in sv:
+            if (ele.getLabel().getLabel() == 0):
+                ra.append(-1)
+            else:
+                ra.append(ele.getLabel().getLabel())
 
+        return array(ra)
 
 #############################################
 #                                           #
