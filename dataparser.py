@@ -34,6 +34,7 @@ class DataReader:
     #                                           #
     #############################################
     def readInput(self):
+        idcounter = 1
         with open(self.inputfile, 'r') as inputfile:
             reader = csv.reader(inputfile, delimiter='\t')
             count = 0
@@ -48,10 +49,11 @@ class DataReader:
                 else:
                     label = Label(-1)
                 phrase = row[2]
-                feature = self.createFeature(phrase)
+                feature = self.createFeature(phrase, idcounter)
                 if len(feature) > 0:
                     instance = Instance(label, feature)
                     self.datainstances.append(instance)
+                    idcounter+=1
 
     #############################################
     #                                           #
@@ -70,10 +72,10 @@ class DataReader:
     #       Create feature function             #
     #                                           #
     #############################################
-    def createFeature(self, phrase):
+    def createFeature(self, phrase, uniqueid):
         words = phrase.split()
         #TODO tolower()?
-        feature = Feature()
+        feature = Feature(uniqueid)
         for word in words:
             if self.punct == 1:
                 if word in self.punctuation:

@@ -4,6 +4,10 @@ import copy
 from data import *
 import time
 from dataparser import *
+import math
+from numpy import matrix
+from numpy import array
+import numpy
 
 
 class Optimizer:
@@ -75,11 +79,18 @@ class NewtonApproximation(Optimizer):
     #                                           #
     #############################################
     def train(self, instances):
+        start = time.time()
         beta = self.primalsvm(instances)
         #weights = sum beta * inst
         for inst in instances:
             for word in inst.getWords():
-                weights.add(word, weights.get(word) + beta[inst] * inst.get(word))
+                try:
+                    self.weights.add(word, self.weights.get(word) + beta[inst] * inst.getFeature().get(word))
+                except KeyError:
+                    pass
+        end = time.time()
+        print ('it finished!!!', (end-start), 'seconds')
+        return self.weights
 
     #############################################
     #                                           #
@@ -91,31 +102,57 @@ class NewtonApproximation(Optimizer):
         sv = []
         if num > 1000:
             small_instances = instances[:num/2]
+            start = time.time()
             beta = self.primalsvm(small_instances)
-            for key, value in beta:
+            end = time.time()
+            print('Seconds for recursive call:', (end-start))
+            for key, value in beta.iteritems():
                 if not value == 0:
                     sv.append(key)
         else:
             sv = copy.copy(instances)
+        #oldsvs = []
+        oldoldsv = []                           #check 2 back for oscillation TODO cycles
         oldsv = []
-        while (not oldsv.equals(sv)):
+        #while not sv in oldsvs:
+        loopcounter = 0
+        while not oldsv == sv and not oldoldsv == sv:
+            loopstart = time.time()
+            #oldsvs.append(sv)
+            oldoldsv = copy.copy(oldsv)
             oldsv = copy.copy(sv)
+
+            start = time.time()
             kmatrix = self.form_matrix(sv)
+            end = time.time()
+            #print ((end-start), 'seconds to form kmatrix')
+
             tempmatrix = copy.copy(kmatrix)
-            for i in range(n):
-                tempmatrix[i][i] += self.huberparm
+            for i in range(len(sv)):
+                tempmatrix[(i,i)] += self.huberparam
             inverse = tempmatrix.I
             labels = self.form_label_vec(sv)
             beta = inverse.dot(labels)
+            start = time.time()
             sv = self.update(instances, beta, kmatrix, oldsv)
-
+            end = time.time()
+            #print ((end-start), 'seconds to multiply stuff')
+            #print(len(sv))
+            loopend=time.time()
+            #print((loopend-loopstart), 'seconds for one iteration')
+            loopcounter += 1
+            if loopcounter % 100 == 0:
+                print ('Iteration of loop:', loopcounter)
+    
         return self.formdictionary(beta, sv)
 
 
+    #############################################
+    #############################################
     def formdictionary(self, beta, sv):
         mydict = {}
-        for i in len(sv):
-            mydict[sv[i]] = beta[i]
+        for i in range(len(beta[0])):
+            mydict[sv[i]] = beta[(0,i)]
         return mydict
 
     #############################################
@@ -125,10 +162,10 @@ class NewtonApproximation(Optimizer):
     #############################################
     def update(self, instances, beta, kmatrix, oldsv):
         newsv = []
-        for i in len(instances):
+        for i in range(len(instances)):
            val = 0.0
-           for j in len(oldsv):
-                val += self.kernel.k(instances[i].getFeature(), sv[j].getFeature()) * beta[j]
+           for j in range(len(oldsv)):
+               val += self.kernel.K(instances[i].getFeature(), oldsv[j].getFeature()) * beta[(0,j)]
            label = instances[i].getLabel().getLabel()
            if label == 0:
                val *= -1
@@ -144,16 +181,16 @@ class NewtonApproximation(Optimizer):
     #                                           #
     #############################################
     def form_matrix(self, sv):
-        from numpy import matrix
+        #from numpy import matrix
 
         n = len(sv)
-        listmatrix = []
+        listmatrix = [[]] * n
         for i in range(n):
-            row = []
+            row = [0] * n
             for j in range(0,i):
                 row[j] = listmatrix[j][i]
             for j in range(i,n):                #only compute for upper triangle
-                row[j] = self.kernel.k(sv[i].getFeature(), sv[j].getFeature()) 
+                row[j] = self.kernel.K(sv[i].getFeature(), sv[j].getFeature()) 
             listmatrix[i] = row
 
         nmatrix = matrix(listmatrix)            #should make 2d array into numpy matrix
@@ -165,7 +202,7 @@ class NewtonApproximation(Optimizer):
     #                                           #
     #############################################
     def form_label_vec(self, sv):
-        from numpy import array
+        #from numpy import array
         
         ra = []
         for ele in sv:
@@ -193,15 +230,24 @@ class Kernel:
 #############################################
 class RBF(Kernel):
     
-    def __init__(self, sigma=2):
+    def __init__(self, sigma=2, caching = 0):
         self.sigma = sigma
+        self.caching = caching #1 if caching, 0 if not
+        self.cache = {}
 
     #x1, x2 are Features
     def K(self, x1, x2):
-        import math
-        val = math.exp(-1*x1.squared_norm(x2)/(2*self.sigma*self.sigma))
-        return val
-
+        #import math
+        if self.caching:
+            id1 = x1.getID()
+            id2 = x2.getID()
+            if id1 not in self.cache:
+                self.cache[id1] = {}
+            if id2 not in self.cache[id1]:
+                self.cache[id1][id2] =  math.exp(-1*x1.squared_norm(x2)/(2*self.sigma*self.sigma))
+            return self.cache[id1][id2]
+        else:
+            return math.exp(-1*x1.squared_norm(x2)/(2*self.sigma*self.sigma))
 
 #############################################
 def main():
@@ -209,7 +255,7 @@ def main():
     reader.readInput()
     data = reader.getData()
     print('Data Read :)')
-    tester = NewtonApproximation(RBF())
+    tester = NewtonApproximation(RBF(caching=1))
     tester.train(data)
 
 if __name__ == "__main__":

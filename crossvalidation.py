@@ -24,7 +24,8 @@ class CrossValidationTester:
         for round in range(0, 10):
             print ('Round', round)
             start = time.time()
-            mysvm = SVM(GradientDescent())
+            #mysvm = SVM(GradientDescent())
+            mysvm = SVM(NewtonApproximation(RBF(sigma=6,caching = 1),huberparam=.01))
             self.formSets()
             print ('Number of test samples:', len(self.test))
             self.runtraining(mysvm)

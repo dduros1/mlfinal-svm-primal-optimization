@@ -25,6 +25,9 @@ class Instance:
     def getLabel(self):
         return self.label
 
+    def getID(self):
+        return self.feature.getID()
+
     #############################################
     #                                           #
     #  Returns feature associated with instance #
@@ -60,6 +63,9 @@ class Instance:
 
     def __str__(self):
         return (self.label.__str__(), self.feature.__str__()).__str__()
+
+    def __repr__(self):
+        return str(self)
 
 
 
@@ -107,7 +113,7 @@ class Label:
     #############################################
 
     def __str__(self):
-        return self.label
+        return str(self.label)
 
 #############################################
 #                                           #
@@ -116,8 +122,9 @@ class Label:
 #############################################
 class Feature:
     
-    def __init__(self):
+    def __init__(self, uniqueid = -1):
         self.features = {}
+        self.uniqueid = uniqueid
 
     #############################################
     #                                           #
@@ -129,6 +136,9 @@ class Feature:
             return self.features[word]
         else:
             return 0
+
+    def getID(self):
+        return self.uniqueid
 
     #############################################
     #                                           #
@@ -204,7 +214,7 @@ class Feature:
     #############################################
 
     def __str__(self):
-        return self.features
+        return str(self.features)
 
     #############################################
     #                                           #
