@@ -14,7 +14,11 @@ import random
 class Optimizer:
 
     def __init__(self):
-        self.stuff = stuff
+        self.weights = Feature()
+
+    def clear(self):
+        self.weights = Feature()
+
 
 
 
