@@ -26,8 +26,8 @@ class CrossValidationTester:
             start = time.time()
             #mysvm = SVM(GradientDescent())
             #mysvm = SVM(NewtonApproximation(RBF(sigma=6,caching = 1),huberparam=.01))
-            #mysvm = SVM(StochasticSubgradient(param = 0.001, sample_portion = 8, iterations = 2000))
-            mysvm = MulticlassSVM(GradientDescent())
+            mysvm = MulticlassSVM(StochasticSubgradient(param = 0.001, sample_portion = 8, iterations = 200))
+            #mysvm = MulticlassSVM(GradientDescent())
             self.formSets()
             print ('Number of test samples:', len(self.test))
             self.runtraining(mysvm)
@@ -74,7 +74,7 @@ class CrossValidationTester:
 ###########################  TEST  #########################################
 
 def main():
-    reader = DataReader('data/train.tsv', punct=1)
+    reader = DataReader('data/train.tsv', punct=1, binary=1)
     reader.readInput()
     data = reader.getData()
     print('Data Read :)')

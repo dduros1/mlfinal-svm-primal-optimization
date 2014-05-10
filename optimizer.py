@@ -54,17 +54,6 @@ class GradientDescent(Optimizer):
 
 #############################################
 #                                           #
-#       Stochastic Subgradient optimizer    #
-#                                           #
-#############################################
-class StochasticSubgradient(Optimizer):
-
-    def __init__(self):
-        self.stuff = stuff
-
-
-#############################################
-#                                           #
 #       Newton Primal Optimizer             #
 #                                           #
 #############################################
@@ -269,8 +258,8 @@ class StochasticSubgradient(Optimizer):
     def train(self, instances):
         w = Feature()
         for t in range(1, self.iterations+1):
-            if t % 10 == 0:
-                print('iteration', t)
+            #if t % 10 == 0:
+            #    print('iteration', t)
             A = random.sample(instances, self.sample_portion)            
             newA = []            
             for inst in A:
