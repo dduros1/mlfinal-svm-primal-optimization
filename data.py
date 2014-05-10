@@ -116,6 +116,9 @@ class Label:
     def __str__(self):
         return str(self.label)
 
+    def __repr__(self):
+        return str(self)
+
 #############################################
 #                                           #
 #                Feature Class              #

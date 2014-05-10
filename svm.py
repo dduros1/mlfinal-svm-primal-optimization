@@ -56,19 +56,56 @@ class SVM:
 
 
 class MulticlassSVM(SVM):
-    
 
     def __init__(self, optimizer):
         self.optimizer = optimizer
         self.weights = []       ##List of features
+        self.testdict = {}
+        self.probabilitydict = {}
 
 
     def predict(self, instance):
         signvals = []
         for weight in self.weights:
             signvals.append(self.sign(instance,weight))
-        print instance.getLabel(), signvals
-        #TODO all are getting ones....
+        try:
+            probabilities = self.probabilitydict[tuple(signvals)]
+            most_likely = probabilities.index(max(probabilities))
+            return Label(most_likely)
+        except Exception:
+            pass
+        
+    def finish(self, instances):
+        for inst in instances:
+            signvals = []
+            for weight in self.weights:
+                signvals.append(self.sign(inst,weight))
+            if not tuple(signvals) in self.testdict.keys():
+                tempdict = {}
+                tempdict[inst.getLabel().getLabel()] = 1
+                self.testdict[tuple(signvals)] = tempdict
+            else:
+                if not inst.getLabel().getLabel() in self.testdict[tuple(signvals)]:
+                    self.testdict[tuple(signvals)][inst.getLabel().getLabel()] = 1
+                else:
+                    self.testdict[tuple(signvals)][inst.getLabel().getLabel()]+=1
+
+        #Compute probability of label given signval, pick highest prob as label
+        for signval, labeldict in self.testdict.iteritems():
+            problist = [0,0,0,0,0]
+            total = sum(labeldict.values())
+            for label, count in labeldict.iteritems():
+                problist[label] = float(count)/total
+                
+            self.probabilitydict[signval] = problist
+            #print signval, ':', self.testdict[signval]
+            #print signval, problist
+
+    def test(self):
+        for signval in self.probabilitydict.keys():
+            problist = self.probabilitydict[signval]
+            print signval, problist
+
 
     def train(self, instances):
         separated_instances = self.filter_by_label(instances)
@@ -78,9 +115,9 @@ class MulticlassSVM(SVM):
             self.optimizer.clear()
         #Train classifiers for label pairs (1,2), (2,3), (3,4), (4,5)
 
-    def sign(self, instance, weight):
-        print instance.getFeature().dot(weight)
+        self.finish(instances)
 
+    def sign(self, instance, weight):
         if instance.getFeature().dot(weight) >= 0:
             return 1
         return -1
@@ -93,24 +130,24 @@ class MulticlassSVM(SVM):
         for inst in instances:
             val = inst.getLabel().getLabel()
             if val == 1:
-                list1.append(inst)
+                list1.append(Instance(Label(0), inst.getFeature()))
             elif val == 2:
-                list1.append(inst)
-                list2.append(inst)
+                list1.append(Instance(Label(1), inst.getFeature()))
+                list2.append(Instance(Label(0), inst.getFeature()))
             elif val == 3:
-                list2.append(inst)
-                list3.append(inst)
+                list2.append(Instance(Label(1), inst.getFeature()))
+                list3.append(Instance(Label(0), inst.getFeature()))
             elif val == 4:
-                list3.append(inst)
-                list4.append(inst)
+                list3.append(Instance(Label(1), inst.getFeature()))
+                list4.append(Instance(Label(0), inst.getFeature()))
             elif val == 5:
-                list4.append(inst)
+                list4.append(Instance(Label(1), inst.getFeature()))
         filtered_list = [list1, list2, list3, list4]
         return filtered_list
 ##################################### TESTING #########################################
 
 def main():
-    reader = DataReader('data/smalltrain.tsv', punct=1, binary=1)
+    reader = DataReader('data/train.tsv', punct=1, binary=1)
     reader.readInput()
     data = reader.getData()
     numtest = int(.1*len(data))
@@ -119,6 +156,7 @@ def main():
 
     for inst in data[:numtest]:
         tester.predict(inst)
+    tester.test()
      
     
 
