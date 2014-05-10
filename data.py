@@ -217,6 +217,10 @@ class Feature:
     def __str__(self):
         return str(self.features)
 
+    def __repr__(self):
+        return str(self)
+
+
     #############################################
     #                                           #
     #        Norm method for RBF kernel         #
@@ -239,4 +243,10 @@ class Feature:
         #for word in self.getWords():
         #    val += self.get(word) * self.get(word)
         #return math.sqrt(val)
+
+    def sum(self):
+        val = 0
+        for word in self.features:
+            val += self.get(word)
+        return val
 
