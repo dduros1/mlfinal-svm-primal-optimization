@@ -55,10 +55,35 @@ class SVM:
 #class LaplacianSVM:
 
 
+class MulticlassSVM(SVM):
+    
+
+    def __init__(self, optimizer):
+        super(MulticlassSVM, self).__init__(optimizer)
+        self.weights = []       ##List of features
+
+
+    def predict(self, instance):
+        signvals = []
+        for weight in self.weights():
+            signvals.append(self.sign(instance)
+        print instance.getLabel(), signvals
+
+    def train(self, instances):
+
 ##################################### TESTING #########################################
 
-#mysvm = SVM(GradientDescent())
+def main():
+    reader = DataReader('data/train.tsv', punct=1, binary=1)
+    reader.readInput()
+    data = reader.getData()
+    print('Data Read :)')
+    
+    
+    print ('Average accuracy:', tester.average())
 
+if __name__ == "__main__":
+    main()
 
     
 
