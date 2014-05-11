@@ -23,7 +23,7 @@ class DataReader:
         self.inputfile = f
         self.datainstances = []     #list of instances (label, feature)
         self.words = []             #list of all words
-        self.opt = opt              #0: binary, 1: count
+        self.opt = opt              #0: binary(existence), 1: count
         self.test = test            #1: reading in test data, ignore label
         self.punct = punct          #1: ignore punctuation
         self.binary = binary        #1: don't collapse ratings to 0/1
@@ -75,7 +75,6 @@ class DataReader:
     #############################################
     def createFeature(self, phrase, uniqueid):
         words = phrase.split()
-        #TODO tolower()?
         if self.lower == 1:
             for i in range(len(words)):
                 words[i] = words[i].lower()

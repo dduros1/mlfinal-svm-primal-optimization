@@ -13,8 +13,8 @@ import operator
 
 class CrossValidationTester:
 
-    test = []
-    train = []
+    testdata = []
+    traindata = []
     results = []
 
     def __init__(self, instances, optimizer, multi, rounds = 10):
@@ -36,26 +36,26 @@ class CrossValidationTester:
     def formSets(self):
         datalist =  copy.copy(self.alldata)
         random.shuffle(datalist)
-        self.test = datalist[:int(len(self.alldata) * 0.1)]
-        self.train = datalist[int(len(self.alldata) * 0.1):]   
+        self.testdata = datalist[:int(len(self.alldata) * 0.1)]
+        self.traindata = datalist[int(len(self.alldata) * 0.1):]   
 
     def runtraining(self, mysvm):
-        mysvm.train(self.train)
+        mysvm.train(self.traindata)
 
     def evaluate(self, mysvm):
         correct = 0.0
-        for instance in self.test:
+        for instance in self.testdata:
             newlabel = mysvm.predict(instance)
             if newlabel.equals(instance.getLabel()):
                 correct += 1
 
-        self.results.append(correct/len(self.test))
-        print ('Correct:', correct/len(self.test))
+        self.results.append(correct/len(self.testdata))
+        print ('Correct:', correct/len(self.testdata))
 
     def multiclass_evaluate(self, mysvm):
         dists = []
         wrongdists = []
-        for instance in self.test:
+        for instance in self.testdata:
             newlabel = mysvm.predict(instance)
             dist = abs(newlabel.getLabel() - instance.getLabel().getLabel())
             dists.append(dist)
@@ -69,7 +69,7 @@ class CrossValidationTester:
 
     def direction_evaluate(self, mysvm):
         equal = over = under = 0        
-        for instance in self.test:
+        for instance in self.testdata:
             newlabel = mysvm.predict(instance)
             direc = newlabel.getLabel() - instance.getLabel().getLabel()
             if direc == 0:
@@ -78,10 +78,10 @@ class CrossValidationTester:
                 over += 1
             else:
                 under += 1
-        self.results.append(equal * 1.0 / len(self.test))
-        print('Equal:', equal * 1.0 / len(self.test))
-        print('Overestimate:', over * 1.0 / len(self.test))
-        print('Underestimate:', under * 1.0 / len(self.test))
+        self.results.append(equal * 1.0 / len(self.testdata))
+        print('Equal:', equal * 1.0 / len(self.testdata))
+        print('Overestimate:', over * 1.0 / len(self.testdata))
+        print('Underestimate:', under * 1.0 / len(self.testdata))
         
     def average(self):
         total = sum(self.results)

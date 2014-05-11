@@ -27,10 +27,14 @@ class Optimizer:
         val = 0.0
         for inst in instances:
             guess = self.weights.dot(inst.getFeature())
-            if guess * inst.getLabel().getLabel() < 1:
+            parity = inst.getLabel().getLabel()
+            if parity == 0:
+                parity = -1
+            if guess * parity < 1:
                 count += 1
-                val += guess - inst.getLabel().getLabel()
+                val +=   parity - guess
         return val / count
+        #return 0
 
 
 #############################################
@@ -132,14 +136,13 @@ class NewtonApproximation(Optimizer):
             end = time.time()
             #print ((end-start), 'seconds to form kmatrix')
 
-            tempmatrix = copy.copy(kmatrix)
             for i in range(len(sv)):
-                tempmatrix[(i,i)] += self.huberparam
-            inverse = tempmatrix.I
+                kmatrix[(i,i)] += self.huberparam
+            inverse = kmatrix.I
             labels = self.form_label_vec(sv)
             beta = inverse.dot(labels)
             start = time.time()
-            sv = self.update(instances, beta, kmatrix, oldsv)
+            sv = self.update(instances, beta, oldsv)
             end = time.time()
             #print ((end-start), 'seconds to multiply stuff')
             #print(len(sv))
@@ -165,7 +168,7 @@ class NewtonApproximation(Optimizer):
     #           update sv step                  #
     #                                           #
     #############################################
-    def update(self, instances, beta, kmatrix, oldsv):
+    def update(self, instances, beta, oldsv):
         newsv = []
         for i in range(len(instances)):
            val = 0.0
@@ -256,7 +259,7 @@ class RBF(Kernel):
 
 #############################################
 #                                           #
-#       Gradient Descent Optimizer          #
+#    Stochastic Subgradient Optimizer       #
 #                                           #
 #############################################
 class StochasticSubgradient(Optimizer):

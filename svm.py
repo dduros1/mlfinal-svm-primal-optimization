@@ -105,10 +105,10 @@ class MulticlassSVM(SVM):
             ele = ele/sum(self.totalprobabilities)
 
 
-    def test(self):
-        for signval in self.probabilitydict.keys():
-            problist = self.probabilitydict[signval]
-            #print signval, problist
+    #def test(self):
+    #    for signval in self.probabilitydict.keys():
+    #        problist = self.probabilitydict[signval]
+    #        #print signval, problist
 
 
     def train(self, instances):
@@ -116,7 +116,8 @@ class MulticlassSVM(SVM):
 
         for insts in separated_instances:
             self.weights.append(self.optimizer.train(insts))
-            self.basises.append(self.optimizer.calc_basis(insts))
+            #self.basises.append(self.optimizer.calc_basis(insts))
+            self.basises.append(0)
             self.optimizer.clear()
         #Train classifiers for label pairs (1,2), (2,3), (3,4), (4,5)
 
@@ -156,6 +157,7 @@ def main():
     reader.readInput()
     data = reader.getData()
     numtest = int(.1*len(data))
+    #tester = SVM(GradientDescent())
     tester = MulticlassSVM(GradientDescent())
     tester.train(data[numtest:])
 
@@ -164,7 +166,7 @@ def main():
         newlabel = tester.predict(inst)
         if newlabel.equals(inst.getLabel()):
             correct += 1
-    tester.test()
+    #tester.test()
     print 'accuracy', (float(correct)/len(data[:numtest]))
      
     
