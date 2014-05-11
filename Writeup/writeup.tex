@@ -21,8 +21,25 @@
 
 
 \section{Data}
+We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are:
+\begin{description}
+	\item[0] negative
+	\item[1] somewhat negative
+	\item[2] neutral
+	\item[3] somewhat positive
+	\item[4] positive
+\end{description}
+
+Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  
+
+Talk about options for data
+
+\subsection{Features}
+We generated features based on a bag of words model
 
 \section{SVMs}
+
+\textbf{Basis} Yay it workses
 
 \subsection{Multiclass SVM}
 
@@ -38,6 +55,26 @@ Large sigma values produced poor results (on a pairwise SVM, accuracies were les
 
 
 \subsection{Stochastic Subgradient}
+
+\textbf{Initialization}
+
+
+\section{Results}
+Things to discuss:
+\begin{itemize}
+	\item Variations in parameters for each method
+	\item Binary vs multi class accuracy AND timing
+	\item timing
+	\item convergence
+\end{itemize}
+
+\subsection{Crossvalidation Results}
+
+
+\subsetion{Kaggle.com Results}
+
+\section{Conclusion}
+
 
 
 \nocite{*}
