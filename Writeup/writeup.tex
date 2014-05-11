@@ -14,7 +14,7 @@
 \title{Comparison of SVM Optimazation Techniques in the Primal}
 \author{Diane Duros and Jonathan Katzman}
 \maketitle
-\begin{abstract}This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The benchmark to compare all three techniques was sentiment analysis on movie reviews.
+\begin{abstract}This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The dataset used to compare all three techniques was the Sentiment Analysis on Movie Reviews dataset, from kaggle.com.
 \end{abstract}
                                                                                                                                                                                                                                                                            
 \section{Introduction}
@@ -35,12 +35,28 @@ Initially, we collapsed the labels to binary labels, where an original label of 
 
 Talk about options for data
 
+\begin{table}
+\centering
+\caption{Data statistics on Sentiment Analysis on Movie Reviews dataset}
+\label{stats}
+\begin{tabular}{cc}
+\hline
+Number of data instances & 150606\\
+Number of distinct words & 18226\\
+Average number of words per phrase & 6.85\\
+Average number of phrases containing a word & 55.21
+
+\end{tabular}
+\end{table}
+
 \subsection{Features}
-We generated features based on a bag of words model
+We generated features based on a bag of words model.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
 
 \section{SVMs}
 
-\textbf{Basis} Yay it workses
+We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multiclass data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
+
+\textbf{Basis} TODO
 
 \subsection{Multiclass SVM}
 To enforce ordinal ranking ($0 < 1 < 2 < 3 < 4$), instead of generating pairwise SVMs between all pairs, we only created pairwise SVMs for label pairs \{ (0,1), (1,2), (2,3), (3,4) \}.  This way, we never attempt to classify between classes that aren't directly related via the ranking inequality.
@@ -49,7 +65,14 @@ Once each pairwise SVM is trained, according to a user defined optimization meth
 
 This introduces the problem that, if we have never seen the true label and $S$ together, we will never be able to predict it.  In addition, if we train on a restricted dataset, it is possible that we will not see all possible values of S.  In this case, if we encounter a value of S that we didn't see in training, we classify based on the overall probability of the labels, given the training data (the probability is the proportion of times we've seen each label in training data to the number of all training instances.).
 
+For a multiclass SVM, we need to achieve accuracy above .2 to improve upon random chance.
+
 \section{Primal Optimization Methods}
+Many SVM packages optimize the dual form of the SVM, but we chose to explore different methods for optimizing the primal problem.
+
+For a linear SVM, both the primal and the dual are convex quadratic programs, so an exact solution exists.  \textbf{So what's the point of our project}  The  dual program solves for a vector that is as long as the number of training instances, and the primal program solves for a vector that is as long as the number of features.  As seen in table \ref{stats}, we have 150,000 instances, but only 18,000 features, so the primal problem will be more efficient to solve.
+
+We examined three different optimization methods: gradient descent, Newton's approximation, and stochastic subgradient (where we used the Pegasos algorithm).  Since the hinge loss is non-differentiable, Chapelle considered smooth loss functions instead of the hinge loss\cite{chapelle2007training}, while the Pegasos algorithm\cite{pegasos} uses sub-gradients.
 
 \subsection{Gradient Descent}
 
@@ -57,9 +80,26 @@ This introduces the problem that, if we have never seen the true label and $S$ t
 
 Quadratic increase in time as recursive calls double data, means we're doubling number of support vectors too
 
+When we attempted to run our implementation of this method on our full training set, we realized that it would not terminate in a reasonable amount of time for this project.  Since the algorithm initially restricts data to 1000 samples, then recursively trains on double the data until finally training on the full dataset, there is a \textbf{check this} quadratic increase in time.  On our data, it would take 9 recursive calls to fully train the model.
+
+\begin{table}
+\centering
+\begin{tabular}{c|cc}
+Recursion step & number of instances & time (sec)\\
+\hline
+1 & 1000 & 24\\
+2 & 2000 & 107\\
+3 & 4000 & 410\\
+4 & 8000 & 1665\\
+5 & 16000 & 6805\\
+\end{tabular}
+\end{table}
+
+Since we could not train this model on our full dataset, we created a restricted dataset of 10000 instances for evaluation purposes.
+
 \textbf{RBF Kernel}
 
-Large sigma values produced poor results (on a pairwise SVM, accuracies were less than .5), but terminated quickly.  However, we did not have any terminating runs with small sigma values. <Hopefully until Monday night when we write more about this! TODO>
+Large sigma values produced poor results (on a pairwise SVM, accuracies were less than .5), but terminated quickly.  However, we did not have any terminating runs with small sigma values. \textbf{Hopefully until Monday night when we write more about this! TODO}
 
 
 \subsection{Stochastic Subgradient}
