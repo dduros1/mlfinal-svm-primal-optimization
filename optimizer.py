@@ -12,15 +12,25 @@ import random
 
 
 class Optimizer:
+    weights = Feature()
+    
 
     def __init__(self):
         self.weights = Feature()
+        self.basis = 0.0
 
     def clear(self):
         self.weights = Feature()
 
-
-
+    def calc_basis(self, instances):
+        count = 0.0
+        val = 0.0
+        for inst in instances:
+            guess = self.weights.dot(inst.getFeature())
+            if guess * inst.getLabel().getLabel() < 1:
+                count += 1
+                val += guess - inst.getLabel().getLabel()
+        self.basis = val / count
 
 
 #############################################
@@ -30,7 +40,7 @@ class Optimizer:
 #############################################
 class GradientDescent(Optimizer):
 
-    weights = Feature()
+    #weights = Feature()
 
     #TODO: make learning rate variable
     def __init__(self, iterations = 10, learning_rate = 0.001):
@@ -59,7 +69,7 @@ class GradientDescent(Optimizer):
 #############################################
 class NewtonApproximation(Optimizer):
 
-    weights = Feature()
+    #weights = Feature()
 
     def __init__(self, kernel,huberparam=0.01):
         self.huberparam = huberparam
@@ -249,7 +259,9 @@ class RBF(Kernel):
 #                                           #
 #############################################
 class StochasticSubgradient(Optimizer):
-    
+        
+    #weights = Feature()
+
     def __init__(self, param = 1.0, iterations = 25, sample_portion = 10):
         self.param = param
         self.iterations = iterations
@@ -281,6 +293,8 @@ class StochasticSubgradient(Optimizer):
             norm = 1.0 / (w.self_norm() * math.sqrt(self.param))
             if norm < 1:
                 w.scalar_multiply(norm)
+
+        self.weights = Feature()
         return w
 
 #############################################
