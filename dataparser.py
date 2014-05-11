@@ -19,7 +19,7 @@ class DataReader:
     #       Only req. param: input file         #
     #                                           #
     #############################################
-    def __init__(self, f, opt = 0, test = 0, punct = 0, binary = 0):
+    def __init__(self, f, opt = 0, test = 0, punct = 0, binary = 0, lower=0):
         self.inputfile = f
         self.datainstances = []     #list of instances (label, feature)
         self.words = []             #list of all words
@@ -27,6 +27,7 @@ class DataReader:
         self.test = test            #1: reading in test data, ignore label
         self.punct = punct          #1: ignore punctuation
         self.binary = binary        #1: don't collapse ratings to 0/1
+        self.lower = lower          #1: make everything lowercase 
         
     #############################################
     #                                           #
@@ -75,6 +76,10 @@ class DataReader:
     def createFeature(self, phrase, uniqueid):
         words = phrase.split()
         #TODO tolower()?
+        if self.lower == 1:
+            for i in range(len(words)):
+                words[i] = words[i].lower()
+            
         feature = Feature(uniqueid)
         for word in words:
             if self.punct == 1:
