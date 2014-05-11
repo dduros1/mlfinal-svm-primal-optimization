@@ -71,9 +71,10 @@ class NewtonApproximation(Optimizer):
 
     #weights = Feature()
 
-    def __init__(self, kernel,huberparam=0.01):
+    def __init__(self, kernel,huberparam=0.01, iterations=20):
         self.huberparam = huberparam
         self.kernel = kernel
+        self.iterations = iterations
 
     #############################################
     #                                           #
@@ -120,7 +121,7 @@ class NewtonApproximation(Optimizer):
         oldsv = []
         #while not sv in oldsvs:
         loopcounter = 0
-        while not oldsv == sv and not oldoldsv == sv:
+        while not oldsv == sv and not oldoldsv == sv and loopcounter < self.iterations:
             loopstart = time.time()
             #oldsvs.append(sv)
             oldoldsv = copy.copy(oldsv)
