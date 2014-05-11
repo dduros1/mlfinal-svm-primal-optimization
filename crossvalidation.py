@@ -17,26 +17,23 @@ class CrossValidationTester:
     train = []
     results = []
 
-    def __init__(self, instances):
+    def __init__(self, instances, optimizer, multi, rounds = 10):
         self.alldata = instances
+        self.optimizer = optimizer
+        self.multi = multi
+        self.rounds
 
     def runtest(self):
-        for round in range(0, 10):
-            print ('Round', round)
-            start = time.time()
-            #mysvm = SVM(GradientDescent())
-            mysvm = SVM(NewtonApproximation(RBF(sigma=6,caching = 1),huberparam=.01))
-            #mysvm = MulticlassSVM(StochasticSubgradient(param = 0.001, sample_portion = 8, iterations = 200))
-            #mysvm = MulticlassSVM(GradientDescent())
+        for round in range(self.rounds):
+            if self.multi == 0:
+                mysvm = SVM(self.optimizer)
+            else:
+                mysvm = MulticlassSVM(self.optimizer)
+
             self.formSets()
-            print ('Number of test samples:', len(self.test))
             self.runtraining(mysvm)
-            #self.multiclass_evaluate(mysvm)
-            self.direction_evaluate(mysvm)            
-            end = time.time()
-
-            print ('Total time for round:', (end - start) / 60 , 'minutes')
-
+            self.evaluate(mysvm)            
+          
     def formSets(self):
         datalist =  copy.copy(self.alldata)
         random.shuffle(datalist)

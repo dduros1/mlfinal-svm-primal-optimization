@@ -6,52 +6,41 @@ from data import *
 import time
 import numpy
 import operator
-
-#print('Begin smalltest')
-print ('running on training data')
-reader = DataReader('data/train.tsv', test = 1, punct = 1, lower = 1)
-#reader = DataReader('data/train.tsv', punct=1)
-start = time.time()
-reader.readInput()
-end = time.time()
-data = reader.getData()
-words = reader.getWords()
-print ('Time to read data: ', (end-start), ' seconds')
+import argparse
 
 
-print ('Number of words: ', len(words))
-print ('Number of data instances: ', len(data))
+def main():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--multi", "-m", type = int, choices = [0, 1], required = True, help = "0 for binary, 1 for multi")
+    parser.add_argument("--test", "-t", default = 0, type = int, choices = [0, 1], help = "0 for labeled data, 1 for not")
+    parser.add_argument("--punct", "-p", default = 1, type = int, choices = [0, 1], help = "0 for keep punctuation, 1 for ignore")
+    parser.add_argument("--count", "-c", default = 0, type = int, choices = [0, 1], help = "0 for no count, 1 for count")
+    parser.add_argument("--lower", "-l", default = 1, type = int, choices = [0, 1], help = "0 for no lower case, 1 for all lower case")
+    parser.add_argument("--file", "-f", required = True, help = "datafile")
+
+    args = vars(parser.parse_args())
+
+    reader = new DataReader(args["file"], opt = args["count"], test = args["test"], punct = args["punct"], binary = args["multi"], lower = args["lower"])
+    reader.readInput()
+    data = reader.getData()
 
 
-labelcounts = [0] * 5
-featurecounts = dict.fromkeys(words, 0)
-numfeatures = []
-for instance in data:
-    label = instance.getLabel().getLabel()
-    labelcounts[int(label)] += 1                     #count number of instances per label
-    feature = instance.getFeature()
-    numfeatures.append(len(feature))
-    for word in instance.getWords():
-        featurecounts[word] += feature.get(word)  #count number of non-zero appearances per feature
-
-ave = numpy.mean(numfeatures)
-#print('Average number of features per word: ', ave)
-featurecountlist = []
-for value in featurecounts.values():
-    featurecountlist.append(int(value))
-ave = numpy.average(featurecountlist)
-print('Average number of appeareances per feature: ', ave)
-
-#sorted_features = sorted(featurecounts.iteritems(), key=operator.itemgetter(1))
-
-#print sorted_features[:10]
-#print ('10 most common words')
-#print sorted_features[len(sorted_features)-10:]
-
-#num_one = 0
-#for (word, count) in sorted_features:
-#    if count==1:
-#        num_one += 1
-#print ('number of words that appear once', num_one)
+    GradientTest()
+    StochasticTest()
+    NewtonTest()
 
 
+def GradientTest():
+    pass
+
+def StochasticTest():
+    pass
+
+def NewtonTest():
+    pass
+
+
+
+if __name__ == "__main__":
+    main()
