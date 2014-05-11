@@ -56,26 +56,29 @@ class MulticlassSVM(SVM):
     def __init__(self, optimizer):
         self.optimizer = optimizer
         self.weights = []       ##List of features
+        self.basises = []
         self.testdict = {}
         self.probabilitydict = {}
+        self.totalprobabilities = [0,0,0,0,0]
 
 
     def predict(self, instance):
         signvals = []
-        for weight in self.weights:
-            signvals.append(self.sign(instance,weight))
-        try:
+        for index in range(len(self.weights)):
+            signvals.append(self.sign(instance,self.weights[index], self.basises[index]))
+        try:                                                        #most likely given signval combo
             probabilities = self.probabilitydict[tuple(signvals)]
             most_likely = probabilities.index(max(probabilities))
-            return Label(most_likely)
-        except Exception:
-            pass
+        except Exception:      #if we haven't seen that combination of signvals, overall most likely
+            most_likely = self.totalprobabilities.index(max(self.totalprobabilities))            
+        return Label(most_likely)
         
     def finish(self, instances):
         for inst in instances:
+            self.totalprobabilities[inst.getLabel().getLabel()] += 1
             signvals = []
-            for weight in self.weights:
-                signvals.append(self.sign(inst,weight))
+            for index in range(len(self.weights)):
+                signvals.append(self.sign(inst,self.weights[index], self.basises[index]))
             if not tuple(signvals) in self.testdict.keys():
                 tempdict = {}
                 tempdict[inst.getLabel().getLabel()] = 1
@@ -97,10 +100,15 @@ class MulticlassSVM(SVM):
             #print signval, ':', self.testdict[signval]
             #print signval, problist
 
+        #Compute overall probability of label (via counts)
+        for ele in self.totalprobabilities:
+            ele = ele/sum(self.totalprobabilities)
+
+
     def test(self):
         for signval in self.probabilitydict.keys():
             problist = self.probabilitydict[signval]
-            print signval, problist
+            #print signval, problist
 
 
     def train(self, instances):
@@ -108,13 +116,14 @@ class MulticlassSVM(SVM):
 
         for insts in separated_instances:
             self.weights.append(self.optimizer.train(insts))
+            self.basises.append(self.optimizer.calc_basis(insts))
             self.optimizer.clear()
         #Train classifiers for label pairs (1,2), (2,3), (3,4), (4,5)
 
         self.finish(instances)
 
-    def sign(self, instance, weight):
-        if instance.getFeature().dot(weight) >= 0:
+    def sign(self, instance, weight, basis):
+        if instance.getFeature().dot(weight) + basis >= 0:
             return 1
         return -1
 
@@ -143,16 +152,20 @@ class MulticlassSVM(SVM):
 ##################################### TESTING #########################################
 
 def main():
-    reader = DataReader('data/train.tsv', punct=1, binary=1)
+    reader = DataReader('data/largetrain.tsv', punct=1, binary=1)
     reader.readInput()
     data = reader.getData()
     numtest = int(.1*len(data))
     tester = MulticlassSVM(GradientDescent())
     tester.train(data[numtest:])
 
+    correct = 0
     for inst in data[:numtest]:
-        tester.predict(inst)
+        newlabel = tester.predict(inst)
+        if newlabel.equals(inst.getLabel()):
+            correct += 1
     tester.test()
+    print 'accuracy', (float(correct)/len(data[:numtest]))
      
     
 

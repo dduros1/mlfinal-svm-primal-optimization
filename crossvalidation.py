@@ -25,7 +25,7 @@ class CrossValidationTester:
             print ('Round', round)
             start = time.time()
             #mysvm = SVM(GradientDescent())
-            mysvm = SVM(NewtonApproximation(RBF(sigma=6,caching = 1),huberparam=.01))
+            mysvm = SVM(NewtonApproximation(RBF(sigma=2,caching = 1),huberparam=.01))
             #mysvm = MulticlassSVM(StochasticSubgradient(param = 0.001, sample_portion = 8, iterations = 200))
             #mysvm = MulticlassSVM(GradientDescent())
             self.formSets()
