@@ -29,7 +29,6 @@ class CrossValidationTester:
                 mysvm = SVM(self.optimizer)
             else:
                 mysvm = MulticlassSVM(self.optimizer)
-
             self.formSets()
             self.runtraining(mysvm)
             self.evaluate(mysvm)            

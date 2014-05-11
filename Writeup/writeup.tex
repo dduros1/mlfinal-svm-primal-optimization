@@ -18,10 +18,74 @@
 \end{abstract}
                                                                                                                                                                                                                                                                            
 \section{Introduction}
-This is a reference.\cite{chapelle2007training}\cite{melacci2011laplacian}\cite{rupnik2008stochastic}
+
+
+\section{Data}
+We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are:
+\begin{enumerate}
+	\setcounter{enumi}{-1}
+	\item negative
+	\item somewhat negative
+	\item neutral
+	\item somewhat positive
+	\item positive
+\end{enumerate}
+
+Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  
+
+Talk about options for data
+
+\subsection{Features}
+We generated features based on a bag of words model
+
+\section{SVMs}
+
+\textbf{Basis} Yay it workses
+
+\subsection{Multiclass SVM}
+To enforce ordinal ranking ($0 < 1 < 2 < 3 < 4$), instead of generating pairwise SVMs between all pairs, we only created pairwise SVMs for label pairs \{ (0,1), (1,2), (2,3), (3,4) \}.  This way, we never attempt to classify between classes that aren't directly related via the ranking inequality.
+
+Once each pairwise SVM is trained, according to a user defined optimization method, there is an additional training step.  For prediction in the binary SVM, we compute $E(W)$, where $W$ represents the weights trained by the SVM.  If $E(W) \ge 0$, we classify the example as positive, otherwise, it is negative.  For the multiclass SVM, we compute E(W) for each pairwise SVM, and store the values in $S$.  Then, we compute $P(label \mid S) = \frac{P(label, S)}{P(S)}$, that is, we count the number of times the true label occurs with the array $S$.  Then, when we predict an instance, we calculate $S$, then determine which label is most likely (has the highest probability).
+
+This introduces the problem that, if we have never seen the true label and $S$ together, we will never be able to predict it.  In addition, if we train on a restricted dataset, it is possible that we will not see all possible values of S.  In this case, if we encounter a value of S that we didn't see in training, we classify based on the overall probability of the labels, given the training data (the probability is the proportion of times we've seen each label in training data to the number of all training instances.).
+
+\section{Primal Optimization Methods}
+
+\subsection{Gradient Descent}
+
+\subsection{Newton's Approximation}
+
+Quadratic increase in time as recursive calls double data, means we're doubling number of support vectors too
+
+\textbf{RBF Kernel}
+
+Large sigma values produced poor results (on a pairwise SVM, accuracies were less than .5), but terminated quickly.  However, we did not have any terminating runs with small sigma values. <Hopefully until Monday night when we write more about this! TODO>
+
+
+\subsection{Stochastic Subgradient}
+
+\textbf{Initialization}
+
+
+\section{Results}
+Things to discuss:
+\begin{itemize}
+	\item Variations in parameters for each method
+	\item Binary vs multi class accuracy AND timing
+	\item timing
+	\item convergence
+\end{itemize}
+
+\subsection{Crossvalidation Results}
+
+
+\subsection{Kaggle.com Results}
+
+\section{Conclusion}
 
 
 
+\nocite{*}
 \bibliographystyle{plain} 
 \bibliography{writeup}
 
