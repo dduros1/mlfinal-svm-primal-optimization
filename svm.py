@@ -52,8 +52,6 @@ class SVM:
         return -1
 
 
-#class LaplacianSVM:
-
 
 class MulticlassSVM(SVM):
 

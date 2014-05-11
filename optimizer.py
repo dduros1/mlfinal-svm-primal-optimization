@@ -106,7 +106,7 @@ class NewtonApproximation(Optimizer):
         else:
             sv = copy.copy(instances)
         #oldsvs = []
-        oldoldsv = []                           #check 2 back for oscillation TODO cycles
+        oldoldsv = []                           #check 2 back for oscillation 
         oldsv = []
         #while not sv in oldsvs:
         loopcounter = 0
