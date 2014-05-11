@@ -14,7 +14,7 @@
 \title{Comparison of SVM Optimazation Techniques in the Primal}
 \author{Diane Duros and Jonathan Katzman}
 \maketitle
-\begin{abstract}This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The benchmark to compare all three techniques was sentiment analysis on movie reviews.
+\begin{abstract}This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The dataset used to compare all three techniques was the Sentiment Analysis on Movie Reviews dataset, from kaggle.com.
 \end{abstract}
                                                                                                                                                                                                                                                                            
 \section{Introduction}
@@ -35,8 +35,22 @@ Initially, we collapsed the labels to binary labels, where an original label of 
 
 Talk about options for data
 
+\begin{table}
+\centering
+\caption{Data statistics on Sentiment Analysis on Movie Reviews dataset}
+\label{stats}
+\begin{tabular}{cc}
+\hline
+Number of data instances & 150606\\
+Number of distinct words & 18226\\
+Average number of words per phrase & 6.85\\
+Average number of phrases containing a word & 55.21
+
+\end{tabular}
+\end{table}
+
 \subsection{Features}
-We generated features based on a bag of words model
+We generated features based on a bag of words model.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
 
 \section{SVMs}
 
@@ -49,7 +63,14 @@ Once each pairwise SVM is trained, according to a user defined optimization meth
 
 This introduces the problem that, if we have never seen the true label and $S$ together, we will never be able to predict it.  In addition, if we train on a restricted dataset, it is possible that we will not see all possible values of S.  In this case, if we encounter a value of S that we didn't see in training, we classify based on the overall probability of the labels, given the training data (the probability is the proportion of times we've seen each label in training data to the number of all training instances.).
 
+For a multiclass SVM, we need to achieve accuracy above .2 to improve upon random chance.
+
 \section{Primal Optimization Methods}
+Many SVM packages optimize the dual form of the SVM, but we chose to explore different methods for optimizing the primal problem.
+
+For a linear SVM, both the primal and the dual are convex quadratic programs, so an exact solution exists.  \textbf{So what's the point of our project}  The  dual program solves for a vector that is as long as the number of training instances, and the primal program solves for a vector that is as long as the number of features.  As seen in table \ref{stats}, we have 150,000 instances, but only 18,000 features, so the primal problem will be more efficient to solve.
+
+We examined three different optimization methods: gradient descent, Newton's approximation, and stochastic sub gradient.
 
 \subsection{Gradient Descent}
 
