@@ -43,11 +43,9 @@ class SVM:
     #   gives which side of the hyper plane     #
     #     an instance should be on              #
     #                                           #
-    #   TODO extend to multiclass hyperplane    #
-    #                                           #
     #############################################
     def sign(self, instance):
-        if instance.getFeature().dot(self.weights) >= 0:
+        if instance.getFeature().dot(self.weights) + self.optimizer.basis >= 0:
             return 1
         return -1
 
