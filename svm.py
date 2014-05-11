@@ -36,7 +36,7 @@ class SVM:
     #############################################
     def train(self, instances):
         self.weights = self.optimizer.train(instances)
-
+        self.basis = self.optimizer.calc_basis(instances)
 
     #############################################
     #                                           #
@@ -45,7 +45,7 @@ class SVM:
     #                                           #
     #############################################
     def sign(self, instance):
-        if instance.getFeature().dot(self.weights) + self.optimizer.basis >= 0:
+        if instance.getFeature().dot(self.weights) + self.basis >= 0:
             return 1
         return -1
 

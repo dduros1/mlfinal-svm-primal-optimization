@@ -30,7 +30,7 @@ class Optimizer:
             if guess * inst.getLabel().getLabel() < 1:
                 count += 1
                 val += guess - inst.getLabel().getLabel()
-        self.basis = val / count
+        return val / count
 
 
 #############################################
