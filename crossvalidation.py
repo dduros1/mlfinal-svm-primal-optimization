@@ -21,7 +21,7 @@ class CrossValidationTester:
         self.alldata = instances
         self.optimizer = optimizer
         self.multi = multi
-        self.rounds
+        self.rounds = rounds
 
     def runtest(self):
         for round in range(self.rounds):
@@ -31,7 +31,8 @@ class CrossValidationTester:
                 mysvm = MulticlassSVM(self.optimizer)
             self.formSets()
             self.runtraining(mysvm)
-            self.evaluate(mysvm)            
+            self.evaluate(mysvm)
+        return self.average()            
           
     def formSets(self):
         datalist =  copy.copy(self.alldata)
@@ -50,7 +51,7 @@ class CrossValidationTester:
                 correct += 1
 
         self.results.append(correct/len(self.testdata))
-        print ('Correct:', correct/len(self.testdata))
+        #print ('Correct:', correct/len(self.testdata))
 
     def multiclass_evaluate(self, mysvm):
         dists = []

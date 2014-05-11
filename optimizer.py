@@ -75,8 +75,8 @@ class NewtonApproximation(Optimizer):
 
     #weights = Feature()
 
-    def __init__(self, kernel,huberparam=0.01, iterations=20):
-        self.huberparam = huberparam
+    def __init__(self, kernel,param=0.01, iterations=20):
+        self.param = param
         self.kernel = kernel
         self.iterations = iterations
 
@@ -98,7 +98,6 @@ class NewtonApproximation(Optimizer):
                 except KeyError:
                     pass
         end = time.time()
-        print ('it finished!!!', (end-start), 'seconds')
         return self.weights
 
     #############################################
@@ -137,7 +136,7 @@ class NewtonApproximation(Optimizer):
             #print ((end-start), 'seconds to form kmatrix')
 
             for i in range(len(sv)):
-                kmatrix[(i,i)] += self.huberparam
+                kmatrix[(i,i)] += self.param
             inverse = kmatrix.I
             labels = self.form_label_vec(sv)
             beta = inverse.dot(labels)
@@ -266,7 +265,7 @@ class StochasticSubgradient(Optimizer):
         
     #weights = Feature()
 
-    def __init__(self, param = 1.0, iterations = 25, sample_portion = 10):
+    def __init__(self, param = 1.0, iterations = 20, sample_portion = 10):
         self.param = param
         self.iterations = iterations
         self.sample_portion = sample_portion
@@ -294,7 +293,11 @@ class StochasticSubgradient(Optimizer):
                 if inst.getLabel().getLabel() == 0:
                     x.scalar_multiply(-1)
                 w.plusall(x)
-            norm = 1.0 / (w.self_norm() * math.sqrt(self.param))
+            norm = w.self_norm()
+            if norm == 0:
+                norm = 1
+            else:
+                norm = 1.0 / (norm * math.sqrt(self.param))
             if norm < 1:
                 w.scalar_multiply(norm)
 
