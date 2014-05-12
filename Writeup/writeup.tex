@@ -31,17 +31,19 @@ This paper examines the efficacy of different optimzation techniques in a primal
 Most SVM literature states the primal optimization, then proceeds to the dual formulation without providing significant detail on training an SVM using the primal optimization problem.  
 
 Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Previous work in the area\cite{chapelle2007training} has used the USPS\textbf{cite{uspsdata}}, which is significantly smaller than our data set.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
-$$ min_w,b \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P $$
-under constraints $y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0$
+\begin{gather} min_{w,b} \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P\notag\\ 
+\text{under constraints } y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0\label{primalobj}\end{gather}
+
+We use a hard-margin SVM, where $C=0$
 
 \section{Background}
 
 \subsection{Data}
-We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}
+We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.
 
 Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.
 
-\textbf{Talk about options for data}
+In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ",", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions also collapsed our corpus from \~18000 words to \~16000 words.
 
 \begin{table}
 \centering
@@ -62,13 +64,14 @@ When we compare our data to that of the USPS dataset, USPS has 7291 data instanc
 \subsection{Features}
 We generated features based on a bag of words model\textbf{need a citation for a bag of words model}.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
 
-We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.
+We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.  We did not implement feature selection to only utilize the most significant features.
 
 \section{SVMs}
-
 We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multi-class data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
 
-\textbf{Need in depth}
+SVMs are binary linear classifiers.  In training, they create a hyperplane between two classes of data, where the hyperplane maximizes the margin between the two classes.  The main assumption that we have made about our data is that it is linearly separable.  Since our data is text-based, one example that could cause non-linear separability is sarcasm: suppose a reviewer uses a "positive" word sarcastically.
+
+Our optimizers return the coefficients of the hyperplane that maximizes the margin, where we have as many coefficients as we do features.
 
 \textbf{Basis} TODO
 
@@ -93,6 +96,8 @@ We examined three different optimization methods: gradient descent, Newton's app
 \subsection{Gradient Descent}
 
 \subsection{Newton's Approximation}
+
+We can write \eqref{primalobj} as an unconstrained optimization function.
 
 Quadratic increase in time as recursive calls double data, means we're doubling number of support vectors too
 
