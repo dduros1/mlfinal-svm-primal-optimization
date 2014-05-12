@@ -50,7 +50,12 @@ class SVM:
         return -1
 
 
-
+#############################################
+#                                           #
+#   This class implements a linear SVM      #
+#       for multiclass data                 #
+#                                           #
+#############################################
 class MulticlassSVM(SVM):
 
     def __init__(self, optimizer):
@@ -61,18 +66,29 @@ class MulticlassSVM(SVM):
         self.probabilitydict = {}
         self.totalprobabilities = [0,0,0,0,0]
 
-
+    #############################################
+    #                                           #
+    #   given a list of training instances      #
+    #                                           #
+    #############################################
     def predict(self, instance):
         signvals = []
         for index in range(len(self.weights)):
             signvals.append(self.sign(instance,self.weights[index], self.basises[index]))
-        try:                                                        #most likely given signval combo
+        try: #most likely given signval combo
             probabilities = self.probabilitydict[tuple(signvals)]
             most_likely = probabilities.index(max(probabilities))
-        except Exception:      #if we haven't seen that combination of signvals, overall most likely
+        except Exception:  #if we haven't seen that combination of signvals, overall most likely
             most_likely = self.totalprobabilities.index(max(self.totalprobabilities))            
         return Label(most_likely)
         
+    #############################################
+    #                                           #
+    #   Calculate the probability of a label    #
+    #     given a sign val and overall label    #
+    #     probabilities                         #
+    #                                           #
+    #############################################
     def finish(self, instances):
         for inst in instances:
             self.totalprobabilities[inst.getLabel().getLabel()] += 1
@@ -97,37 +113,46 @@ class MulticlassSVM(SVM):
                 problist[label] = float(count)/total
                 
             self.probabilitydict[signval] = problist
-            #print signval, ':', self.testdict[signval]
-            #print signval, problist
 
         #Compute overall probability of label (via counts)
         for ele in self.totalprobabilities:
             ele = ele/sum(self.totalprobabilities)
 
 
-    #def test(self):
-    #    for signval in self.probabilitydict.keys():
-    #        problist = self.probabilitydict[signval]
-    #        #print signval, problist
 
-
+    #############################################
+    #                                           #
+    #   given a list of training instances,     #
+    #     train pairwise svms with basis fn     #
+    #                                           #
+    #############################################
     def train(self, instances):
         separated_instances = self.filter_by_label(instances)
 
+        #Train classifiers for label pairs (1,2), (2,3), (3,4), (4,5)
         for insts in separated_instances:
             self.weights.append(self.optimizer.train(insts))
-            #self.basises.append(self.optimizer.calc_basis(insts))
-            self.basises.append(0)
+            self.basises.append(self.optimizer.calc_basis(insts))
+            #self.basises.append(0)
             self.optimizer.clear()
-        #Train classifiers for label pairs (1,2), (2,3), (3,4), (4,5)
-
+        
         self.finish(instances)
 
+    #############################################
+    #                                           #
+    #   primal svm constraint (hyperplane)      #
+    #                                           #
+    #############################################
     def sign(self, instance, weight, basis):
         if instance.getFeature().dot(weight) + basis >= 0:
             return 1
         return -1
 
+    #############################################
+    #                                           #
+    #  create training sets for pairwise svms   #
+    #                                           #
+    #############################################
     def filter_by_label(self, instances):
         list1=[]
         list2=[]

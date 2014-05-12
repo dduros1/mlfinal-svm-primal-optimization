@@ -13,7 +13,6 @@ import random
 
 class Optimizer:
     weights = Feature()
-    
 
     def __init__(self):
         self.weights = Feature()
@@ -44,9 +43,6 @@ class Optimizer:
 #############################################
 class GradientDescent(Optimizer):
 
-    #weights = Feature()
-
-    #TODO: make learning rate variable
     def __init__(self, iterations = 10, learning_rate = 0.001):
         self.iterations = iterations
         self.learning_rate = learning_rate
@@ -119,21 +115,17 @@ class NewtonApproximation(Optimizer):
                     sv.append(key)
         else:
             sv = copy.copy(instances)
-        #oldsvs = []
         oldoldsv = []                           #check 2 back for oscillation 
         oldsv = []
-        #while not sv in oldsvs:
         loopcounter = 0
         while not oldsv == sv and not oldoldsv == sv and loopcounter < self.iterations:
             loopstart = time.time()
-            #oldsvs.append(sv)
             oldoldsv = copy.copy(oldsv)
             oldsv = copy.copy(sv)
 
             start = time.time()
             kmatrix = self.form_matrix(sv)
             end = time.time()
-            #print ((end-start), 'seconds to form kmatrix')
 
             for i in range(len(sv)):
                 kmatrix[(i,i)] += self.param
@@ -143,10 +135,7 @@ class NewtonApproximation(Optimizer):
             start = time.time()
             sv = self.update(instances, beta, oldsv)
             end = time.time()
-            #print ((end-start), 'seconds to multiply stuff')
-            #print(len(sv))
             loopend=time.time()
-            #print((loopend-loopstart), 'seconds for one iteration')
             loopcounter += 1
             if loopcounter % 100 == 0:
                 print ('Iteration of loop:', loopcounter)
@@ -188,7 +177,6 @@ class NewtonApproximation(Optimizer):
     #                                           #
     #############################################
     def form_matrix(self, sv):
-        #from numpy import matrix
 
         n = len(sv)
         listmatrix = [[]] * n
@@ -209,7 +197,6 @@ class NewtonApproximation(Optimizer):
     #                                           #
     #############################################
     def form_label_vec(self, sv):
-        #from numpy import array
         
         ra = []
         for ele in sv:
@@ -244,7 +231,6 @@ class RBF(Kernel):
 
     #x1, x2 are Features
     def K(self, x1, x2):
-        #import math
         if self.caching:
             id1 = x1.getID()
             id2 = x2.getID()
@@ -263,8 +249,6 @@ class RBF(Kernel):
 #############################################
 class StochasticSubgradient(Optimizer):
         
-    #weights = Feature()
-
     def __init__(self, param = 1.0, iterations = 20, sample_portion = 10):
         self.param = param
         self.iterations = iterations
@@ -304,7 +288,7 @@ class StochasticSubgradient(Optimizer):
         self.weights = Feature()
         return w
 
-#############################################
+######################TESTING#######################
 def main():
     reader = DataReader('data/smalltrain.tsv', punct=1)
     reader.readInput()
