@@ -91,7 +91,7 @@ def StochasticTest(instances, multi):
     
     best_sample_size = 0
     best_result = 0.0
-    for size in range(10, 201, 10):
+    for size in range(10, 51, 10):
         if size > len(instances) * 0.9:
             break
         start = time.time()
@@ -109,7 +109,7 @@ def StochasticTest(instances, multi):
 
     best_iters = 0
     best_result = 0.0
-    for iterations in range(10, 201, 10):
+    for iterations in range(10, 51, 10):
         start = time.time()
         optimizer = StochasticSubgradient(param = best_param, sample_portion = best_sample_size, iterations = iterations)
         tester = CrossValidationTester(instances, optimizer, multi)
@@ -130,7 +130,7 @@ def NewtonTest(instances, multi):
     for i in [-6, -5, -4, -3, -2, -1, 0]:
         param = 10 ** i
         start = time.time()
-        optimizer = NewtonApproximation(RBF(), param = param, iterations = 10)
+        optimizer = NewtonApproximation(RBF(caching = 1), param = param, iterations = 10)
         tester = CrossValidationTester(instances, optimizer, multi)
         result = tester.runtest()
         end = time.time()

@@ -162,8 +162,8 @@ class Feature:
     #############################################
     def __contains__(self, word):
         if word in self.features:
-            return true
-        return false
+            return True
+        return False
 
     #############################################
     #                                           #

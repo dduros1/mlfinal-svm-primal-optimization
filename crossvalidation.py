@@ -15,16 +15,17 @@ class CrossValidationTester:
 
     testdata = []
     traindata = []
-    results = []
 
     def __init__(self, instances, optimizer, multi, rounds = 10):
         self.alldata = instances
         self.optimizer = optimizer
         self.multi = multi
         self.rounds = rounds
+        self.results = []
 
     def runtest(self):
         for round in range(self.rounds):
+            self.optimizer.clear()
             if self.multi == 0:
                 mysvm = SVM(self.optimizer)
             else:
