@@ -1,4 +1,6 @@
 \documentclass[letterpaper, 11pt]{article}
+
+\usepackage{naaclhlt2010}
 \usepackage{latexsym}
 \usepackage{amssymb}
 \usepackage{times}
@@ -8,32 +10,33 @@
 \usepackage{algorithm}
 \usepackage[noend]{algorithmic}
 \usepackage{cite}
-
-\begin{document}
+\setlength\titlebox{6.5cm}    % Expanding the titlebox
 
 \title{Comparison of SVM Optimazation Techniques in the Primal}
-\author{Diane Duros and Jonathan Katzman}
+\author{Diane Duros \And Jonathan Katzman}
+
+\begin{document}
 \maketitle
-\begin{abstract}This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The dataset used to compare all three techniques was the Sentiment Analysis on Movie Reviews dataset, from kaggle.com.
+
+\begin{abstract}
+This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The dataset used to compare all three techniques was the Sentiment Analysis on Movie Reviews dataset, from kaggle.com.
 \end{abstract}
                                                                                                                                                                                                                                                                            
 \section{Introduction}
+Most SVM literature states the primal optimization, then proceeds to the dual formulation without providing significant detail on training an SVM using the primal optimization problem.  
 
+Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Previous work in the area\cite{chapelle2007training} has used the USPS\textbf{cite{uspsdata}}, which is significantly smaller than our data set.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
+$$ min_w,b \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P $$
+under constraints $y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0$
 
-\section{Data}
-We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are:
-\begin{enumerate}
-	\setcounter{enumi}{-1}
-	\item negative
-	\item somewhat negative
-	\item neutral
-	\item somewhat positive
-	\item positive
-\end{enumerate}
+\section{Background}
 
-Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  
+\subsection{Data}
+We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}
 
-Talk about options for data
+Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to 
+
+\textbf{Talk about options for data}
 
 \begin{table}
 \centering
@@ -49,12 +52,16 @@ Average number of phrases containing a word & 55.21
 \end{tabular}
 \end{table}
 
+When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than 
+
 \subsection{Features}
-We generated features based on a bag of words model.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
+We generated features based on a bag of words model\textbf{need a citation for a bag of words model}.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
 
 \section{SVMs}
 
 We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multiclass data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
+
+\textbf{Need in depth }
 
 \textbf{Basis} TODO
 
@@ -82,6 +89,10 @@ Quadratic increase in time as recursive calls double data, means we're doubling 
 
 When we attempted to run our implementation of this method on our full training set, we realized that it would not terminate in a reasonable amount of time for this project.  Since the algorithm initially restricts data to 1000 samples, then recursively trains on double the data until finally training on the full dataset, there is a \textbf{check this} quadratic increase in time.  On our data, it would take 9 recursive calls to fully train the model.
 
+\textbf{Loss Function}
+
+\textbf{Algorithm}
+
 \begin{table}
 \centering
 \begin{tabular}{c|cc}
@@ -99,13 +110,22 @@ Since we could not train this model on our full dataset, we created a restricted
 
 \textbf{RBF Kernel}
 
+\textbf{What is a kernel?}
+
 Large sigma values produced poor results (on a pairwise SVM, accuracies were less than .5), but terminated quickly.  However, we did not have any terminating runs with small sigma values. \textbf{Hopefully until Monday night when we write more about this! TODO}
 
 
 \subsection{Stochastic Subgradient}
 
+\textbf{Loss Function}
+
 \textbf{Initialization}
 
+
+\section{Code}
+We created an SVM framework in Python, as well as a custom DataParser.  Our SVM class takes an Optimizer object as input, where the Optimizer calculates weights \textbf{or support vectors??} for the SVM according to the optimization function encoded in the object. 
+
+\subsection{Evaluation}
 
 \section{Results}
 Things to discuss:
@@ -120,6 +140,8 @@ Things to discuss:
 
 
 \subsection{Kaggle.com Results}
+
+\subsection{Comparison to Proposal}
 
 \section{Conclusion}
 
