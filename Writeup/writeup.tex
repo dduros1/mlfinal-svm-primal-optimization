@@ -13,7 +13,12 @@
 \setlength\titlebox{6.5cm}    % Expanding the titlebox
 
 \title{Comparison of SVM Optimazation Techniques in the Primal}
-\author{Diane Duros \And Jonathan Katzman}
+\author{Diane Duros \\
+	Johns Hopkins University\\
+	dduros1@gmail.com
+\And Jonathan Katzman\\
+	Johns Hopkins University\\
+	jonathan.d.katzman@gmail.com}
 
 \begin{document}
 \maketitle
@@ -34,50 +39,54 @@ under constraints $y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0$
 \subsection{Data}
 We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}
 
-Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to 
+Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.
 
 \textbf{Talk about options for data}
 
 \begin{table}
 \centering
-\caption{Data statistics on Sentiment Analysis on Movie Reviews dataset}
 \label{stats}
 \begin{tabular}{cc}
+\textbf{Data Statistics}&\\
 \hline
 Number of data instances & 150606\\
 Number of distinct words & 18226\\
 Average number of words per phrase & 6.85\\
 Average number of phrases containing a word & 55.21
-
 \end{tabular}
+\caption{Data statistics on Sentiment Analysis on Movie Reviews dataset}
 \end{table}
 
-When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than 
+When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than this.
 
 \subsection{Features}
 We generated features based on a bag of words model\textbf{need a citation for a bag of words model}.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
 
+We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.
+
 \section{SVMs}
 
-We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multiclass data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
+We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multi-class data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
 
-\textbf{Need in depth }
+\textbf{Need in depth}
 
 \textbf{Basis} TODO
 
-\subsection{Multiclass SVM}
+\subsection{Multi-class SVM}
+In order to classify data into 5 classes, we needed to expand our SVM to handle more than just binary labels.  Since two-class problems are easier to solve, we will generate multiple pairwise SVMs for multi-class classification, using the "one against one" method \textbf{citation needed}.
+
 To enforce ordinal ranking ($0 < 1 < 2 < 3 < 4$), instead of generating pairwise SVMs between all pairs, we only created pairwise SVMs for label pairs \{ (0,1), (1,2), (2,3), (3,4) \}.  This way, we never attempt to classify between classes that aren't directly related via the ranking inequality.
 
 Once each pairwise SVM is trained, according to a user defined optimization method, there is an additional training step.  For prediction in the binary SVM, we compute $E(W)$, where $W$ represents the weights trained by the SVM.  If $E(W) \ge 0$, we classify the example as positive, otherwise, it is negative.  For the multiclass SVM, we compute E(W) for each pairwise SVM, and store the values in $S$.  Then, we compute $P(label \mid S) = \frac{P(label, S)}{P(S)}$, that is, we count the number of times the true label occurs with the array $S$.  Then, when we predict an instance, we calculate $S$, then determine which label is most likely (has the highest probability).
 
 This introduces the problem that, if we have never seen the true label and $S$ together, we will never be able to predict it.  In addition, if we train on a restricted dataset, it is possible that we will not see all possible values of S.  In this case, if we encounter a value of S that we didn't see in training, we classify based on the overall probability of the labels, given the training data (the probability is the proportion of times we've seen each label in training data to the number of all training instances.).
 
-For a multiclass SVM, we need to achieve accuracy above .2 to improve upon random chance.
+For a multi-class SVM, we need to achieve accuracy above .2 to improve upon random chance.
 
 \section{Primal Optimization Methods}
 Many SVM packages optimize the dual form of the SVM, but we chose to explore different methods for optimizing the primal problem.
 
-For a linear SVM, both the primal and the dual are convex quadratic programs, so an exact solution exists.  \textbf{So what's the point of our project}  The  dual program solves for a vector that is as long as the number of training instances, and the primal program solves for a vector that is as long as the number of features.  As seen in table \ref{stats}, we have 150,000 instances, but only 18,000 features, so the primal problem will be more efficient to solve.
+For a linear SVM, both the primal and the dual are convex quadratic programs, so an exact solution exists.  Chapelle shows not only do  the primal and dual optimization methods reach the same result, but that when an approximate solution is desired, primal optimization is superior\cite{chapelle2007training}.  The  dual program solves for a vector that is as long as the number of training instances, and the primal program solves for a vector that is as long as the number of features.  As seen in table \ref{stats}, we have 150,000 instances, but only 18,000 features, so the primal problem will be more efficient to solve for our data set.
 
 We examined three different optimization methods: gradient descent, Newton's approximation, and stochastic subgradient (where we used the Pegasos algorithm).  Since the hinge loss is non-differentiable, Chapelle considered smooth loss functions instead of the hinge loss\cite{chapelle2007training}, while the Pegasos algorithm\cite{pegasos} uses sub-gradients.
 
@@ -96,7 +105,7 @@ When we attempted to run our implementation of this method on our full training 
 \begin{table}
 \centering
 \begin{tabular}{c|cc}
-Recursion step & number of instances & time (sec)\\
+\textbf{Recursion step} & \textbf{number of instances} & \textbf{time} (sec)\\
 \hline
 1 & 1000 & 24\\
 2 & 2000 & 107\\
@@ -104,6 +113,7 @@ Recursion step & number of instances & time (sec)\\
 4 & 8000 & 1665\\
 5 & 16000 & 6805\\
 \end{tabular}
+\caption{Timing data for the recursive step of Newton's Approximation}
 \end{table}
 
 Since we could not train this model on our full dataset, we created a restricted dataset of 10000 instances for evaluation purposes.
@@ -126,6 +136,7 @@ Large sigma values produced poor results (on a pairwise SVM, accuracies were les
 We created an SVM framework in Python, as well as a custom DataParser.  Our SVM class takes an Optimizer object as input, where the Optimizer calculates weights \textbf{or support vectors??} for the SVM according to the optimization function encoded in the object. 
 
 \subsection{Evaluation}
+For evaluation, we created a CrossValidationTester, so that we could train and test on the training dataset from kaggle.com.  For each round, the CrossValidationTester randomly orders the data, then selects 10\% to be left out for testing purposes, while the rest is used for training the model; we used a default of 10 rounds, then averaged the accuracy and timing results across rounds.  The only model that we didn't use this for was the Newton approximation, because it took too long to run.
 
 \section{Results}
 Things to discuss:
