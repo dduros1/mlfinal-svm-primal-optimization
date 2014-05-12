@@ -1,0 +1,33 @@
+Diameter parameter: 0.001000; accuracy: 0.553221
+Time taken: 66 seconds
+Diameter parameter: 0.010000; accuracy: 0.562145
+Time taken: 57 seconds
+Diameter parameter: 0.100000; accuracy: 0.557343
+Time taken: 58 seconds
+Diameter parameter: 1.000000; accuracy: 0.551060
+Time taken: 51 seconds
+Diameter parameter: 10.000000; accuracy: 0.548459
+Time taken: 59 seconds
+Best diameter parameter: 0.010000; accuracy: 0.562145
+Sample size: 10; accuracy: 0.552461
+Time taken: 57 seconds
+Sample size: 20; accuracy: 0.553421
+Time taken: 108 seconds
+Sample size: 30; accuracy: 0.557063
+Time taken: 185 seconds
+Sample size: 40; accuracy: 0.550780
+Time taken: 247 seconds
+Sample size: 50; accuracy: 0.553181
+Time taken: 301 seconds
+Best sample size: 30; accuracy: 0.557063
+Iterations: 10; accuracy: 0.552541
+Time taken: 66 seconds
+Iterations: 20; accuracy: 0.554622
+Time taken: 162 seconds
+Iterations: 30; accuracy: 0.553621
+Time taken: 274 seconds
+Iterations: 40; accuracy: 0.552261
+Time taken: 373 seconds
+Iterations: 50; accuracy: 0.560864
+Time taken: 508 seconds
+Best iteration number: 50; accuracy: 0.560864
