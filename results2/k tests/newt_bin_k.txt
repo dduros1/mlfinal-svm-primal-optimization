@@ -1,0 +1,15 @@
+Lambda: 0.000001; accuracy: 0.781818
+Time taken: 409 seconds
+Lambda: 0.000010; accuracy: 0.709091
+Time taken: 413 seconds
+Lambda: 0.000100; accuracy: 0.772727
+Time taken: 421 seconds
+Lambda: 0.001000; accuracy: 0.770707
+Time taken: 434 seconds
+Lambda: 0.010000; accuracy: 0.794949
+Time taken: 435 seconds
+Lambda: 0.100000; accuracy: 0.758586
+Time taken: 442 seconds
+Lambda: 1.000000; accuracy: 0.795960
+Time taken: 470 seconds
+Bester lambda: 1.000000; accuracy: 0.795960

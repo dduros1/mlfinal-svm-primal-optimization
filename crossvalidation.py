@@ -30,9 +30,16 @@ class CrossValidationTester:
                 mysvm = SVM(self.optimizer)
             else:
                 mysvm = MulticlassSVM(self.optimizer)
+            start = time.time()
             self.formSets()
+            next = time.time()
+            #print ('Form sets: %f seconds' % (next - start))
             self.runtraining(mysvm)
+            next2 = time.time()
+            #print ('train: %f seconds' % (next2 - next))
             self.evaluate(mysvm)
+            end = time.time()
+            #print ('evaluate: %f seconds' % (end - next2))
         return self.average()            
           
     def formSets(self):

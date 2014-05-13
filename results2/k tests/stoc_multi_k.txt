@@ -1,0 +1,17 @@
+Diameter parameter: 0.001000; accuracy: 0.685859
+Time taken: 1 seconds
+Diameter parameter: 0.010000; accuracy: 0.706061
+Time taken: 1 seconds
+Diameter parameter: 0.100000; accuracy: 0.691919
+Time taken: 1 seconds
+Diameter parameter: 1.000000; accuracy: 0.671717
+Time taken: 1 seconds
+Diameter parameter: 10.000000; accuracy: 0.664646
+Time taken: 1 seconds
+Best diameter parameter: 0.010000; accuracy: 0.706061
+Sample size: 10; accuracy: 0.643434
+Time taken: 1 seconds
+Sample size: 20; accuracy: 0.673737
+Time taken: 3 seconds
+Sample size: 30; accuracy: 0.666667
+Time taken: 5 seconds

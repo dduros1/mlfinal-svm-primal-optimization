@@ -1,0 +1,2468 @@
+weights: 28.608726 seconds
+0.943120 seconds needed for dot
+basis: 1.116569 seconds
+clear: 0.000015 seconds
+weights: 30.816518 seconds
+0.945140 seconds needed for dot
+basis: 1.119917 seconds
+clear: 0.000016 seconds
+weights: 15.676552 seconds
+0.487965 seconds needed for dot
+basis: 0.563475 seconds
+clear: 0.000014 seconds
+weights: 3.803805 seconds
+0.124230 seconds needed for dot
+basis: 0.140037 seconds
+clear: 0.000018 seconds
+train: 90.572398 seconds
+weights: 32.153137 seconds
+0.926362 seconds needed for dot
+basis: 1.093872 seconds
+clear: 0.000014 seconds
+weights: 33.137280 seconds
+0.969087 seconds needed for dot
+basis: 1.151397 seconds
+clear: 0.000015 seconds
+weights: 15.590174 seconds
+0.464766 seconds needed for dot
+basis: 0.533788 seconds
+clear: 0.000016 seconds
+weights: 3.825875 seconds
+0.114896 seconds needed for dot
+basis: 0.130504 seconds
+clear: 0.000010 seconds
+train: 96.110392 seconds
+weights: 31.713281 seconds
+0.938097 seconds needed for dot
+basis: 1.105934 seconds
+clear: 0.000011 seconds
+weights: 33.159466 seconds
+0.989689 seconds needed for dot
+basis: 1.168993 seconds
+clear: 0.000021 seconds
+weights: 15.542545 seconds
+0.474265 seconds needed for dot
+basis: 0.542644 seconds
+clear: 0.000012 seconds
+weights: 3.775721 seconds
+0.116490 seconds needed for dot
+basis: 0.131932 seconds
+clear: 0.000014 seconds
+train: 95.478450 seconds
+weights: 31.574137 seconds
+0.932534 seconds needed for dot
+basis: 1.099926 seconds
+clear: 0.000019 seconds
+weights: 33.236440 seconds
+0.974090 seconds needed for dot
+basis: 1.154186 seconds
+clear: 0.000013 seconds
+weights: 15.769403 seconds
+0.493549 seconds needed for dot
+basis: 0.564011 seconds
+clear: 0.000017 seconds
+weights: 3.868947 seconds
+0.115325 seconds needed for dot
+basis: 0.130823 seconds
+clear: 0.000010 seconds
+train: 95.863163 seconds
+weights: 31.783281 seconds
+0.934720 seconds needed for dot
+basis: 1.099392 seconds
+clear: 0.000015 seconds
+weights: 33.338295 seconds
+1.015755 seconds needed for dot
+basis: 1.200199 seconds
+clear: 0.000013 seconds
+weights: 15.572750 seconds
+0.473704 seconds needed for dot
+basis: 0.541681 seconds
+clear: 0.000012 seconds
+weights: 3.768777 seconds
+0.115735 seconds needed for dot
+basis: 0.131066 seconds
+clear: 0.000013 seconds
+train: 96.116397 seconds
+weights: 30.537477 seconds
+0.810287 seconds needed for dot
+basis: 0.977704 seconds
+clear: 0.000014 seconds
+weights: 26.532636 seconds
+0.618517 seconds needed for dot
+basis: 0.788150 seconds
+clear: 0.000015 seconds
+weights: 11.578970 seconds
+0.244493 seconds needed for dot
+basis: 0.309572 seconds
+clear: 0.000012 seconds
+weights: 2.136547 seconds
+0.058921 seconds needed for dot
+basis: 0.073684 seconds
+clear: 0.000014 seconds
+train: 79.158471 seconds
+weights: 24.245546 seconds
+0.563285 seconds needed for dot
+basis: 0.717415 seconds
+clear: 0.000014 seconds
+weights: 16.718097 seconds
+0.327016 seconds needed for dot
+basis: 0.481182 seconds
+clear: 0.000013 seconds
+weights: 6.986173 seconds
+0.126860 seconds needed for dot
+basis: 0.187968 seconds
+clear: 0.000011 seconds
+weights: 1.209566 seconds
+0.028371 seconds needed for dot
+basis: 0.042204 seconds
+clear: 0.000011 seconds
+train: 55.883389 seconds
+weights: 19.663683 seconds
+0.486920 seconds needed for dot
+basis: 0.637628 seconds
+clear: 0.000014 seconds
+weights: 12.506744 seconds
+0.234446 seconds needed for dot
+basis: 0.388592 seconds
+clear: 0.000013 seconds
+weights: 4.851590 seconds
+0.087754 seconds needed for dot
+basis: 0.148944 seconds
+clear: 0.000012 seconds
+weights: 0.947056 seconds
+0.019500 seconds needed for dot
+basis: 0.033268 seconds
+clear: 0.000010 seconds
+train: 44.407510 seconds
+weights: 18.802255 seconds
+0.514360 seconds needed for dot
+basis: 0.665146 seconds
+clear: 0.000019 seconds
+weights: 10.896087 seconds
+0.210046 seconds needed for dot
+basis: 0.360186 seconds
+clear: 0.000014 seconds
+weights: 4.239643 seconds
+0.080587 seconds needed for dot
+basis: 0.141415 seconds
+clear: 0.000013 seconds
+weights: 0.894134 seconds
+0.017821 seconds needed for dot
+basis: 0.031402 seconds
+clear: 0.000010 seconds
+train: 41.306210 seconds
+weights: 18.019391 seconds
+0.468367 seconds needed for dot
+basis: 0.619623 seconds
+clear: 0.000015 seconds
+weights: 10.459715 seconds
+0.198946 seconds needed for dot
+basis: 0.348640 seconds
+clear: 0.000012 seconds
+weights: 3.965369 seconds
+0.076579 seconds needed for dot
+basis: 0.137135 seconds
+clear: 0.000011 seconds
+weights: 0.864652 seconds
+0.016962 seconds needed for dot
+basis: 0.030600 seconds
+clear: 0.000011 seconds
+train: 39.343998 seconds
+Learn rate: 0.001000; accuracy: 0.490497
+Time taken: 741 seconds
+weights: 17.472248 seconds
+0.370027 seconds needed for dot
+basis: 0.514835 seconds
+clear: 0.000012 seconds
+weights: 10.266885 seconds
+0.197041 seconds needed for dot
+basis: 0.344410 seconds
+clear: 0.000021 seconds
+weights: 3.930994 seconds
+0.076435 seconds needed for dot
+basis: 0.135870 seconds
+clear: 0.000012 seconds
+weights: 0.866759 seconds
+0.016997 seconds needed for dot
+basis: 0.030500 seconds
+clear: 0.000012 seconds
+train: 38.460374 seconds
+weights: 15.367959 seconds
+0.274599 seconds needed for dot
+basis: 0.416587 seconds
+clear: 0.000014 seconds
+weights: 10.374837 seconds
+0.198917 seconds needed for dot
+basis: 0.348509 seconds
+clear: 0.000016 seconds
+weights: 3.940470 seconds
+0.076070 seconds needed for dot
+basis: 0.135545 seconds
+clear: 0.000012 seconds
+weights: 0.870529 seconds
+0.017316 seconds needed for dot
+basis: 0.030879 seconds
+clear: 0.000011 seconds
+train: 35.685321 seconds
+weights: 12.554138 seconds
+0.264599 seconds needed for dot
+basis: 0.406125 seconds
+clear: 0.000012 seconds
+weights: 10.224561 seconds
+0.197340 seconds needed for dot
+basis: 0.345633 seconds
+clear: 0.000011 seconds
+weights: 3.901413 seconds
+0.077263 seconds needed for dot
+basis: 0.137293 seconds
+clear: 0.000014 seconds
+weights: 0.868781 seconds
+0.017171 seconds needed for dot
+basis: 0.030765 seconds
+clear: 0.000015 seconds
+train: 32.570880 seconds
+weights: 10.907038 seconds
+0.227458 seconds needed for dot
+basis: 0.369529 seconds
+clear: 0.000013 seconds
+weights: 10.660096 seconds
+0.223279 seconds needed for dot
+basis: 0.379733 seconds
+clear: 0.000018 seconds
+weights: 3.931273 seconds
+0.075852 seconds needed for dot
+basis: 0.135239 seconds
+clear: 0.000018 seconds
+weights: 0.867360 seconds
+0.016975 seconds needed for dot
+basis: 0.030779 seconds
+clear: 0.000011 seconds
+train: 31.455171 seconds
+weights: 10.444339 seconds
+0.201739 seconds needed for dot
+basis: 0.341883 seconds
+clear: 0.000015 seconds
+weights: 10.362423 seconds
+0.198374 seconds needed for dot
+basis: 0.345935 seconds
+clear: 0.000014 seconds
+weights: 3.893002 seconds
+0.076971 seconds needed for dot
+basis: 0.136132 seconds
+clear: 0.000018 seconds
+weights: 0.868537 seconds
+0.017495 seconds needed for dot
+basis: 0.031276 seconds
+clear: 0.000013 seconds
+train: 30.592445 seconds
+weights: 10.022787 seconds
+0.195570 seconds needed for dot
+basis: 0.338146 seconds
+clear: 0.000015 seconds
+weights: 10.347688 seconds
+0.196917 seconds needed for dot
+basis: 0.347536 seconds
+clear: 0.000019 seconds
+weights: 3.936906 seconds
+0.076061 seconds needed for dot
+basis: 0.135811 seconds
+clear: 0.000013 seconds
+weights: 0.867869 seconds
+0.016921 seconds needed for dot
+basis: 0.030665 seconds
+clear: 0.000012 seconds
+train: 30.309422 seconds
+weights: 9.870424 seconds
+0.190216 seconds needed for dot
+basis: 0.329062 seconds
+clear: 0.000014 seconds
+weights: 10.389124 seconds
+0.197767 seconds needed for dot
+basis: 0.347111 seconds
+clear: 0.000012 seconds
+weights: 3.928364 seconds
+0.107158 seconds needed for dot
+basis: 0.193694 seconds
+clear: 0.000015 seconds
+weights: 1.653454 seconds
+0.028686 seconds needed for dot
+basis: 0.052551 seconds
+clear: 0.000016 seconds
+train: 30.718394 seconds
+weights: 9.859392 seconds
+0.186617 seconds needed for dot
+basis: 0.326431 seconds
+clear: 0.000014 seconds
+weights: 10.319365 seconds
+0.197494 seconds needed for dot
+basis: 0.348013 seconds
+clear: 0.000014 seconds
+weights: 3.928861 seconds
+0.076524 seconds needed for dot
+basis: 0.136227 seconds
+clear: 0.000010 seconds
+weights: 0.874413 seconds
+0.017268 seconds needed for dot
+basis: 0.031082 seconds
+clear: 0.000011 seconds
+train: 29.640256 seconds
+weights: 9.974054 seconds
+0.190615 seconds needed for dot
+basis: 0.331030 seconds
+clear: 0.000012 seconds
+weights: 10.469969 seconds
+0.198111 seconds needed for dot
+basis: 0.347435 seconds
+clear: 0.000012 seconds
+weights: 3.888466 seconds
+0.077518 seconds needed for dot
+basis: 0.136864 seconds
+clear: 0.000012 seconds
+weights: 0.875093 seconds
+0.017207 seconds needed for dot
+basis: 0.030866 seconds
+clear: 0.000011 seconds
+train: 30.205963 seconds
+weights: 10.346884 seconds
+0.206147 seconds needed for dot
+basis: 0.350860 seconds
+clear: 0.000015 seconds
+weights: 10.672699 seconds
+0.202329 seconds needed for dot
+basis: 0.357057 seconds
+clear: 0.000018 seconds
+weights: 4.095661 seconds
+0.078694 seconds needed for dot
+basis: 0.140972 seconds
+clear: 0.000015 seconds
+weights: 0.900603 seconds
+0.016987 seconds needed for dot
+basis: 0.030842 seconds
+clear: 0.000012 seconds
+train: 30.859201 seconds
+Learn rate: 0.002000; accuracy: 0.507972
+Time taken: 324 seconds
+weights: 10.013199 seconds
+0.192084 seconds needed for dot
+basis: 0.333348 seconds
+clear: 0.000017 seconds
+weights: 10.396583 seconds
+0.197343 seconds needed for dot
+basis: 0.346895 seconds
+clear: 0.000015 seconds
+weights: 3.906262 seconds
+0.076350 seconds needed for dot
+basis: 0.135806 seconds
+clear: 0.000011 seconds
+weights: 0.880406 seconds
+0.017090 seconds needed for dot
+basis: 0.030847 seconds
+clear: 0.000014 seconds
+train: 30.289663 seconds
+weights: 9.907822 seconds
+0.193336 seconds needed for dot
+basis: 0.336999 seconds
+clear: 0.000013 seconds
+weights: 10.645334 seconds
+0.196470 seconds needed for dot
+basis: 0.346131 seconds
+clear: 0.000016 seconds
+weights: 3.892652 seconds
+0.075962 seconds needed for dot
+basis: 0.135596 seconds
+clear: 0.000011 seconds
+weights: 0.864462 seconds
+0.016985 seconds needed for dot
+basis: 0.030615 seconds
+clear: 0.000010 seconds
+train: 30.084149 seconds
+weights: 10.061003 seconds
+0.187161 seconds needed for dot
+basis: 0.325009 seconds
+clear: 0.000017 seconds
+weights: 10.596383 seconds
+0.199112 seconds needed for dot
+basis: 0.348621 seconds
+clear: 0.000021 seconds
+weights: 3.951966 seconds
+0.076723 seconds needed for dot
+basis: 0.136482 seconds
+clear: 0.000013 seconds
+weights: 0.868660 seconds
+0.017008 seconds needed for dot
+basis: 0.030643 seconds
+clear: 0.000011 seconds
+train: 30.281651 seconds
+weights: 9.764026 seconds
+0.186511 seconds needed for dot
+basis: 0.325907 seconds
+clear: 0.000015 seconds
+weights: 10.313748 seconds
+0.197943 seconds needed for dot
+basis: 0.348520 seconds
+clear: 0.000013 seconds
+weights: 3.966610 seconds
+0.076755 seconds needed for dot
+basis: 0.137292 seconds
+clear: 0.000011 seconds
+weights: 0.873476 seconds
+0.017183 seconds needed for dot
+basis: 0.031092 seconds
+clear: 0.000011 seconds
+train: 29.531697 seconds
+weights: 11.282656 seconds
+0.379994 seconds needed for dot
+basis: 0.647304 seconds
+clear: 0.000027 seconds
+weights: 20.000748 seconds
+0.339564 seconds needed for dot
+basis: 0.618580 seconds
+clear: 0.000017 seconds
+weights: 7.498820 seconds
+0.129481 seconds needed for dot
+basis: 0.235298 seconds
+clear: 0.000015 seconds
+weights: 1.638627 seconds
+0.028724 seconds needed for dot
+basis: 0.052334 seconds
+clear: 0.000014 seconds
+train: 48.094226 seconds
+weights: 10.586475 seconds
+0.187202 seconds needed for dot
+basis: 0.326319 seconds
+clear: 0.000014 seconds
+weights: 10.246364 seconds
+0.197279 seconds needed for dot
+basis: 0.347241 seconds
+clear: 0.000012 seconds
+weights: 3.901409 seconds
+0.076111 seconds needed for dot
+basis: 0.135967 seconds
+clear: 0.000011 seconds
+weights: 0.871011 seconds
+0.017130 seconds needed for dot
+basis: 0.030961 seconds
+clear: 0.000010 seconds
+train: 31.496179 seconds
+weights: 9.738231 seconds
+0.187740 seconds needed for dot
+basis: 0.325272 seconds
+clear: 0.000013 seconds
+weights: 10.274753 seconds
+0.206671 seconds needed for dot
+basis: 0.362648 seconds
+clear: 0.000016 seconds
+weights: 3.948292 seconds
+0.080303 seconds needed for dot
+basis: 0.142183 seconds
+clear: 0.000013 seconds
+weights: 0.873004 seconds
+0.017080 seconds needed for dot
+basis: 0.030786 seconds
+clear: 0.000011 seconds
+train: 29.528202 seconds
+weights: 9.752941 seconds
+0.191062 seconds needed for dot
+basis: 0.332789 seconds
+clear: 0.000014 seconds
+weights: 10.566517 seconds
+0.205049 seconds needed for dot
+basis: 0.362064 seconds
+clear: 0.000012 seconds
+weights: 3.916033 seconds
+0.076149 seconds needed for dot
+basis: 0.136401 seconds
+clear: 0.000011 seconds
+weights: 0.867355 seconds
+0.017162 seconds needed for dot
+basis: 0.031019 seconds
+clear: 0.000011 seconds
+train: 29.794243 seconds
+weights: 9.791401 seconds
+0.188066 seconds needed for dot
+basis: 0.325191 seconds
+clear: 0.000012 seconds
+weights: 10.350081 seconds
+0.198539 seconds needed for dot
+basis: 0.347101 seconds
+clear: 0.000015 seconds
+weights: 3.935437 seconds
+0.076809 seconds needed for dot
+basis: 0.136099 seconds
+clear: 0.000012 seconds
+weights: 0.872164 seconds
+0.017166 seconds needed for dot
+basis: 0.030787 seconds
+clear: 0.000010 seconds
+train: 29.962243 seconds
+weights: 17.637801 seconds
+0.324543 seconds needed for dot
+basis: 0.588376 seconds
+clear: 0.000019 seconds
+weights: 19.098772 seconds
+0.342789 seconds needed for dot
+basis: 0.623968 seconds
+clear: 0.000015 seconds
+weights: 7.537324 seconds
+0.129322 seconds needed for dot
+basis: 0.236889 seconds
+clear: 0.000015 seconds
+weights: 1.661433 seconds
+0.028713 seconds needed for dot
+basis: 0.052870 seconds
+clear: 0.000018 seconds
+train: 53.293751 seconds
+Learn rate: 0.003000; accuracy: 0.508158
+Time taken: 346 seconds
+weights: 10.027201 seconds
+0.192827 seconds needed for dot
+basis: 0.333657 seconds
+clear: 0.000013 seconds
+weights: 10.399578 seconds
+0.201279 seconds needed for dot
+basis: 0.352758 seconds
+clear: 0.000013 seconds
+weights: 4.016103 seconds
+0.075981 seconds needed for dot
+basis: 0.135480 seconds
+clear: 0.000011 seconds
+weights: 0.866625 seconds
+0.016953 seconds needed for dot
+basis: 0.030565 seconds
+clear: 0.000009 seconds
+train: 30.697816 seconds
+weights: 9.923858 seconds
+0.194611 seconds needed for dot
+basis: 0.338430 seconds
+clear: 0.000015 seconds
+weights: 10.664806 seconds
+0.195447 seconds needed for dot
+basis: 0.345092 seconds
+clear: 0.000012 seconds
+weights: 3.901929 seconds
+0.075427 seconds needed for dot
+basis: 0.135547 seconds
+clear: 0.000015 seconds
+weights: 0.873166 seconds
+0.017031 seconds needed for dot
+basis: 0.030880 seconds
+clear: 0.000011 seconds
+train: 30.328520 seconds
+weights: 9.785961 seconds
+0.191089 seconds needed for dot
+basis: 0.330416 seconds
+clear: 0.000018 seconds
+weights: 10.823770 seconds
+0.196335 seconds needed for dot
+basis: 0.344054 seconds
+clear: 0.000017 seconds
+weights: 3.986227 seconds
+0.076418 seconds needed for dot
+basis: 0.135931 seconds
+clear: 0.000013 seconds
+weights: 0.876078 seconds
+0.017221 seconds needed for dot
+basis: 0.030950 seconds
+clear: 0.000011 seconds
+train: 30.233288 seconds
+weights: 9.735566 seconds
+0.185308 seconds needed for dot
+basis: 0.324137 seconds
+clear: 0.000015 seconds
+weights: 10.438756 seconds
+0.202989 seconds needed for dot
+basis: 0.356963 seconds
+clear: 0.000016 seconds
+weights: 3.935497 seconds
+0.076929 seconds needed for dot
+basis: 0.137207 seconds
+clear: 0.000015 seconds
+weights: 0.899989 seconds
+0.017089 seconds needed for dot
+basis: 0.030933 seconds
+clear: 0.000013 seconds
+train: 30.241653 seconds
+weights: 9.910891 seconds
+0.217168 seconds needed for dot
+basis: 0.360500 seconds
+clear: 0.000018 seconds
+weights: 10.351226 seconds
+0.197470 seconds needed for dot
+basis: 0.346078 seconds
+clear: 0.000015 seconds
+weights: 3.940705 seconds
+0.076203 seconds needed for dot
+basis: 0.135839 seconds
+clear: 0.000016 seconds
+weights: 0.866764 seconds
+0.017182 seconds needed for dot
+basis: 0.030783 seconds
+clear: 0.000011 seconds
+train: 29.984297 seconds
+weights: 10.129246 seconds
+0.226243 seconds needed for dot
+basis: 0.373492 seconds
+clear: 0.000018 seconds
+weights: 10.649153 seconds
+0.196129 seconds needed for dot
+basis: 0.346397 seconds
+clear: 0.000017 seconds
+weights: 3.938046 seconds
+0.075751 seconds needed for dot
+basis: 0.135443 seconds
+clear: 0.000013 seconds
+weights: 0.885778 seconds
+0.017001 seconds needed for dot
+basis: 0.030796 seconds
+clear: 0.000011 seconds
+train: 30.376763 seconds
+weights: 9.822747 seconds
+0.186572 seconds needed for dot
+basis: 0.324219 seconds
+clear: 0.000020 seconds
+weights: 10.341002 seconds
+0.196516 seconds needed for dot
+basis: 0.344525 seconds
+clear: 0.000016 seconds
+weights: 3.892530 seconds
+0.075913 seconds needed for dot
+basis: 0.135267 seconds
+clear: 0.000015 seconds
+weights: 0.870454 seconds
+0.016944 seconds needed for dot
+basis: 0.030573 seconds
+clear: 0.000012 seconds
+train: 29.597457 seconds
+weights: 9.632409 seconds
+0.185318 seconds needed for dot
+basis: 0.323955 seconds
+clear: 0.000015 seconds
+weights: 10.279364 seconds
+0.201273 seconds needed for dot
+basis: 0.354491 seconds
+clear: 0.000015 seconds
+weights: 4.040146 seconds
+0.076716 seconds needed for dot
+basis: 0.137136 seconds
+clear: 0.000012 seconds
+weights: 0.867767 seconds
+0.016859 seconds needed for dot
+basis: 0.030635 seconds
+clear: 0.000010 seconds
+train: 29.738940 seconds
+weights: 10.148728 seconds
+0.186564 seconds needed for dot
+basis: 0.324354 seconds
+clear: 0.000019 seconds
+weights: 10.417141 seconds
+0.198628 seconds needed for dot
+basis: 0.347127 seconds
+clear: 0.000017 seconds
+weights: 3.904838 seconds
+0.076164 seconds needed for dot
+basis: 0.135474 seconds
+clear: 0.000013 seconds
+weights: 0.870110 seconds
+0.017082 seconds needed for dot
+basis: 0.030845 seconds
+clear: 0.000009 seconds
+train: 30.480487 seconds
+weights: 9.715506 seconds
+0.186880 seconds needed for dot
+basis: 0.326343 seconds
+clear: 0.000011 seconds
+weights: 10.278197 seconds
+0.195784 seconds needed for dot
+basis: 0.345194 seconds
+clear: 0.000018 seconds
+weights: 3.900922 seconds
+0.075727 seconds needed for dot
+basis: 0.135943 seconds
+clear: 0.000011 seconds
+weights: 0.862355 seconds
+0.016938 seconds needed for dot
+basis: 0.030627 seconds
+clear: 0.000010 seconds
+train: 29.527267 seconds
+Learn rate: 0.004000; accuracy: 0.510067
+Time taken: 304 seconds
+weights: 9.685280 seconds
+0.186851 seconds needed for dot
+basis: 0.324368 seconds
+clear: 0.000015 seconds
+weights: 10.262056 seconds
+0.197232 seconds needed for dot
+basis: 0.345686 seconds
+clear: 0.000013 seconds
+weights: 3.890767 seconds
+0.075924 seconds needed for dot
+basis: 0.135265 seconds
+clear: 0.000012 seconds
+weights: 0.861602 seconds
+0.017004 seconds needed for dot
+basis: 0.030507 seconds
+clear: 0.000014 seconds
+train: 29.392040 seconds
+weights: 10.020557 seconds
+0.206767 seconds needed for dot
+basis: 0.351005 seconds
+clear: 0.000019 seconds
+weights: 10.365158 seconds
+0.230419 seconds needed for dot
+basis: 0.384706 seconds
+clear: 0.000023 seconds
+weights: 4.067685 seconds
+0.087681 seconds needed for dot
+basis: 0.151113 seconds
+clear: 0.000012 seconds
+weights: 0.877715 seconds
+0.021781 seconds needed for dot
+basis: 0.038083 seconds
+clear: 0.000014 seconds
+train: 30.700699 seconds
+weights: 10.053256 seconds
+0.204976 seconds needed for dot
+basis: 0.347231 seconds
+clear: 0.000018 seconds
+weights: 10.352650 seconds
+0.197339 seconds needed for dot
+basis: 0.345776 seconds
+clear: 0.000017 seconds
+weights: 3.894530 seconds
+0.075976 seconds needed for dot
+basis: 0.135509 seconds
+clear: 0.000014 seconds
+weights: 0.873650 seconds
+0.016815 seconds needed for dot
+basis: 0.030475 seconds
+clear: 0.000014 seconds
+train: 30.005199 seconds
+weights: 9.701837 seconds
+0.186092 seconds needed for dot
+basis: 0.325071 seconds
+clear: 0.000016 seconds
+weights: 10.250073 seconds
+0.195956 seconds needed for dot
+basis: 0.345274 seconds
+clear: 0.000015 seconds
+weights: 4.099182 seconds
+0.077368 seconds needed for dot
+basis: 0.137522 seconds
+clear: 0.000018 seconds
+weights: 0.883563 seconds
+0.017918 seconds needed for dot
+basis: 0.032204 seconds
+clear: 0.000017 seconds
+train: 29.666131 seconds
+weights: 10.204968 seconds
+0.200408 seconds needed for dot
+basis: 0.341025 seconds
+clear: 0.000018 seconds
+weights: 10.679339 seconds
+0.199844 seconds needed for dot
+basis: 0.348363 seconds
+clear: 0.000017 seconds
+weights: 3.961068 seconds
+0.075690 seconds needed for dot
+basis: 0.134702 seconds
+clear: 0.000015 seconds
+weights: 0.855241 seconds
+0.016818 seconds needed for dot
+basis: 0.030307 seconds
+clear: 0.000033 seconds
+train: 30.917273 seconds
+weights: 10.358073 seconds
+0.204142 seconds needed for dot
+basis: 0.348840 seconds
+clear: 0.000017 seconds
+weights: 10.489809 seconds
+0.197243 seconds needed for dot
+basis: 0.346589 seconds
+clear: 0.000016 seconds
+weights: 3.987594 seconds
+0.078251 seconds needed for dot
+basis: 0.139434 seconds
+clear: 0.000012 seconds
+weights: 0.869024 seconds
+0.016858 seconds needed for dot
+basis: 0.030548 seconds
+clear: 0.000014 seconds
+train: 30.779153 seconds
+weights: 10.046756 seconds
+0.190062 seconds needed for dot
+basis: 0.329013 seconds
+clear: 0.000015 seconds
+weights: 10.612866 seconds
+0.197034 seconds needed for dot
+basis: 0.345662 seconds
+clear: 0.000014 seconds
+weights: 5.142000 seconds
+0.100842 seconds needed for dot
+basis: 0.180023 seconds
+clear: 0.000016 seconds
+weights: 0.889541 seconds
+0.016898 seconds needed for dot
+basis: 0.030602 seconds
+clear: 0.000010 seconds
+train: 31.535779 seconds
+weights: 11.413218 seconds
+0.215808 seconds needed for dot
+basis: 0.363924 seconds
+clear: 0.000015 seconds
+weights: 10.293433 seconds
+0.193437 seconds needed for dot
+basis: 0.343002 seconds
+clear: 0.000015 seconds
+weights: 3.875654 seconds
+0.074465 seconds needed for dot
+basis: 0.133954 seconds
+clear: 0.000011 seconds
+weights: 0.856242 seconds
+0.016743 seconds needed for dot
+basis: 0.030236 seconds
+clear: 0.000009 seconds
+train: 31.844172 seconds
+weights: 9.586669 seconds
+0.186394 seconds needed for dot
+basis: 0.323910 seconds
+clear: 0.000015 seconds
+weights: 10.586365 seconds
+0.191779 seconds needed for dot
+basis: 0.338905 seconds
+clear: 0.000011 seconds
+weights: 3.877837 seconds
+0.074104 seconds needed for dot
+basis: 0.133206 seconds
+clear: 0.000011 seconds
+weights: 0.850944 seconds
+0.016608 seconds needed for dot
+basis: 0.030133 seconds
+clear: 0.000010 seconds
+train: 29.625463 seconds
+weights: 9.702969 seconds
+0.181041 seconds needed for dot
+basis: 0.318280 seconds
+clear: 0.000015 seconds
+weights: 10.533720 seconds
+0.201883 seconds needed for dot
+basis: 0.357096 seconds
+clear: 0.000017 seconds
+weights: 4.036849 seconds
+0.075675 seconds needed for dot
+basis: 0.137309 seconds
+clear: 0.000014 seconds
+weights: 0.898273 seconds
+0.017291 seconds needed for dot
+basis: 0.031575 seconds
+clear: 0.000011 seconds
+train: 29.976042 seconds
+Learn rate: 0.005000; accuracy: 0.508427
+Time taken: 307 seconds
+weights: 9.864381 seconds
+0.182339 seconds needed for dot
+basis: 0.320958 seconds
+clear: 0.000015 seconds
+weights: 10.816622 seconds
+0.206263 seconds needed for dot
+basis: 0.361930 seconds
+clear: 0.000014 seconds
+weights: 4.051503 seconds
+0.081542 seconds needed for dot
+basis: 0.144115 seconds
+clear: 0.000013 seconds
+weights: 0.884319 seconds
+0.016947 seconds needed for dot
+basis: 0.030929 seconds
+clear: 0.000012 seconds
+train: 30.464491 seconds
+weights: 9.825901 seconds
+0.177776 seconds needed for dot
+basis: 0.313223 seconds
+clear: 0.000014 seconds
+weights: 10.596589 seconds
+0.201661 seconds needed for dot
+basis: 0.351649 seconds
+clear: 0.000017 seconds
+weights: 3.900792 seconds
+0.073869 seconds needed for dot
+basis: 0.133606 seconds
+clear: 0.000014 seconds
+weights: 0.853198 seconds
+0.016830 seconds needed for dot
+basis: 0.030605 seconds
+clear: 0.000009 seconds
+train: 30.124807 seconds
+weights: 9.766364 seconds
+0.190059 seconds needed for dot
+basis: 0.329910 seconds
+clear: 0.000015 seconds
+weights: 10.467565 seconds
+0.184281 seconds needed for dot
+basis: 0.330448 seconds
+clear: 0.000014 seconds
+weights: 3.847792 seconds
+0.072520 seconds needed for dot
+basis: 0.132650 seconds
+clear: 0.000013 seconds
+weights: 0.886544 seconds
+0.016778 seconds needed for dot
+basis: 0.030899 seconds
+clear: 0.000009 seconds
+train: 29.983920 seconds
+weights: 9.587770 seconds
+0.180537 seconds needed for dot
+basis: 0.316981 seconds
+clear: 0.000018 seconds
+weights: 10.110374 seconds
+0.185265 seconds needed for dot
+basis: 0.330772 seconds
+clear: 0.000014 seconds
+weights: 3.830299 seconds
+0.071934 seconds needed for dot
+basis: 0.130597 seconds
+clear: 0.000011 seconds
+weights: 0.841608 seconds
+0.016193 seconds needed for dot
+basis: 0.029726 seconds
+clear: 0.000013 seconds
+train: 28.955836 seconds
+weights: 9.606736 seconds
+0.176402 seconds needed for dot
+basis: 0.313991 seconds
+clear: 0.000015 seconds
+weights: 10.219681 seconds
+0.184490 seconds needed for dot
+basis: 0.331771 seconds
+clear: 0.000014 seconds
+weights: 3.872331 seconds
+0.073724 seconds needed for dot
+basis: 0.135314 seconds
+clear: 0.000010 seconds
+weights: 0.881916 seconds
+0.016602 seconds needed for dot
+basis: 0.030673 seconds
+clear: 0.000009 seconds
+train: 29.154210 seconds
+weights: 9.652389 seconds
+0.176589 seconds needed for dot
+basis: 0.311793 seconds
+clear: 0.000015 seconds
+weights: 10.113577 seconds
+0.190157 seconds needed for dot
+basis: 0.340694 seconds
+clear: 0.000014 seconds
+weights: 3.929766 seconds
+0.074206 seconds needed for dot
+basis: 0.135117 seconds
+clear: 0.000019 seconds
+weights: 0.877989 seconds
+0.016775 seconds needed for dot
+basis: 0.030581 seconds
+clear: 0.000009 seconds
+train: 29.539249 seconds
+weights: 9.684328 seconds
+0.179102 seconds needed for dot
+basis: 0.317141 seconds
+clear: 0.000015 seconds
+weights: 10.221882 seconds
+0.191350 seconds needed for dot
+basis: 0.343261 seconds
+clear: 0.000014 seconds
+weights: 3.894458 seconds
+0.073902 seconds needed for dot
+basis: 0.134665 seconds
+clear: 0.000009 seconds
+weights: 0.869132 seconds
+0.017994 seconds needed for dot
+basis: 0.033295 seconds
+clear: 0.000013 seconds
+train: 29.319951 seconds
+weights: 9.936193 seconds
+0.175251 seconds needed for dot
+basis: 0.310274 seconds
+clear: 0.000011 seconds
+weights: 10.197326 seconds
+0.189328 seconds needed for dot
+basis: 0.339214 seconds
+clear: 0.000014 seconds
+weights: 3.910830 seconds
+0.073500 seconds needed for dot
+basis: 0.134156 seconds
+clear: 0.000009 seconds
+weights: 0.865484 seconds
+0.015928 seconds needed for dot
+basis: 0.029238 seconds
+clear: 0.000010 seconds
+train: 29.437777 seconds
+weights: 9.629279 seconds
+0.175159 seconds needed for dot
+basis: 0.309747 seconds
+clear: 0.000011 seconds
+weights: 10.008365 seconds
+0.189296 seconds needed for dot
+basis: 0.338812 seconds
+clear: 0.000011 seconds
+weights: 3.906739 seconds
+0.073742 seconds needed for dot
+basis: 0.134027 seconds
+clear: 0.000014 seconds
+weights: 0.872401 seconds
+0.016530 seconds needed for dot
+basis: 0.030469 seconds
+clear: 0.000009 seconds
+train: 29.348286 seconds
+weights: 9.748940 seconds
+0.181732 seconds needed for dot
+basis: 0.321226 seconds
+clear: 0.000011 seconds
+weights: 10.495464 seconds
+0.190170 seconds needed for dot
+basis: 0.339873 seconds
+clear: 0.000011 seconds
+weights: 3.901693 seconds
+0.073790 seconds needed for dot
+basis: 0.134563 seconds
+clear: 0.000011 seconds
+weights: 0.874920 seconds
+0.016617 seconds needed for dot
+basis: 0.030545 seconds
+clear: 0.000011 seconds
+train: 29.648858 seconds
+Learn rate: 0.010000; accuracy: 0.510509
+Time taken: 299 seconds
+weights: 9.721834 seconds
+0.180534 seconds needed for dot
+basis: 0.321368 seconds
+clear: 0.000011 seconds
+weights: 10.250228 seconds
+0.190718 seconds needed for dot
+basis: 0.343209 seconds
+clear: 0.000014 seconds
+weights: 3.909777 seconds
+0.073661 seconds needed for dot
+basis: 0.134979 seconds
+clear: 0.000011 seconds
+weights: 0.876103 seconds
+0.016535 seconds needed for dot
+basis: 0.030678 seconds
+clear: 0.000010 seconds
+train: 29.310945 seconds
+weights: 9.686551 seconds
+0.178672 seconds needed for dot
+basis: 0.315852 seconds
+clear: 0.000013 seconds
+weights: 10.257291 seconds
+0.190455 seconds needed for dot
+basis: 0.340777 seconds
+clear: 0.000014 seconds
+weights: 3.915200 seconds
+0.074384 seconds needed for dot
+basis: 0.135549 seconds
+clear: 0.000010 seconds
+weights: 0.877745 seconds
+0.016708 seconds needed for dot
+basis: 0.030568 seconds
+clear: 0.000013 seconds
+train: 29.737097 seconds
+weights: 9.713362 seconds
+0.179777 seconds needed for dot
+basis: 0.320277 seconds
+clear: 0.000015 seconds
+weights: 9.929576 seconds
+0.188382 seconds needed for dot
+basis: 0.338423 seconds
+clear: 0.000013 seconds
+weights: 3.793272 seconds
+0.070986 seconds needed for dot
+basis: 0.130188 seconds
+clear: 0.000014 seconds
+weights: 0.836086 seconds
+0.016766 seconds needed for dot
+basis: 0.030971 seconds
+clear: 0.000011 seconds
+train: 28.839661 seconds
+weights: 9.756521 seconds
+0.179910 seconds needed for dot
+basis: 0.318952 seconds
+clear: 0.000012 seconds
+weights: 10.224165 seconds
+0.190557 seconds needed for dot
+basis: 0.341291 seconds
+clear: 0.000011 seconds
+weights: 3.932904 seconds
+0.074109 seconds needed for dot
+basis: 0.135241 seconds
+clear: 0.000014 seconds
+weights: 0.891785 seconds
+0.016837 seconds needed for dot
+basis: 0.031039 seconds
+clear: 0.000010 seconds
+train: 29.719956 seconds
+weights: 9.706018 seconds
+0.181258 seconds needed for dot
+basis: 0.323513 seconds
+clear: 0.000010 seconds
+weights: 10.281585 seconds
+0.190018 seconds needed for dot
+basis: 0.341941 seconds
+clear: 0.000010 seconds
+weights: 3.905050 seconds
+0.073429 seconds needed for dot
+basis: 0.134716 seconds
+clear: 0.000010 seconds
+weights: 0.871631 seconds
+0.016392 seconds needed for dot
+basis: 0.030368 seconds
+clear: 0.000009 seconds
+train: 29.287797 seconds
+weights: 9.615737 seconds
+0.178733 seconds needed for dot
+basis: 0.316395 seconds
+clear: 0.000014 seconds
+weights: 10.240191 seconds
+0.191004 seconds needed for dot
+basis: 0.341533 seconds
+clear: 0.000010 seconds
+weights: 3.843896 seconds
+0.073684 seconds needed for dot
+basis: 0.134061 seconds
+clear: 0.000012 seconds
+weights: 0.840202 seconds
+0.016175 seconds needed for dot
+basis: 0.029558 seconds
+clear: 0.000010 seconds
+train: 29.359109 seconds
+weights: 9.717126 seconds
+0.181255 seconds needed for dot
+basis: 0.321032 seconds
+clear: 0.000010 seconds
+weights: 10.290012 seconds
+0.189232 seconds needed for dot
+basis: 0.338303 seconds
+clear: 0.000012 seconds
+weights: 3.893551 seconds
+0.073821 seconds needed for dot
+basis: 0.134456 seconds
+clear: 0.000010 seconds
+weights: 0.867569 seconds
+0.016556 seconds needed for dot
+basis: 0.030195 seconds
+clear: 0.000010 seconds
+train: 29.706125 seconds
+weights: 9.686785 seconds
+0.180857 seconds needed for dot
+basis: 0.320971 seconds
+clear: 0.000014 seconds
+weights: 10.058449 seconds
+0.183969 seconds needed for dot
+basis: 0.329443 seconds
+clear: 0.000010 seconds
+weights: 3.793071 seconds
+0.073788 seconds needed for dot
+basis: 0.134570 seconds
+clear: 0.000010 seconds
+weights: 0.866280 seconds
+0.016657 seconds needed for dot
+basis: 0.030753 seconds
+clear: 0.000009 seconds
+train: 28.926110 seconds
+weights: 9.692775 seconds
+0.180662 seconds needed for dot
+basis: 0.319779 seconds
+clear: 0.000012 seconds
+weights: 10.159280 seconds
+0.189918 seconds needed for dot
+basis: 0.339924 seconds
+clear: 0.000011 seconds
+weights: 3.828603 seconds
+0.071451 seconds needed for dot
+basis: 0.129465 seconds
+clear: 0.000010 seconds
+weights: 0.854365 seconds
+0.016092 seconds needed for dot
+basis: 0.029611 seconds
+clear: 0.000011 seconds
+train: 29.074247 seconds
+weights: 9.679529 seconds
+0.180380 seconds needed for dot
+basis: 0.319702 seconds
+clear: 0.000013 seconds
+weights: 10.238206 seconds
+0.189477 seconds needed for dot
+basis: 0.339804 seconds
+clear: 0.000011 seconds
+weights: 3.830699 seconds
+0.073643 seconds needed for dot
+basis: 0.134363 seconds
+clear: 0.000010 seconds
+weights: 0.856002 seconds
+0.015950 seconds needed for dot
+basis: 0.029458 seconds
+clear: 0.000010 seconds
+train: 29.399628 seconds
+Learn rate: 0.020000; accuracy: 0.509318
+Time taken: 296 seconds
+weights: 9.731051 seconds
+0.179752 seconds needed for dot
+basis: 0.320486 seconds
+clear: 0.000011 seconds
+weights: 10.259798 seconds
+0.189827 seconds needed for dot
+basis: 0.341447 seconds
+clear: 0.000011 seconds
+weights: 3.953553 seconds
+0.073834 seconds needed for dot
+basis: 0.135233 seconds
+clear: 0.000010 seconds
+weights: 0.876361 seconds
+0.016438 seconds needed for dot
+basis: 0.030398 seconds
+clear: 0.000010 seconds
+train: 29.769392 seconds
+weights: 9.692371 seconds
+0.180344 seconds needed for dot
+basis: 0.319952 seconds
+clear: 0.000013 seconds
+weights: 10.280306 seconds
+0.191427 seconds needed for dot
+basis: 0.342819 seconds
+clear: 0.000011 seconds
+weights: 3.923905 seconds
+0.074602 seconds needed for dot
+basis: 0.136342 seconds
+clear: 0.000011 seconds
+weights: 0.871173 seconds
+0.016435 seconds needed for dot
+basis: 0.030387 seconds
+clear: 0.000010 seconds
+train: 29.385125 seconds
+weights: 9.758144 seconds
+0.179762 seconds needed for dot
+basis: 0.320936 seconds
+clear: 0.000010 seconds
+weights: 10.316164 seconds
+0.189536 seconds needed for dot
+basis: 0.341836 seconds
+clear: 0.000010 seconds
+weights: 3.920485 seconds
+0.072828 seconds needed for dot
+basis: 0.133241 seconds
+clear: 0.000012 seconds
+weights: 0.861737 seconds
+0.016342 seconds needed for dot
+basis: 0.030319 seconds
+clear: 0.000010 seconds
+train: 29.423873 seconds
+weights: 9.709427 seconds
+0.180577 seconds needed for dot
+basis: 0.319932 seconds
+clear: 0.000014 seconds
+weights: 10.249804 seconds
+0.190367 seconds needed for dot
+basis: 0.340786 seconds
+clear: 0.000011 seconds
+weights: 3.917986 seconds
+0.074223 seconds needed for dot
+basis: 0.135239 seconds
+clear: 0.000012 seconds
+weights: 0.869980 seconds
+0.016531 seconds needed for dot
+basis: 0.030314 seconds
+clear: 0.000010 seconds
+train: 29.633297 seconds
+weights: 9.745732 seconds
+0.180367 seconds needed for dot
+basis: 0.321403 seconds
+clear: 0.000012 seconds
+weights: 10.348680 seconds
+0.189513 seconds needed for dot
+basis: 0.341447 seconds
+clear: 0.000011 seconds
+weights: 3.942531 seconds
+0.074339 seconds needed for dot
+basis: 0.136540 seconds
+clear: 0.000012 seconds
+weights: 0.867379 seconds
+0.016320 seconds needed for dot
+basis: 0.030240 seconds
+clear: 0.000010 seconds
+train: 29.866693 seconds
+weights: 9.688845 seconds
+0.180463 seconds needed for dot
+basis: 0.320750 seconds
+clear: 0.000014 seconds
+weights: 10.263178 seconds
+0.191561 seconds needed for dot
+basis: 0.343635 seconds
+clear: 0.000011 seconds
+weights: 3.923611 seconds
+0.073374 seconds needed for dot
+basis: 0.134222 seconds
+clear: 0.000011 seconds
+weights: 0.866920 seconds
+0.016397 seconds needed for dot
+basis: 0.030271 seconds
+clear: 0.000011 seconds
+train: 29.434427 seconds
+weights: 9.702136 seconds
+0.179893 seconds needed for dot
+basis: 0.319964 seconds
+clear: 0.000010 seconds
+weights: 10.299482 seconds
+0.189880 seconds needed for dot
+basis: 0.340716 seconds
+clear: 0.000016 seconds
+weights: 3.939106 seconds
+0.073374 seconds needed for dot
+basis: 0.134061 seconds
+clear: 0.000015 seconds
+weights: 0.866269 seconds
+0.016372 seconds needed for dot
+basis: 0.030170 seconds
+clear: 0.000010 seconds
+train: 29.457668 seconds
+weights: 10.006900 seconds
+0.182003 seconds needed for dot
+basis: 0.323474 seconds
+clear: 0.000014 seconds
+weights: 10.437449 seconds
+0.191001 seconds needed for dot
+basis: 0.342607 seconds
+clear: 0.000016 seconds
+weights: 3.946647 seconds
+0.073801 seconds needed for dot
+basis: 0.134654 seconds
+clear: 0.000016 seconds
+weights: 0.866125 seconds
+0.016355 seconds needed for dot
+basis: 0.030141 seconds
+clear: 0.000010 seconds
+train: 30.223129 seconds
+weights: 9.717006 seconds
+0.179427 seconds needed for dot
+basis: 0.319003 seconds
+clear: 0.000014 seconds
+weights: 10.246604 seconds
+0.189325 seconds needed for dot
+basis: 0.339017 seconds
+clear: 0.000014 seconds
+weights: 3.903183 seconds
+0.073478 seconds needed for dot
+basis: 0.134219 seconds
+clear: 0.000014 seconds
+weights: 0.870733 seconds
+0.016410 seconds needed for dot
+basis: 0.030276 seconds
+clear: 0.000010 seconds
+train: 29.391532 seconds
+weights: 9.871480 seconds
+0.180068 seconds needed for dot
+basis: 0.319345 seconds
+clear: 0.000014 seconds
+weights: 10.300962 seconds
+0.190552 seconds needed for dot
+basis: 0.340998 seconds
+clear: 0.000016 seconds
+weights: 3.915486 seconds
+0.074279 seconds needed for dot
+basis: 0.135133 seconds
+clear: 0.000010 seconds
+weights: 0.873152 seconds
+0.016589 seconds needed for dot
+basis: 0.030461 seconds
+clear: 0.000011 seconds
+train: 29.539012 seconds
+Learn rate: 0.030000; accuracy: 0.509023
+Time taken: 299 seconds
+weights: 9.734272 seconds
+0.179794 seconds needed for dot
+basis: 0.320085 seconds
+clear: 0.000012 seconds
+weights: 10.257515 seconds
+0.190063 seconds needed for dot
+basis: 0.341343 seconds
+clear: 0.000012 seconds
+weights: 3.925113 seconds
+0.073440 seconds needed for dot
+basis: 0.134895 seconds
+clear: 0.000010 seconds
+weights: 0.868210 seconds
+0.016356 seconds needed for dot
+basis: 0.030323 seconds
+clear: 0.000009 seconds
+train: 29.713520 seconds
+weights: 9.704655 seconds
+0.180014 seconds needed for dot
+basis: 0.319757 seconds
+clear: 0.000010 seconds
+weights: 10.259645 seconds
+0.191087 seconds needed for dot
+basis: 0.343029 seconds
+clear: 0.000014 seconds
+weights: 3.921770 seconds
+0.073250 seconds needed for dot
+basis: 0.134118 seconds
+clear: 0.000010 seconds
+weights: 0.866128 seconds
+0.016370 seconds needed for dot
+basis: 0.030205 seconds
+clear: 0.000011 seconds
+train: 29.330656 seconds
+weights: 9.692129 seconds
+0.180084 seconds needed for dot
+basis: 0.320723 seconds
+clear: 0.000011 seconds
+weights: 10.237719 seconds
+0.188285 seconds needed for dot
+basis: 0.338627 seconds
+clear: 0.000012 seconds
+weights: 3.907597 seconds
+0.073739 seconds needed for dot
+basis: 0.135119 seconds
+clear: 0.000011 seconds
+weights: 0.873700 seconds
+0.016594 seconds needed for dot
+basis: 0.030650 seconds
+clear: 0.000011 seconds
+train: 29.685421 seconds
+weights: 9.763124 seconds
+0.178951 seconds needed for dot
+basis: 0.317040 seconds
+clear: 0.000015 seconds
+weights: 10.333868 seconds
+0.189521 seconds needed for dot
+basis: 0.340029 seconds
+clear: 0.000011 seconds
+weights: 3.920067 seconds
+0.092579 seconds needed for dot
+basis: 0.163419 seconds
+clear: 0.000013 seconds
+weights: 0.888197 seconds
+0.016367 seconds needed for dot
+basis: 0.030317 seconds
+clear: 0.000011 seconds
+train: 29.595437 seconds
+weights: 9.748549 seconds
+0.181979 seconds needed for dot
+basis: 0.323187 seconds
+clear: 0.000015 seconds
+weights: 10.321921 seconds
+0.191429 seconds needed for dot
+basis: 0.343863 seconds
+clear: 0.000014 seconds
+weights: 3.954709 seconds
+0.074055 seconds needed for dot
+basis: 0.135783 seconds
+clear: 0.000014 seconds
+weights: 0.865254 seconds
+0.016162 seconds needed for dot
+basis: 0.030044 seconds
+clear: 0.000013 seconds
+train: 29.519986 seconds
+weights: 9.803467 seconds
+0.206790 seconds needed for dot
+basis: 0.366695 seconds
+clear: 0.000025 seconds
+weights: 10.654355 seconds
+0.194758 seconds needed for dot
+basis: 0.349086 seconds
+clear: 0.000014 seconds
+weights: 3.997332 seconds
+0.073907 seconds needed for dot
+basis: 0.134510 seconds
+clear: 0.000010 seconds
+weights: 0.869407 seconds
+0.016600 seconds needed for dot
+basis: 0.030484 seconds
+clear: 0.000011 seconds
+train: 30.483942 seconds
+weights: 9.804299 seconds
+0.179737 seconds needed for dot
+basis: 0.319134 seconds
+clear: 0.000014 seconds
+weights: 10.297624 seconds
+0.190090 seconds needed for dot
+basis: 0.340717 seconds
+clear: 0.000016 seconds
+weights: 3.985463 seconds
+0.073837 seconds needed for dot
+basis: 0.134972 seconds
+clear: 0.000012 seconds
+weights: 0.869745 seconds
+0.016382 seconds needed for dot
+basis: 0.030197 seconds
+clear: 0.000010 seconds
+train: 29.600829 seconds
+weights: 9.741381 seconds
+0.180476 seconds needed for dot
+basis: 0.319169 seconds
+clear: 0.000015 seconds
+weights: 10.360919 seconds
+0.190000 seconds needed for dot
+basis: 0.340073 seconds
+clear: 0.000012 seconds
+weights: 3.907195 seconds
+0.073895 seconds needed for dot
+basis: 0.134474 seconds
+clear: 0.000011 seconds
+weights: 0.866217 seconds
+0.016446 seconds needed for dot
+basis: 0.030244 seconds
+clear: 0.000010 seconds
+train: 29.469569 seconds
+weights: 9.717443 seconds
+0.180247 seconds needed for dot
+basis: 0.319617 seconds
+clear: 0.000014 seconds
+weights: 10.296805 seconds
+0.191049 seconds needed for dot
+basis: 0.341372 seconds
+clear: 0.000015 seconds
+weights: 3.909122 seconds
+0.073889 seconds needed for dot
+basis: 0.134543 seconds
+clear: 0.000010 seconds
+weights: 0.867676 seconds
+0.016500 seconds needed for dot
+basis: 0.030233 seconds
+clear: 0.000010 seconds
+train: 29.766302 seconds
+weights: 9.718901 seconds
+0.180343 seconds needed for dot
+basis: 0.320409 seconds
+clear: 0.000010 seconds
+weights: 10.277427 seconds
+0.190443 seconds needed for dot
+basis: 0.341621 seconds
+clear: 0.000016 seconds
+weights: 3.933572 seconds
+0.073358 seconds needed for dot
+basis: 0.133925 seconds
+clear: 0.000015 seconds
+weights: 0.870028 seconds
+0.016460 seconds needed for dot
+basis: 0.030305 seconds
+clear: 0.000011 seconds
+train: 29.444659 seconds
+Learn rate: 0.040000; accuracy: 0.509087
+Time taken: 300 seconds
+weights: 9.794493 seconds
+0.175852 seconds needed for dot
+basis: 0.311641 seconds
+clear: 0.000016 seconds
+weights: 10.238487 seconds
+0.185078 seconds needed for dot
+basis: 0.332364 seconds
+clear: 0.000015 seconds
+weights: 3.911188 seconds
+0.073791 seconds needed for dot
+basis: 0.135259 seconds
+clear: 0.000013 seconds
+weights: 0.869439 seconds
+0.016356 seconds needed for dot
+basis: 0.030338 seconds
+clear: 0.000010 seconds
+train: 29.403803 seconds
+weights: 9.703403 seconds
+0.180945 seconds needed for dot
+basis: 0.319933 seconds
+clear: 0.000014 seconds
+weights: 10.202084 seconds
+0.189015 seconds needed for dot
+basis: 0.337996 seconds
+clear: 0.000015 seconds
+weights: 3.906870 seconds
+0.089082 seconds needed for dot
+basis: 0.157223 seconds
+clear: 0.000012 seconds
+weights: 0.870246 seconds
+0.016502 seconds needed for dot
+basis: 0.030339 seconds
+clear: 0.000011 seconds
+train: 29.677847 seconds
+weights: 9.719951 seconds
+0.181345 seconds needed for dot
+basis: 0.322848 seconds
+clear: 0.000013 seconds
+weights: 10.391239 seconds
+0.193192 seconds needed for dot
+basis: 0.344994 seconds
+clear: 0.000016 seconds
+weights: 3.920432 seconds
+0.074512 seconds needed for dot
+basis: 0.135495 seconds
+clear: 0.000015 seconds
+weights: 0.865881 seconds
+0.016416 seconds needed for dot
+basis: 0.030229 seconds
+clear: 0.000009 seconds
+train: 29.565812 seconds
+weights: 9.781829 seconds
+0.180619 seconds needed for dot
+basis: 0.320214 seconds
+clear: 0.000014 seconds
+weights: 10.258242 seconds
+0.189730 seconds needed for dot
+basis: 0.339891 seconds
+clear: 0.000015 seconds
+weights: 3.934508 seconds
+0.073882 seconds needed for dot
+basis: 0.134619 seconds
+clear: 0.000011 seconds
+weights: 0.872756 seconds
+0.016505 seconds needed for dot
+basis: 0.030371 seconds
+clear: 0.000009 seconds
+train: 29.458912 seconds
+weights: 9.674295 seconds
+0.179473 seconds needed for dot
+basis: 0.320120 seconds
+clear: 0.000015 seconds
+weights: 10.320114 seconds
+0.195708 seconds needed for dot
+basis: 0.352018 seconds
+clear: 0.000018 seconds
+weights: 3.991408 seconds
+0.073586 seconds needed for dot
+basis: 0.134893 seconds
+clear: 0.000014 seconds
+weights: 0.874134 seconds
+0.020346 seconds needed for dot
+basis: 0.036639 seconds
+clear: 0.000016 seconds
+train: 29.478151 seconds
+weights: 9.752950 seconds
+0.181813 seconds needed for dot
+basis: 0.322284 seconds
+clear: 0.000015 seconds
+weights: 10.333737 seconds
+0.189954 seconds needed for dot
+basis: 0.339979 seconds
+clear: 0.000014 seconds
+weights: 4.000561 seconds
+0.076749 seconds needed for dot
+basis: 0.139840 seconds
+clear: 0.000015 seconds
+weights: 0.923312 seconds
+0.016669 seconds needed for dot
+basis: 0.030642 seconds
+clear: 0.000011 seconds
+train: 29.884920 seconds
+weights: 9.840404 seconds
+0.182172 seconds needed for dot
+basis: 0.322132 seconds
+clear: 0.000017 seconds
+weights: 10.458542 seconds
+0.190468 seconds needed for dot
+basis: 0.340487 seconds
+clear: 0.000017 seconds
+weights: 3.904643 seconds
+0.073565 seconds needed for dot
+basis: 0.134208 seconds
+clear: 0.000014 seconds
+weights: 0.868584 seconds
+0.016402 seconds needed for dot
+basis: 0.030324 seconds
+clear: 0.000010 seconds
+train: 30.005595 seconds
+weights: 9.758327 seconds
+0.179930 seconds needed for dot
+basis: 0.318873 seconds
+clear: 0.000015 seconds
+weights: 10.339000 seconds
+0.190583 seconds needed for dot
+basis: 0.340833 seconds
+clear: 0.000016 seconds
+weights: 3.909427 seconds
+0.073634 seconds needed for dot
+basis: 0.134141 seconds
+clear: 0.000010 seconds
+weights: 0.867647 seconds
+0.016428 seconds needed for dot
+basis: 0.030224 seconds
+clear: 0.000010 seconds
+train: 29.478258 seconds
+weights: 9.823646 seconds
+0.174112 seconds needed for dot
+basis: 0.307258 seconds
+clear: 0.000012 seconds
+weights: 10.260791 seconds
+0.187477 seconds needed for dot
+basis: 0.335184 seconds
+clear: 0.000012 seconds
+weights: 3.896256 seconds
+0.073858 seconds needed for dot
+basis: 0.134624 seconds
+clear: 0.000015 seconds
+weights: 0.868258 seconds
+0.016748 seconds needed for dot
+basis: 0.030735 seconds
+clear: 0.000011 seconds
+train: 29.419461 seconds
+weights: 9.719893 seconds
+0.179520 seconds needed for dot
+basis: 0.318589 seconds
+clear: 0.000011 seconds
+weights: 10.262402 seconds
+0.189428 seconds needed for dot
+basis: 0.339775 seconds
+clear: 0.000011 seconds
+weights: 3.928073 seconds
+0.073849 seconds needed for dot
+basis: 0.134777 seconds
+clear: 0.000010 seconds
+weights: 0.871958 seconds
+0.016559 seconds needed for dot
+basis: 0.030420 seconds
+clear: 0.000009 seconds
+train: 29.633884 seconds
+Learn rate: 0.050000; accuracy: 0.509548
+Time taken: 299 seconds
+weights: 9.885083 seconds
+0.190975 seconds needed for dot
+basis: 0.336178 seconds
+clear: 0.000017 seconds
+weights: 10.351137 seconds
+0.193463 seconds needed for dot
+basis: 0.346858 seconds
+clear: 0.000012 seconds
+weights: 3.928425 seconds
+0.073434 seconds needed for dot
+basis: 0.134983 seconds
+clear: 0.000014 seconds
+weights: 0.868277 seconds
+0.016440 seconds needed for dot
+basis: 0.030450 seconds
+clear: 0.000014 seconds
+train: 29.996908 seconds
+weights: 9.721205 seconds
+0.181458 seconds needed for dot
+basis: 0.322610 seconds
+clear: 0.000016 seconds
+weights: 10.329877 seconds
+0.189826 seconds needed for dot
+basis: 0.340298 seconds
+clear: 0.000015 seconds
+weights: 4.064909 seconds
+0.087520 seconds needed for dot
+basis: 0.161441 seconds
+clear: 0.000012 seconds
+weights: 0.871526 seconds
+0.016473 seconds needed for dot
+basis: 0.030411 seconds
+clear: 0.000010 seconds
+train: 29.646924 seconds
+weights: 9.779643 seconds
+0.180779 seconds needed for dot
+basis: 0.321515 seconds
+clear: 0.000016 seconds
+weights: 10.208452 seconds
+0.189089 seconds needed for dot
+basis: 0.340694 seconds
+clear: 0.000015 seconds
+weights: 3.923115 seconds
+0.073233 seconds needed for dot
+basis: 0.134421 seconds
+clear: 0.000011 seconds
+weights: 0.871857 seconds
+0.016347 seconds needed for dot
+basis: 0.030339 seconds
+clear: 0.000011 seconds
+train: 29.327593 seconds
+weights: 9.825175 seconds
+0.179826 seconds needed for dot
+basis: 0.319024 seconds
+clear: 0.000012 seconds
+weights: 10.260278 seconds
+0.189795 seconds needed for dot
+basis: 0.339861 seconds
+clear: 0.000014 seconds
+weights: 3.905029 seconds
+0.073690 seconds needed for dot
+basis: 0.134320 seconds
+clear: 0.000011 seconds
+weights: 0.865715 seconds
+0.016433 seconds needed for dot
+basis: 0.030144 seconds
+clear: 0.000010 seconds
+train: 29.703635 seconds
+weights: 9.696079 seconds
+0.179425 seconds needed for dot
+basis: 0.320068 seconds
+clear: 0.000010 seconds
+weights: 10.256640 seconds
+0.189683 seconds needed for dot
+basis: 0.341082 seconds
+clear: 0.000011 seconds
+weights: 3.906771 seconds
+0.073226 seconds needed for dot
+basis: 0.134434 seconds
+clear: 0.000015 seconds
+weights: 0.878772 seconds
+0.020519 seconds needed for dot
+basis: 0.036818 seconds
+clear: 0.000012 seconds
+train: 29.622266 seconds
+weights: 9.905027 seconds
+0.181368 seconds needed for dot
+basis: 0.321203 seconds
+clear: 0.000014 seconds
+weights: 10.404351 seconds
+0.193188 seconds needed for dot
+basis: 0.344569 seconds
+clear: 0.000016 seconds
+weights: 4.110233 seconds
+0.073777 seconds needed for dot
+basis: 0.134264 seconds
+clear: 0.000012 seconds
+weights: 0.867399 seconds
+0.016487 seconds needed for dot
+basis: 0.030213 seconds
+clear: 0.000009 seconds
+train: 29.846922 seconds
+weights: 9.814438 seconds
+0.182511 seconds needed for dot
+basis: 0.322842 seconds
+clear: 0.000021 seconds
+weights: 10.289367 seconds
+0.189670 seconds needed for dot
+basis: 0.340092 seconds
+clear: 0.000014 seconds
+weights: 3.904922 seconds
+0.075078 seconds needed for dot
+basis: 0.136160 seconds
+clear: 0.000014 seconds
+weights: 0.873688 seconds
+0.016466 seconds needed for dot
+basis: 0.030272 seconds
+clear: 0.000010 seconds
+train: 29.813254 seconds
+weights: 9.968312 seconds
+0.179825 seconds needed for dot
+basis: 0.318920 seconds
+clear: 0.000015 seconds
+weights: 10.294011 seconds
+0.189625 seconds needed for dot
+basis: 0.339625 seconds
+clear: 0.000014 seconds
+weights: 3.913397 seconds
+0.073539 seconds needed for dot
+basis: 0.134012 seconds
+clear: 0.000010 seconds
+weights: 0.871168 seconds
+0.016200 seconds needed for dot
+basis: 0.029745 seconds
+clear: 0.000011 seconds
+train: 29.991077 seconds
+weights: 9.674559 seconds
+0.180359 seconds needed for dot
+basis: 0.320392 seconds
+clear: 0.000014 seconds
+weights: 10.327547 seconds
+0.194419 seconds needed for dot
+basis: 0.346189 seconds
+clear: 0.000012 seconds
+weights: 3.912776 seconds
+0.073738 seconds needed for dot
+basis: 0.134440 seconds
+clear: 0.000012 seconds
+weights: 0.862536 seconds
+0.016494 seconds needed for dot
+basis: 0.030436 seconds
+clear: 0.000011 seconds
+train: 29.375409 seconds
+weights: 9.810560 seconds
+0.181357 seconds needed for dot
+basis: 0.322139 seconds
+clear: 0.000013 seconds
+weights: 10.268965 seconds
+0.189214 seconds needed for dot
+basis: 0.339088 seconds
+clear: 0.000015 seconds
+weights: 3.907241 seconds
+0.074024 seconds needed for dot
+basis: 0.134945 seconds
+clear: 0.000010 seconds
+weights: 0.873018 seconds
+0.017287 seconds needed for dot
+basis: 0.031580 seconds
+clear: 0.000011 seconds
+train: 29.804829 seconds
+Learn rate: 0.100000; accuracy: 0.510189
+Time taken: 300 seconds
+weights: 9.920024 seconds
+0.180079 seconds needed for dot
+basis: 0.320878 seconds
+clear: 0.000015 seconds
+weights: 10.283186 seconds
+0.189933 seconds needed for dot
+basis: 0.341073 seconds
+clear: 0.000015 seconds
+weights: 3.920227 seconds
+0.073288 seconds needed for dot
+basis: 0.134486 seconds
+clear: 0.000013 seconds
+weights: 0.866768 seconds
+0.016260 seconds needed for dot
+basis: 0.030188 seconds
+clear: 0.000010 seconds
+train: 29.591532 seconds
+weights: 9.873088 seconds
+0.181584 seconds needed for dot
+basis: 0.321217 seconds
+clear: 0.000017 seconds
+weights: 10.282696 seconds
+0.189992 seconds needed for dot
+basis: 0.340144 seconds
+clear: 0.000017 seconds
+weights: 3.923785 seconds
+0.074429 seconds needed for dot
+basis: 0.136032 seconds
+clear: 0.000013 seconds
+weights: 0.874734 seconds
+0.017100 seconds needed for dot
+basis: 0.031075 seconds
+clear: 0.000011 seconds
+train: 29.980743 seconds
+weights: 9.890032 seconds
+0.180647 seconds needed for dot
+basis: 0.321046 seconds
+clear: 0.000015 seconds
+weights: 10.286053 seconds
+0.188957 seconds needed for dot
+basis: 0.340034 seconds
+clear: 0.000014 seconds
+weights: 4.061230 seconds
+0.073297 seconds needed for dot
+basis: 0.134268 seconds
+clear: 0.000014 seconds
+weights: 0.867506 seconds
+0.016414 seconds needed for dot
+basis: 0.030312 seconds
+clear: 0.000010 seconds
+train: 29.779434 seconds
+weights: 9.837969 seconds
+0.180605 seconds needed for dot
+basis: 0.320019 seconds
+clear: 0.000016 seconds
+weights: 10.337175 seconds
+0.190295 seconds needed for dot
+basis: 0.340615 seconds
+clear: 0.000015 seconds
+weights: 3.926347 seconds
+0.074311 seconds needed for dot
+basis: 0.135436 seconds
+clear: 0.000015 seconds
+weights: 0.866576 seconds
+0.016407 seconds needed for dot
+basis: 0.030243 seconds
+clear: 0.000011 seconds
+train: 29.595366 seconds
+weights: 9.697566 seconds
+0.179856 seconds needed for dot
+basis: 0.320921 seconds
+clear: 0.000016 seconds
+weights: 10.285103 seconds
+0.191758 seconds needed for dot
+basis: 0.344678 seconds
+clear: 0.000014 seconds
+weights: 4.046993 seconds
+0.091804 seconds needed for dot
+basis: 0.162782 seconds
+clear: 0.000013 seconds
+weights: 0.904848 seconds
+0.016400 seconds needed for dot
+basis: 0.030350 seconds
+clear: 0.000011 seconds
+train: 29.526878 seconds
+weights: 9.765948 seconds
+0.180774 seconds needed for dot
+basis: 0.320468 seconds
+clear: 0.000015 seconds
+weights: 10.245437 seconds
+0.189641 seconds needed for dot
+basis: 0.339810 seconds
+clear: 0.000013 seconds
+weights: 3.906763 seconds
+0.073541 seconds needed for dot
+basis: 0.134278 seconds
+clear: 0.000011 seconds
+weights: 0.868248 seconds
+0.016556 seconds needed for dot
+basis: 0.030483 seconds
+clear: 0.000011 seconds
+train: 29.638276 seconds
+weights: 9.756173 seconds
+0.180961 seconds needed for dot
+basis: 0.320690 seconds
+clear: 0.000013 seconds
+weights: 10.292089 seconds
+0.189552 seconds needed for dot
+basis: 0.339161 seconds
+clear: 0.000014 seconds
+weights: 3.912226 seconds
+0.073382 seconds needed for dot
+basis: 0.133976 seconds
+clear: 0.000010 seconds
+weights: 0.871954 seconds
+0.016476 seconds needed for dot
+basis: 0.030261 seconds
+clear: 0.000010 seconds
+train: 29.791934 seconds
+weights: 9.706888 seconds
+0.179942 seconds needed for dot
+basis: 0.319429 seconds
+clear: 0.000012 seconds
+weights: 10.418529 seconds
+0.187723 seconds needed for dot
+basis: 0.336477 seconds
+clear: 0.000014 seconds
+weights: 3.899184 seconds
+0.073519 seconds needed for dot
+basis: 0.134088 seconds
+clear: 0.000011 seconds
+weights: 0.867399 seconds
+0.016362 seconds needed for dot
+basis: 0.030203 seconds
+clear: 0.000011 seconds
+train: 29.507081 seconds
+weights: 9.715225 seconds
+0.182523 seconds needed for dot
+basis: 0.322892 seconds
+clear: 0.000014 seconds
+weights: 10.231893 seconds
+0.192003 seconds needed for dot
+basis: 0.343278 seconds
+clear: 0.000016 seconds
+weights: 3.896185 seconds
+0.073289 seconds needed for dot
+basis: 0.133750 seconds
+clear: 0.000010 seconds
+weights: 0.862069 seconds
+0.016418 seconds needed for dot
+basis: 0.030260 seconds
+clear: 0.000011 seconds
+train: 29.302661 seconds
+weights: 9.872883 seconds
+0.180876 seconds needed for dot
+basis: 0.319605 seconds
+clear: 0.000016 seconds
+weights: 10.328885 seconds
+0.190054 seconds needed for dot
+basis: 0.340339 seconds
+clear: 0.000014 seconds
+weights: 3.924583 seconds
+0.073780 seconds needed for dot
+basis: 0.134274 seconds
+clear: 0.000014 seconds
+weights: 0.866373 seconds
+0.016524 seconds needed for dot
+basis: 0.030357 seconds
+clear: 0.000014 seconds
+train: 30.014297 seconds
+Learn rate: 0.200000; accuracy: 0.507953
+Time taken: 300 seconds
+weights: 9.757273 seconds
+0.181019 seconds needed for dot
+basis: 0.321354 seconds
+clear: 0.000016 seconds
+weights: 10.310067 seconds
+0.187722 seconds needed for dot
+basis: 0.337073 seconds
+clear: 0.000014 seconds
+weights: 3.960969 seconds
+0.074653 seconds needed for dot
+basis: 0.136284 seconds
+clear: 0.000015 seconds
+weights: 0.862471 seconds
+0.016343 seconds needed for dot
+basis: 0.030233 seconds
+clear: 0.000017 seconds
+train: 29.592401 seconds
+weights: 9.737669 seconds
+0.180327 seconds needed for dot
+basis: 0.319847 seconds
+clear: 0.000015 seconds
+weights: 10.270908 seconds
+0.189954 seconds needed for dot
+basis: 0.340120 seconds
+clear: 0.000016 seconds
+weights: 3.905756 seconds
+0.074049 seconds needed for dot
+basis: 0.134871 seconds
+clear: 0.000010 seconds
+weights: 0.870120 seconds
+0.016408 seconds needed for dot
+basis: 0.030317 seconds
+clear: 0.000011 seconds
+train: 29.379617 seconds
+weights: 9.734552 seconds
+0.180556 seconds needed for dot
+basis: 0.321541 seconds
+clear: 0.000015 seconds
+weights: 10.256407 seconds
+0.189625 seconds needed for dot
+basis: 0.341018 seconds
+clear: 0.000011 seconds
+weights: 3.864456 seconds
+0.073270 seconds needed for dot
+basis: 0.134333 seconds
+clear: 0.000010 seconds
+weights: 0.867247 seconds
+0.016345 seconds needed for dot
+basis: 0.030252 seconds
+clear: 0.000010 seconds
+train: 29.702540 seconds
+weights: 9.736090 seconds
+0.181305 seconds needed for dot
+basis: 0.321292 seconds
+clear: 0.000014 seconds
+weights: 10.587674 seconds
+0.236854 seconds needed for dot
+basis: 0.406896 seconds
+clear: 0.000013 seconds
+weights: 4.096814 seconds
+0.088119 seconds needed for dot
+basis: 0.156546 seconds
+clear: 0.000014 seconds
+weights: 0.923953 seconds
+0.020703 seconds needed for dot
+basis: 0.036935 seconds
+clear: 0.000011 seconds
+train: 30.077343 seconds
+weights: 9.783076 seconds
+0.179868 seconds needed for dot
+basis: 0.320792 seconds
+clear: 0.000016 seconds
+weights: 10.355021 seconds
+0.189080 seconds needed for dot
+basis: 0.340864 seconds
+clear: 0.000014 seconds
+weights: 3.925886 seconds
+0.073478 seconds needed for dot
+basis: 0.134566 seconds
+clear: 0.000014 seconds
+weights: 0.875969 seconds
+0.016539 seconds needed for dot
+basis: 0.030691 seconds
+clear: 0.000010 seconds
+train: 29.659856 seconds
+weights: 9.813529 seconds
+0.179850 seconds needed for dot
+basis: 0.318822 seconds
+clear: 0.000015 seconds
+weights: 10.268746 seconds
+0.200798 seconds needed for dot
+basis: 0.360741 seconds
+clear: 0.000014 seconds
+weights: 4.010592 seconds
+0.074400 seconds needed for dot
+basis: 0.135321 seconds
+clear: 0.000016 seconds
+weights: 0.867168 seconds
+0.016572 seconds needed for dot
+basis: 0.030421 seconds
+clear: 0.000011 seconds
+train: 29.999487 seconds
+weights: 9.753117 seconds
+0.179927 seconds needed for dot
+basis: 0.319050 seconds
+clear: 0.000015 seconds
+weights: 10.290271 seconds
+0.190332 seconds needed for dot
+basis: 0.340652 seconds
+clear: 0.000011 seconds
+weights: 3.913883 seconds
+0.074008 seconds needed for dot
+basis: 0.135541 seconds
+clear: 0.000010 seconds
+weights: 0.870856 seconds
+0.016626 seconds needed for dot
+basis: 0.030608 seconds
+clear: 0.000010 seconds
+train: 29.505455 seconds
+weights: 9.722818 seconds
+0.180136 seconds needed for dot
+basis: 0.319543 seconds
+clear: 0.000012 seconds
+weights: 10.242364 seconds
+0.189497 seconds needed for dot
+basis: 0.339812 seconds
+clear: 0.000011 seconds
+weights: 3.909441 seconds
+0.073732 seconds needed for dot
+basis: 0.134406 seconds
+clear: 0.000019 seconds
+weights: 0.865210 seconds
+0.016512 seconds needed for dot
+basis: 0.030239 seconds
+clear: 0.000010 seconds
+train: 29.345871 seconds
+weights: 9.700306 seconds
+0.180063 seconds needed for dot
+basis: 0.318934 seconds
+clear: 0.000011 seconds
+weights: 10.181520 seconds
+0.234318 seconds needed for dot
+basis: 0.400932 seconds
+clear: 0.000014 seconds
+weights: 4.119477 seconds
+0.092899 seconds needed for dot
+basis: 0.163091 seconds
+clear: 0.000012 seconds
+weights: 0.920978 seconds
+0.021010 seconds needed for dot
+basis: 0.037172 seconds
+clear: 0.000012 seconds
+train: 29.979501 seconds
+weights: 9.925124 seconds
+0.179943 seconds needed for dot
+basis: 0.318813 seconds
+clear: 0.000015 seconds
+weights: 10.316039 seconds
+0.190060 seconds needed for dot
+basis: 0.339874 seconds
+clear: 0.000015 seconds
+weights: 3.944249 seconds
+0.074490 seconds needed for dot
+basis: 0.135199 seconds
+clear: 0.000011 seconds
+weights: 0.916507 seconds
+0.016638 seconds needed for dot
+basis: 0.030413 seconds
+clear: 0.000011 seconds
+train: 29.705147 seconds
+Learn rate: 0.300000; accuracy: 0.508183
+Time taken: 300 seconds
+weights: 9.676908 seconds
+0.179634 seconds needed for dot
+basis: 0.319636 seconds
+clear: 0.000015 seconds
+weights: 10.218946 seconds
+0.189632 seconds needed for dot
+basis: 0.340295 seconds
+clear: 0.000015 seconds
+weights: 3.932264 seconds
+0.073823 seconds needed for dot
+basis: 0.134945 seconds
+clear: 0.000011 seconds
+weights: 0.872799 seconds
+0.020501 seconds needed for dot
+basis: 0.036756 seconds
+clear: 0.000012 seconds
+train: 29.698144 seconds
+weights: 9.754943 seconds
+0.175707 seconds needed for dot
+basis: 0.310836 seconds
+clear: 0.000015 seconds
+weights: 10.419824 seconds
+0.190001 seconds needed for dot
+basis: 0.340021 seconds
+clear: 0.000016 seconds
+weights: 4.005553 seconds
+0.074434 seconds needed for dot
+basis: 0.135575 seconds
+clear: 0.000015 seconds
+weights: 0.870673 seconds
+0.016467 seconds needed for dot
+basis: 0.030394 seconds
+clear: 0.000010 seconds
+train: 29.716625 seconds
+weights: 9.752533 seconds
+0.180838 seconds needed for dot
+basis: 0.322534 seconds
+clear: 0.000015 seconds
+weights: 10.256086 seconds
+0.191723 seconds needed for dot
+basis: 0.343832 seconds
+clear: 0.000014 seconds
+weights: 3.913749 seconds
+0.073293 seconds needed for dot
+basis: 0.134536 seconds
+clear: 0.000010 seconds
+weights: 0.860503 seconds
+0.016271 seconds needed for dot
+basis: 0.030027 seconds
+clear: 0.000010 seconds
+train: 29.401161 seconds
+weights: 9.902129 seconds
+0.180204 seconds needed for dot
+basis: 0.318865 seconds
+clear: 0.000016 seconds
+weights: 10.489507 seconds
+0.193043 seconds needed for dot
+basis: 0.344394 seconds
+clear: 0.000014 seconds
+weights: 4.020241 seconds
+0.073957 seconds needed for dot
+basis: 0.134530 seconds
+clear: 0.000015 seconds
+weights: 0.877426 seconds
+0.016463 seconds needed for dot
+basis: 0.030227 seconds
+clear: 0.000011 seconds
+train: 29.856331 seconds
+weights: 9.735478 seconds
+0.179251 seconds needed for dot
+basis: 0.319525 seconds
+clear: 0.000014 seconds
+weights: 10.259353 seconds
+0.189346 seconds needed for dot
+basis: 0.341025 seconds
+clear: 0.000016 seconds
+weights: 3.916929 seconds
+0.073100 seconds needed for dot
+basis: 0.134311 seconds
+clear: 0.000010 seconds
+weights: 0.866932 seconds
+0.016420 seconds needed for dot
+basis: 0.030150 seconds
+clear: 0.000010 seconds
+train: 29.648408 seconds
+weights: 9.732005 seconds
+0.179655 seconds needed for dot
+basis: 0.318725 seconds
+clear: 0.000015 seconds
+weights: 10.320728 seconds
+0.192177 seconds needed for dot
+basis: 0.344133 seconds
+clear: 0.000013 seconds
+weights: 3.926236 seconds
+0.073750 seconds needed for dot
+basis: 0.134425 seconds
+clear: 0.000014 seconds
+weights: 0.871269 seconds
+0.016494 seconds needed for dot
+basis: 0.030401 seconds
+clear: 0.000013 seconds
+train: 29.817363 seconds
+weights: 9.862020 seconds
+0.180307 seconds needed for dot
+basis: 0.319546 seconds
+clear: 0.000014 seconds
+weights: 10.248466 seconds
+0.190282 seconds needed for dot
+basis: 0.340668 seconds
+clear: 0.000015 seconds
+weights: 4.095176 seconds
+0.093848 seconds needed for dot
+basis: 0.164586 seconds
+clear: 0.000013 seconds
+weights: 0.895743 seconds
+0.016575 seconds needed for dot
+basis: 0.030595 seconds
+clear: 0.000014 seconds
+train: 29.805569 seconds
+weights: 9.768043 seconds
+0.180318 seconds needed for dot
+basis: 0.319830 seconds
+clear: 0.000015 seconds
+weights: 10.260587 seconds
+0.192038 seconds needed for dot
+basis: 0.343938 seconds
+clear: 0.000015 seconds
+weights: 3.961708 seconds
+0.073757 seconds needed for dot
+basis: 0.134396 seconds
+clear: 0.000015 seconds
+weights: 0.866943 seconds
+0.016379 seconds needed for dot
+basis: 0.030231 seconds
+clear: 0.000010 seconds
+train: 29.496037 seconds
+weights: 9.827649 seconds
+0.180266 seconds needed for dot
+basis: 0.319426 seconds
+clear: 0.000015 seconds
+weights: 10.350939 seconds
+0.189069 seconds needed for dot
+basis: 0.339100 seconds
+clear: 0.000021 seconds
+weights: 3.880668 seconds
+0.074235 seconds needed for dot
+basis: 0.134900 seconds
+clear: 0.000015 seconds
+weights: 0.853486 seconds
+0.016522 seconds needed for dot
+basis: 0.030318 seconds
+clear: 0.000011 seconds
+train: 29.989369 seconds
+weights: 9.754277 seconds
+0.180594 seconds needed for dot
+basis: 0.320789 seconds
+clear: 0.000014 seconds
+weights: 10.267047 seconds
+0.189779 seconds needed for dot
+basis: 0.340284 seconds
+clear: 0.000015 seconds
+weights: 3.925255 seconds
+0.074131 seconds needed for dot
+basis: 0.135389 seconds
+clear: 0.000011 seconds
+weights: 0.878381 seconds
+0.017061 seconds needed for dot
+basis: 0.031536 seconds
+clear: 0.000012 seconds
+train: 29.482292 seconds
+Learn rate: 0.400000; accuracy: 0.510657
+Time taken: 300 seconds
+weights: 9.701975 seconds
+0.180373 seconds needed for dot
+basis: 0.321806 seconds
+clear: 0.000010 seconds
+weights: 10.207559 seconds
+0.189542 seconds needed for dot
+basis: 0.341468 seconds
+clear: 0.000010 seconds
+weights: 3.928592 seconds
+0.097085 seconds needed for dot
+basis: 0.179318 seconds
+clear: 0.000014 seconds
+weights: 1.003720 seconds
+0.016328 seconds needed for dot
+basis: 0.030366 seconds
+clear: 0.000014 seconds
+train: 29.468853 seconds
+weights: 9.735412 seconds
+0.184329 seconds needed for dot
+basis: 0.325927 seconds
+clear: 0.000014 seconds
+weights: 10.281213 seconds
+0.190192 seconds needed for dot
+basis: 0.340744 seconds
+clear: 0.000014 seconds
+weights: 3.933589 seconds
+0.073776 seconds needed for dot
+basis: 0.134498 seconds
+clear: 0.000011 seconds
+weights: 0.864753 seconds
+0.016498 seconds needed for dot
+basis: 0.030285 seconds
+clear: 0.000010 seconds
+train: 29.785763 seconds
+weights: 9.846500 seconds
+0.179321 seconds needed for dot
+basis: 0.319684 seconds
+clear: 0.000015 seconds
+weights: 10.291651 seconds
+0.190940 seconds needed for dot
+basis: 0.344395 seconds
+clear: 0.000015 seconds
+weights: 3.975710 seconds
+0.077852 seconds needed for dot
+basis: 0.142863 seconds
+clear: 0.000010 seconds
+weights: 0.936231 seconds
+0.020790 seconds needed for dot
+basis: 0.037332 seconds
+clear: 0.000012 seconds
+train: 29.713518 seconds
+weights: 9.770400 seconds
+0.180111 seconds needed for dot
+basis: 0.320041 seconds
+clear: 0.000015 seconds
+weights: 10.308755 seconds
+0.189502 seconds needed for dot
+basis: 0.339890 seconds
+clear: 0.000015 seconds
+weights: 3.937459 seconds

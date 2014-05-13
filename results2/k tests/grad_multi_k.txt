@@ -1,0 +1,50 @@
+Learn rate: 0.001000; accuracy: 0.660606
+Time taken: 4 seconds
+Learn rate: 0.002000; accuracy: 0.672727
+Time taken: 1 seconds
+Learn rate: 0.003000; accuracy: 0.672727
+Time taken: 1 seconds
+Learn rate: 0.004000; accuracy: 0.673737
+Time taken: 1 seconds
+Learn rate: 0.005000; accuracy: 0.651515
+Time taken: 1 seconds
+Learn rate: 0.010000; accuracy: 0.681818
+Time taken: 1 seconds
+Learn rate: 0.020000; accuracy: 0.669697
+Time taken: 1 seconds
+Learn rate: 0.030000; accuracy: 0.670707
+Time taken: 1 seconds
+Learn rate: 0.040000; accuracy: 0.679798
+Time taken: 1 seconds
+Learn rate: 0.050000; accuracy: 0.649495
+Time taken: 1 seconds
+Learn rate: 0.100000; accuracy: 0.674747
+Time taken: 1 seconds
+Learn rate: 0.200000; accuracy: 0.652525
+Time taken: 1 seconds
+Learn rate: 0.300000; accuracy: 0.695960
+Time taken: 1 seconds
+Learn rate: 0.400000; accuracy: 0.642424
+Time taken: 1 seconds
+Learn rate: 0.500000; accuracy: 0.666667
+Time taken: 1 seconds
+Best learn rate: 0.300000; accuracy: 0.695960
+Iterations: 10; accuracy: 0.632323
+Time taken: 1 seconds
+Iterations: 15; accuracy: 0.645455
+Time taken: 2 seconds
+Iterations: 20; accuracy: 0.697980
+Time taken: 2 seconds
+Iterations: 25; accuracy: 0.687879
+Time taken: 3 seconds
+Iterations: 30; accuracy: 0.668687
+Time taken: 4 seconds
+Iterations: 35; accuracy: 0.669697
+Time taken: 4 seconds
+Iterations: 40; accuracy: 0.684848
+Time taken: 6 seconds
+Iterations: 45; accuracy: 0.642424
+Time taken: 9 seconds
+Iterations: 50; accuracy: 0.668687
+Time taken: 6 seconds
+Best number of iterations: 20; accuracy: 0.697980
