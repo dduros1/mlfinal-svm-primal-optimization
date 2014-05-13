@@ -1,0 +1,333 @@
+weights: 0.061943 seconds
+basis: 0.005459 seconds
+weights: 0.054002 seconds
+basis: 0.005458 seconds
+weights: 0.057830 seconds
+basis: 0.005504 seconds
+weights: 0.063764 seconds
+basis: 0.005811 seconds
+weights: 0.058129 seconds
+basis: 0.005487 seconds
+weights: 0.054175 seconds
+basis: 0.005592 seconds
+weights: 0.066090 seconds
+basis: 0.005583 seconds
+weights: 0.060190 seconds
+basis: 0.005752 seconds
+weights: 0.053557 seconds
+basis: 0.005537 seconds
+weights: 0.057797 seconds
+basis: 0.005649 seconds
+Diameter parameter: 0.001000; accuracy: 0.831313
+Time taken: 0 seconds
+weights: 0.057419 seconds
+basis: 0.005795 seconds
+weights: 0.056100 seconds
+basis: 0.006380 seconds
+weights: 0.061735 seconds
+basis: 0.005543 seconds
+weights: 0.064593 seconds
+basis: 0.005675 seconds
+weights: 0.059228 seconds
+basis: 0.005566 seconds
+weights: 0.064608 seconds
+basis: 0.005788 seconds
+weights: 0.056759 seconds
+basis: 0.005713 seconds
+weights: 0.050511 seconds
+basis: 0.005615 seconds
+weights: 0.060519 seconds
+basis: 0.005750 seconds
+weights: 0.064908 seconds
+basis: 0.005890 seconds
+Diameter parameter: 0.010000; accuracy: 0.804040
+Time taken: 0 seconds
+weights: 0.052383 seconds
+basis: 0.005662 seconds
+weights: 0.061120 seconds
+basis: 0.005679 seconds
+weights: 0.055713 seconds
+basis: 0.005562 seconds
+weights: 0.058159 seconds
+basis: 0.005906 seconds
+weights: 0.060564 seconds
+basis: 0.005617 seconds
+weights: 0.054724 seconds
+basis: 0.005587 seconds
+weights: 0.051955 seconds
+basis: 0.005751 seconds
+weights: 0.053874 seconds
+basis: 0.005848 seconds
+weights: 0.055414 seconds
+basis: 0.005541 seconds
+weights: 0.063833 seconds
+basis: 0.005669 seconds
+Diameter parameter: 0.100000; accuracy: 0.791919
+Time taken: 0 seconds
+weights: 0.057324 seconds
+basis: 0.005580 seconds
+weights: 0.054998 seconds
+basis: 0.005824 seconds
+weights: 0.058029 seconds
+basis: 0.005618 seconds
+weights: 0.057305 seconds
+basis: 0.006353 seconds
+weights: 0.055706 seconds
+basis: 0.005613 seconds
+weights: 0.051623 seconds
+basis: 0.005862 seconds
+weights: 0.052123 seconds
+basis: 0.005524 seconds
+weights: 0.058825 seconds
+basis: 0.005665 seconds
+weights: 0.050498 seconds
+basis: 0.005531 seconds
+weights: 0.056396 seconds
+basis: 0.005609 seconds
+Diameter parameter: 1.000000; accuracy: 0.805051
+Time taken: 0 seconds
+weights: 0.051896 seconds
+basis: 0.005902 seconds
+weights: 0.060646 seconds
+basis: 0.005485 seconds
+weights: 0.052284 seconds
+basis: 0.005830 seconds
+weights: 0.056537 seconds
+basis: 0.005594 seconds
+weights: 0.063884 seconds
+basis: 0.005590 seconds
+weights: 0.054896 seconds
+basis: 0.005821 seconds
+weights: 0.055444 seconds
+basis: 0.005567 seconds
+weights: 0.056493 seconds
+basis: 0.005699 seconds
+weights: 0.054323 seconds
+basis: 0.005723 seconds
+weights: 0.054080 seconds
+basis: 0.006165 seconds
+Diameter parameter: 10.000000; accuracy: 0.804040
+Time taken: 0 seconds
+Best diameter parameter: 0.001000; accuracy: 0.831313
+weights: 0.062399 seconds
+basis: 0.005877 seconds
+weights: 0.055899 seconds
+basis: 0.005564 seconds
+weights: 0.054538 seconds
+basis: 0.005945 seconds
+weights: 0.055188 seconds
+basis: 0.005561 seconds
+weights: 0.058565 seconds
+basis: 0.005573 seconds
+weights: 0.058032 seconds
+basis: 0.005845 seconds
+weights: 0.056827 seconds
+basis: 0.005553 seconds
+weights: 0.058816 seconds
+basis: 0.005873 seconds
+weights: 0.055923 seconds
+basis: 0.005743 seconds
+weights: 0.059091 seconds
+basis: 0.005679 seconds
+Sample size: 10; accuracy: 0.807071
+Time taken: 0 seconds
+weights: 0.130109 seconds
+basis: 0.005744 seconds
+weights: 0.134665 seconds
+basis: 0.005769 seconds
+weights: 0.146039 seconds
+basis: 0.005978 seconds
+weights: 0.140160 seconds
+basis: 0.005792 seconds
+weights: 0.136515 seconds
+basis: 0.005997 seconds
+weights: 0.124952 seconds
+basis: 0.006331 seconds
+weights: 0.139174 seconds
+basis: 0.005768 seconds
+weights: 0.141731 seconds
+basis: 0.005845 seconds
+weights: 0.139687 seconds
+basis: 0.005742 seconds
+weights: 0.146631 seconds
+basis: 0.005863 seconds
+Sample size: 20; accuracy: 0.829293
+Time taken: 1 seconds
+weights: 0.219151 seconds
+basis: 0.005880 seconds
+weights: 0.224791 seconds
+basis: 0.005891 seconds
+weights: 0.227448 seconds
+basis: 0.005778 seconds
+weights: 0.227116 seconds
+basis: 0.005843 seconds
+weights: 0.239194 seconds
+basis: 0.005824 seconds
+weights: 0.219750 seconds
+basis: 0.005801 seconds
+weights: 0.238128 seconds
+basis: 0.005734 seconds
+weights: 0.226106 seconds
+basis: 0.005747 seconds
+weights: 0.221986 seconds
+basis: 0.005890 seconds
+weights: 0.222942 seconds
+basis: 0.005739 seconds
+Sample size: 30; accuracy: 0.818182
+Time taken: 2 seconds
+weights: 0.305249 seconds
+basis: 0.005799 seconds
+weights: 0.303996 seconds
+basis: 0.005891 seconds
+weights: 0.307573 seconds
+basis: 0.005851 seconds
+weights: 0.311399 seconds
+basis: 0.005937 seconds
+weights: 0.319910 seconds
+basis: 0.005764 seconds
+weights: 0.323581 seconds
+basis: 0.005719 seconds
+weights: 0.311991 seconds
+basis: 0.005761 seconds
+weights: 0.303581 seconds
+basis: 0.005907 seconds
+weights: 0.301721 seconds
+basis: 0.005730 seconds
+weights: 0.306369 seconds
+basis: 0.005843 seconds
+Sample size: 40; accuracy: 0.830303
+Time taken: 3 seconds
+weights: 0.395205 seconds
+basis: 0.006288 seconds
+weights: 0.392706 seconds
+basis: 0.005749 seconds
+weights: 0.385804 seconds
+basis: 0.005819 seconds
+weights: 0.383766 seconds
+basis: 0.005769 seconds
+weights: 0.389500 seconds
+basis: 0.005882 seconds
+weights: 0.393384 seconds
+basis: 0.005679 seconds
+weights: 0.389189 seconds
+basis: 0.005666 seconds
+weights: 0.386681 seconds
+basis: 0.005644 seconds
+weights: 0.380969 seconds
+basis: 0.005704 seconds
+weights: 0.388294 seconds
+basis: 0.005657 seconds
+Sample size: 50; accuracy: 0.848485
+Time taken: 3 seconds
+Best sample size: 50; accuracy: 0.848485
+weights: 0.166796 seconds
+basis: 0.005542 seconds
+weights: 0.168685 seconds
+basis: 0.005701 seconds
+weights: 0.166135 seconds
+basis: 0.005956 seconds
+weights: 0.175964 seconds
+basis: 0.005710 seconds
+weights: 0.172227 seconds
+basis: 0.005735 seconds
+weights: 0.173207 seconds
+basis: 0.005777 seconds
+weights: 0.165394 seconds
+basis: 0.005694 seconds
+weights: 0.176610 seconds
+basis: 0.005644 seconds
+weights: 0.175470 seconds
+basis: 0.005824 seconds
+weights: 0.161231 seconds
+basis: 0.005611 seconds
+Iterations: 10; accuracy: 0.824242
+Time taken: 1 seconds
+weights: 0.379892 seconds
+basis: 0.005728 seconds
+weights: 0.373277 seconds
+basis: 0.005915 seconds
+weights: 0.380440 seconds
+basis: 0.005707 seconds
+weights: 0.388047 seconds
+basis: 0.005727 seconds
+weights: 0.383687 seconds
+basis: 0.005709 seconds
+weights: 0.371220 seconds
+basis: 0.005772 seconds
+weights: 0.388185 seconds
+basis: 0.005763 seconds
+weights: 0.373310 seconds
+basis: 0.005720 seconds
+weights: 0.360083 seconds
+basis: 0.005718 seconds
+weights: 0.377934 seconds
+basis: 0.005659 seconds
+Iterations: 20; accuracy: 0.816162
+Time taken: 3 seconds
+weights: 0.585594 seconds
+basis: 0.005667 seconds
+weights: 0.592621 seconds
+basis: 0.005970 seconds
+weights: 0.568969 seconds
+basis: 0.005836 seconds
+weights: 0.585420 seconds
+basis: 0.005870 seconds
+weights: 0.570051 seconds
+basis: 0.005866 seconds
+weights: 0.557629 seconds
+basis: 0.005751 seconds
+weights: 0.575056 seconds
+basis: 0.005697 seconds
+weights: 0.565667 seconds
+basis: 0.005809 seconds
+weights: 0.590459 seconds
+basis: 0.005811 seconds
+weights: 0.576173 seconds
+basis: 0.005857 seconds
+Iterations: 30; accuracy: 0.810101
+Time taken: 5 seconds
+weights: 0.774178 seconds
+basis: 0.005721 seconds
+weights: 0.786559 seconds
+basis: 0.005782 seconds
+weights: 0.782607 seconds
+basis: 0.005628 seconds
+weights: 0.763817 seconds
+basis: 0.005841 seconds
+weights: 0.767922 seconds
+basis: 0.005785 seconds
+weights: 0.739560 seconds
+basis: 0.005250 seconds
+weights: 0.746276 seconds
+basis: 0.004869 seconds
+weights: 0.729832 seconds
+basis: 0.004970 seconds
+weights: 0.729645 seconds
+basis: 0.004903 seconds
+weights: 0.744282 seconds
+basis: 0.005080 seconds
+Iterations: 40; accuracy: 0.827273
+Time taken: 7 seconds
+weights: 0.931281 seconds
+basis: 0.004897 seconds
+weights: 0.923556 seconds
+basis: 0.004883 seconds
+weights: 0.958910 seconds
+basis: 0.005018 seconds
+weights: 0.903052 seconds
+basis: 0.004933 seconds
+weights: 0.896321 seconds
+basis: 0.005203 seconds
+weights: 0.933991 seconds
+basis: 0.005183 seconds
+weights: 0.901888 seconds
+basis: 0.005155 seconds
+weights: 0.930672 seconds
+basis: 0.006068 seconds
+weights: 0.885365 seconds
+basis: 0.004895 seconds
+weights: 0.901906 seconds
+basis: 0.004871 seconds
+Iterations: 50; accuracy: 0.814141
+Time taken: 9 seconds
+Best iteration number: 40; accuracy: 0.827273

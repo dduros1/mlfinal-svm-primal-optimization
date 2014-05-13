@@ -22,16 +22,22 @@ class Optimizer:
         self.weights = Feature()
 
     def calc_basis(self, instances):
+        #return 0
         count = 0.0
         val = 0.0
+        timeneeded = 0.0
         for inst in instances:
-            guess = self.weights.dot(inst.getFeature())
+            start = time.time()
+            guess = inst.getFeature().dot(self.weights)
+            end = time.time()
+            timeneeded += (end - start)
             parity = inst.getLabel().getLabel()
             if parity == 0:
                 parity = -1
             if guess * parity < 1:
                 count += 1
                 val +=   parity - guess
+        #print ('%f seconds needed for dot' % timeneeded)
         return val / count
         #return 0
 
@@ -51,7 +57,6 @@ class GradientDescent(Optimizer):
         for i in range(0, self.iterations):
             for instance in instances:
                 x = copy.copy(instance.getFeature())
-                f = instance.getFeature()
                 true_label = instance.getLabel().getLabel()
                 if (true_label == 0):
                     true_label = -1
@@ -71,7 +76,7 @@ class NewtonApproximation(Optimizer):
 
     #weights = Feature()
 
-    def __init__(self, kernel,param=0.01, iterations=20):
+    def __init__(self, kernel,param=0.01, iterations=5):
         self.param = param
         self.kernel = kernel
         self.iterations = iterations
@@ -109,7 +114,7 @@ class NewtonApproximation(Optimizer):
             start = time.time()
             beta = self.primalsvm(small_instances)
             end = time.time()
-            print('Seconds for recursive call:', (end-start))
+            #print('Seconds for recursive call:', (end-start))
             for key, value in beta.iteritems():
                 if not value == 0:
                     sv.append(key)
@@ -264,7 +269,7 @@ class StochasticSubgradient(Optimizer):
             for inst in A:
                 if inst.getLabel().getLabel() == 0:
                     w.scalar_multiply(-1)
-                if w.dot(inst.getFeature()) < 1:
+                if inst.getFeature().dot(w) < 1:
                     newA.append(inst)
                 #undo the negativity, if needed.
                 if inst.getLabel().getLabel() == 0:
