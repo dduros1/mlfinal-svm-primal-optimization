@@ -37,14 +37,14 @@ Our goal is to analyze three different primal optimization methods in the contex
 \begin{gather} min_{w,b} \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P\notag\\ 
 \text{under constraints } y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0\label{primalobj}\end{gather}
 
-We use a hard-margin SVM, where $C=0$
+We use a hard-margin SVM, where $C=0$ - that is, we would like every data point to be outside of the margin around the hyperplane.  The values $\xi_i$ allow for some slack, but by setting $C$ to $0$, we remove this possibility.
 
 \section{Background}
 
 \subsection{Data}
-We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.\\
+We retrieved our data from the problem ``Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.\\
 \indent Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.  \\
-\indent In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ",", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions also collapsed our corpus from $\sim$18000 words to $\sim$16000 words.\\
+\indent In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ``,", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions, which collapsed our corpus from $\sim$18000 words to $\sim$16000 words.\\
 \indent When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than this.
 \begin{table}
 \centering
@@ -64,19 +64,19 @@ Average number of phrases containing a word & 55.21
 \subsection{Features}
 We generated features based on a bag of words model, where a phrase is represented as the multiset of its words.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the frequency of a word in a phrase).
 
-We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.  We did not implement feature selection to only utilize the most significant features.
+We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.  We did not implement feature selection to only utilize the most significant features, as we believe that feature selection would not be able to maintain a balance between reducting the number of features and maintaing information for each phrase (if we removed too many words, many phrases would have most, or maybe all, of their words removed, becoming useless).
 
 \section{SVMs}
 We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multi-class data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
 
-SVMs are binary linear classifiers.  In training, they create a hyperplane between two classes of data, where the hyperplane maximizes the margin between the two classes.  The main assumption that we have made about our data is that it is linearly separable.  Since our data is text-based, one example that could cause non-linear separability is sarcasm: suppose a reviewer uses a "positive" word sarcastically.
+SVMs are binary linear classifiers.  In training, they create a hyperplane between two classes of data, where the hyperplane maximizes the margin between the two classes.  The main assumption that we have made about our data is that it is linearly separable.  Since our data is text-based, one example that could cause non-linear separability is sarcasm: suppose a reviewer uses a ``positive" word sarcastically.
 
 Our optimizers return the coefficients of the hyperplane that maximizes the margin, where we have as many coefficients as we do features.  The general objective function is of the form $f(w) = L(w) + r(w) $, where $L(w)$ is a convex measure of loss and $r(w)$ is a convex regularization, so our optimization goal is to minimize the loss function.
 
 \textbf{Basis} TODO
 
 \subsection{Multi-class SVM}
-In order to classify data into 5 classes, we needed to expand our SVM to handle more than just binary labels.  Since two-class problems are easier to solve, we will generate multiple pairwise SVMs for multi-class classification, using the "one against one" method \cite{milgram2006one}.
+In order to classify data into 5 classes, we needed to expand our SVM to handle more than just binary labels.  Since two-class problems are easier to solve, we will generate multiple pairwise SVMs for multi-class classification, using the ``one against one" method \cite{milgram2006one}.
 
 To enforce ordinal ranking ($0 < 1 < 2 < 3 < 4$), instead of generating pairwise SVMs between all pairs, we only created pairwise SVMs for label pairs \{ (0,1), (1,2), (2,3), (3,4) \}.  This way, we never attempt to classify between classes that aren't directly related via the ranking inequality.
 
@@ -84,7 +84,7 @@ Once each pairwise SVM is trained, according to a user defined optimization meth
 
 This introduces the problem that, if we have never seen the true label and $S$ together, we will never be able to predict it.  In addition, if we train on a restricted dataset, it is possible that we will not see all possible values of S.  In this case, if we encounter a value of S that we didn't see in training, we classify based on the overall probability of the labels, given the training data (the probability is the proportion of times we've seen each label in training data to the number of all training instances.).
 
-For this multi-class SVM, we need to achieve accuracy above .2 (1/5) to improve upon random chance, whereas we need to have accuracy greater than .5 for the binary SVM.
+For this multi-class SVM, we need to achieve accuracy above 0.2 (1/5) to improve upon random chance, whereas we need to have accuracy greater than 0.5 for the binary SVM.
 
 \section{Primal Optimization Methods}
 Many SVM packages optimize the dual form of the SVM, but we chose to explore different methods for optimizing the primal problem.
@@ -159,7 +159,7 @@ This method approximates the inverse Hessian, and uses it to scale the gradient 
 \UNTIL {sv has not changed}
 \end{algorithmic}
 \end{algorithm}
-\textbf{RBF Kernel}  We used a radial basis function (RBF) kernel for this method, because that is the original kernel used by Chapelle.  $$ K(x, x') = exp(-\frac{\mid \mid x-x' \mid \mid^2_2 }{2\sigma^2}) $$After getting poor performance from this method, we further examined our kernel, and determined that we should not have used and RBF kernel for this problem. The RBF kernel acts as a Gaussian filter, which are often used for smoothing images, so the RBF kernel is a filter that selects smooth solutions.\footnote{http://charlesmartin14.wordpress.com/2012/02/06/kernels\_part\_1/ }  This doesn't make sense in the context of text data, because you can't view the data in terms of signals with a frequency domain.  This kernel was logical for the USPS dataset Chapelle used, because it is an image dataset.  A better kernel for us would have been the linear kernel.
+\textbf{RBF Kernel}  We used a radial basis function (RBF) kernel for this method, because that is the original kernel used by Chapelle.  $$ K(x, x') = exp(-\frac{\mid \mid x-x' \mid \mid^2_2 }{2\sigma^2}) $$After getting poor performance from this method, we further examined our kernel, and determined that we should not have used an RBF kernel for this problem. The RBF kernel acts as a Gaussian filter, which are often used for smoothing images, so the RBF kernel is a filter that selects smooth solutions.\footnote{http://charlesmartin14.wordpress.com/2012/02/06/kernels\_part\_1/ }  This doesn't make sense in the context of text data, because you can't view the data in terms of signals with a frequency domain.  This kernel was logical for the USPS dataset Chapelle used, because it is an image dataset.  A better kernel for us would have been the linear kernel.
 
 \subsection{Stochastic Subgradient}
 Stochastic gradient descent is significantly faster than methods like gradient descent that use the true gradient at each iteration.  Instead, it approximates the gradient on fewer training examples.  The stochastic sub gradient method we implemented is the Pegasos algorithm by \citeauthor{pegasos}, which is a stochastic gradient descent method that also has a projection step.  The objective to be minimized is \begin{equation} min_w \frac{\lambda}{2} \mid \mid w \mid \mid ^2 +\frac{1}{m} \sum_{(x, y) \in X} L(w; (x,y)) \end{equation}
