@@ -31,13 +31,13 @@ This paper examines the efficacy of different optimization techniques in a prima
 \section{Introduction}
 Most SVM literature states the primal optimization, then proceeds to the dual formulation without providing significant detail on training an SVM using the primal optimization problem.  Learning an SVM is typically viewed as a constrained quadratic programming problem.
 
-Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Previous work in the area\cite{chapelle2007training} has used the USPS dataset, which is significantly smaller than our data set.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
+Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
 \begin{gather} min_{w,b} \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P\notag\\ 
 \text{under constraints } y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0\label{primalobj}\end{gather}
 
 We use a hard-margin SVM, where $C=0$ - that is, we would like every data point to be outside of the margin around the hyperplane.  The values $\xi_i$ allow for some slack, but by setting $C$ to $0$, we remove this possibility.
 
-The optimization algorithms we consider are gradient descent, Newton's method, and the Pegasos algorithm, which is an application of a stochastic sub gradient method.  Other algorithms that are related to these are the NORMA algorithm\cite{norma}, which is another application of stochastic gradient descent, and SGD-QN \cite{sgdqn}, which combines stochastic gradient descent with a quasi-Newton method.
+The optimization algorithms we consider are gradient descent, Newton's method, and the Pegasos algorithm, which is an application of a stochastic sub gradient method.  Other algorithms that are related to these are the NORMA algorithm\cite{norma}, which is another application of stochastic gradient descent, and SGD-QN \cite{sgdqn}, which combines stochastic gradient descent with a quasi-Newton method.  Other previous work in Newton's method \cite{chapelle2007training} has used the USPS dataset, which is significantly smaller than our data set.
 
 \section{Background}
 
@@ -64,7 +64,7 @@ Avg. freq. of phrases per word & 55.21
 \subsection{Features}
 We generated features based on a bag of words model, where a phrase is represented as the multiset of its words.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the frequency of a word in a phrase).
 
-We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.  We did not implement feature selection to only utilize the most significant features, as we believe that feature selection would not be able to maintain a balance between reducting the number of features and maintaing information for each phrase (if we removed too many words, many phrases would have most, or maybe all, of their words removed, becoming useless).
+We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.  We did not implement feature selection to only utilize the most significant features, as we believe that feature selection would not be able to maintain a balance between reducing the number of features and maintaining information for each phrase (if we removed too many words, many phrases would have most, or maybe all, of their words removed, becoming useless).
 
 \section{SVMs}
 We chose to approach this data set with SVMs, because they provide a framework for various optimization methods, as well as generalizing to multi-class data.  This also allowed us to build upon work that we'd done in class, using the gradient descent method as a baseline to compare with our other optimization methods.
