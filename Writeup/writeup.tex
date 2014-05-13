@@ -193,61 +193,51 @@ We created an SVM framework in Python, as well as a custom DataParser.  Our SVM 
 For evaluation, we created a CrossValidationTester, so that we could train and test on the training dataset from kaggle.com.  For each round, the CrossValidationTester randomly orders the data, then selects 10\% to be left out for testing purposes, while the rest is used for training the model; we used a default of 10 rounds, then averaged the accuracy and timing results across rounds.  The only model that we didn't use this for was the Newton approximation, because it took too long to run.
 
 \section{Results}
-Things to discuss:
-\begin{itemize}
-	\item Variations in parameters for each method
-	\item Binary vs multi class accuracy AND timing
-	\item timing
-	\item convergence
-\end{itemize}
 
 \subsection{Cross Validation Results}
 
-To find the best accuracy for each algorithm, we tested different parameter settings.  For gradient descent, we iterated over the set of learning rates \{ .01, .02, .03, .04, .05, .1, .2, .3, .4, .5, 1, 2, 3, 4, 5  \} to find the optimal learning rate, then used this value to find the number of iterations needed for convergence.  Similarly, for the Pegasos method, we iterated over the set of ball diameters \{ .001, .01, .1, 1, 10 \} to find the optimal $\lambda$, then used this to determine the best sample size and number of iterations.
+To find the best accuracy for each algorithm, we tested different parameter settings.  For gradient descent, we iterated over the set of learning rates \{ .01, .02, .03, .04, .05, .1, .2, .3, .4, .5, 1, 2, 3, 4, 5  \} to find the optimal learning rate, then used this value to find the number of iterations needed for convergence.  Similarly, for the Pegasos method, we iterated over the set of ball diameters \{ .001, .01, .1, 1, 10 \} to find the optimal $\lambda$, then used this to determine the best sample size and number of iterations.  The optimal parameters for each algorithm under each data representation setting are available in the results file we're providing with our project.
 
-For each parameter setting, we ran 10-fold cross validation to determine the average accuracy and runtime.  Once we determined the "best" parameters for each model, we ran 10-fold cross validation on the training data under various data representation settings.  The modes we evaluated were binary (bin) versus multiclass (multi) SVMs, and the data settings were binary feature representation (bin) versus the frequency representation (freq).  Table \ref{fullset} shows the comparison between different settings for gradient descent (GD) and Pegasos stochastic subgradient (SSG) on the full data set, while table \ref{smallest} shows the comparison between settings for all three algorithms, where Newton's method is abbreviated as NM.  The modes evaluated
+For each parameter setting, we ran 10-fold cross validation to determine the average accuracy and runtime.  Once we determined the "best" parameters for each model, we ran 10-fold cross validation on the training data under various data representation settings.  The modes we evaluated were binary (bin) versus multiclass (multi) SVMs, and the data settings were binary feature representation (bin) versus the frequency representation (freq).  Table \ref{table:fullset} shows the comparison between different settings for gradient descent (GD) and Pegasos stochastic subgradient (SSG) on the full data set, while table \ref{table:smallset} shows the comparison between settings for all three algorithms, where Newton's method is abbreviated as NM. 
 
-We were unable to evaluate Newton's on training sets larger than 1000 instances, so 
+We were unable to evaluate Newton's on training sets larger than 1000 instances, but wanted to compare its results with the other two methods, so we used a limited data set to produce the results in table \ref{table:smallset}.
 
 \begin{table}
-\label{fullset}
+
 \centering
 \begin{tabular}{c|cccc}
-\textbf{Algorithm} & \textbf{Mode} & \textbf{Data} & \textbf{Accuracy} & \textbf{Time (sec)}\\
+\textbf{Alg.} & \textbf{Mode} & \textbf{Data} & \textbf{Accuracy} & \textbf{Time (sec)}\\
 \hline
-GD & bin & bin & & \\
-GD & bin & freq & & \\
-GD & multi & bin & & \\
-GD & multi & freq & & \\
-SSG & bin & bin & & \\
-SSG & bin & freq & & \\
-SSG & multi & bin & & \\
-SSG & multi & freq & & \\
+GD & bin & bin & .7328 & 184 \\
+GD & multi & bin & .5119 & 300 \\
+SSG & bin & bin & .7319 & 140 \\
+SSG & bin & freq & .7312 & 67 \\
+SSG & multi & bin & .5142 & 120 \\
+SSG & multi & freq & .5141 & 122 \\
 \end{tabular}
-\caption{Results from running algorithms on full training set using cross validation.  We were unable to evaluate the full data set using Newton's approximation}
+\caption{Results from running algorithms on full training set using cross validation.  We were unable to evaluate the full data set using Newton's approximation}\label{table:fullset}.
 \end{table}
 
 \begin{table}
-\label{smallset}
 \centering
 \begin{tabular}{c|cccc}
-\textbf{Algorithm} & \textbf{Mode} & \textbf{Data} & \textbf{Accuracy} & \textbf{Time (sec)}\\
+\textbf{Alg.} & \textbf{Mode} & \textbf{Data} & \textbf{Accuracy} & \textbf{Time (sec)}\\
 \hline
-GD & bin & bin & & \\
-GD & bin & freq & & \\
-GD & multi & bin & & \\
-GD & multi & freq & & \\
-SSG & bin & bin & & \\
-SSG & bin & freq & & \\
-SSG & multi & bin & & \\
-SSG & multi & freq & & \\
-NM & bin & bin & & \\
-NM & bin & freq & & \\
-NM & multi & bin & & \\
-NM & multi & freq & & \\
+GD & bin & bin &  .8343 & 1\\
+GD & bin & freq & .8404 & 1\\
+GD & multi & bin & .6979 & 2\\
+GD & multi & freq & .6929 & 3\\
+SSG & bin & bin & .8485 & 2\\
+SSG & bin & freq & .8485 & 3\\
+SSG & multi & bin & .7061 & 1\\
+SSG & multi & freq & .7172 & 1\\
+NM & bin & bin & .7959 & 470 \\
+NM & multi & bin & .6828 & 537 \\
 \end{tabular}
-\caption{Results from running algorithms on small (1000 data instances) cross validation set}
+\caption{Results from running algorithms on small (1000 data instances) cross validation set}\label{table:smallset}
 \end{table}
+
+On both datasets, the Pegasos method's results are nearly equal to those of gradient descent, but the runtime is much quicker.  On the small dataset, Newton's method performs almost equally well with the multiclass SVM, but is outperformed by both gradient descent and Pegasos on the binary SVM.  We can clearly see that this method took significantly longer, without yielding superior results.
 
 \subsection{Comparison to Proposal}
 We revised our proposal from focusing on solving the kaggle.com problem to using the dataset to explore different optimization techniques.  Our achievements did still align somewhat with what we initially planned to do, which was to first create a binary SVM classifier, then extend it to a multi-class SVM.  We created both successfully.  However, instead of exploring various feature representations of our data, we explored different primal optimization techniques.  Our goal was to implement three different algorithms, and we met this goal.  We did not generate results to submit to kaggle.com, preferring to evaluate our methods using 10-fold cross validation. 
