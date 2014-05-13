@@ -204,8 +204,53 @@ Things to discuss:
 	\item convergence
 \end{itemize}
 
-\subsection{Crossvalidation Results}
+\subsection{Cross Validation Results}
 
+To find the best accuracy for each algorithm, we tested different parameter settings.  For gradient descent, we iterated over the set of learning rates \{ .01, .02, .03, .04, .05, .1, .2, .3, .4, .5, 1, 2, 3, 4, 5  \} to find the optimal learning rate, then used this value to find the number of iterations needed for convergence.  Similarly, for the Pegasos method, we iterated over the set of ball diameters \{ .001, .01, .1, 1, 10 \} to find the optimal $\lambda$, then used this to determine the best sample size and number of iterations.
+
+For each parameter setting, we ran 10-fold cross validation to determine the average accuracy and runtime.  Once we determined the "best" parameters for each model, we ran 10-fold cross validation on the training data under various data representation settings.  The modes we evaluated were binary (bin) versus multiclass (multi) SVMs, and the data settings were binary feature representation (bin) versus the frequency representation (freq).  Table \ref{fullset} shows the comparison between different settings for gradient descent (GD) and Pegasos stochastic subgradient (SSG) on the full data set, while table \ref{smallest} shows the comparison between settings for all three algorithms, where Newton's method is abbreviated as NM.  The modes evaluated
+
+We were unable to evaluate Newton's on training sets larger than 1000 instances, so 
+
+\begin{table}
+\label{fullset}
+\centering
+\begin{tabular}{c|cccc}
+\textbf{Algorithm} & \textbf{Mode} & \textbf{Data} & \textbf{Accuracy} & \textbf{Time (sec)}\\
+\hline
+GD & bin & bin & & \\
+GD & bin & freq & & \\
+GD & multi & bin & & \\
+GD & multi & freq & & \\
+SSG & bin & bin & & \\
+SSG & bin & freq & & \\
+SSG & multi & bin & & \\
+SSG & multi & freq & & \\
+\end{tabular}
+\caption{Results from running algorithms on full training set using cross validation.  We were unable to evaluate the full data set using Newton's approximation}
+\end{table}
+
+\begin{table}
+\label{smallset}
+\centering
+\begin{tabular}{c|cccc}
+\textbf{Algorithm} & \textbf{Mode} & \textbf{Data} & \textbf{Accuracy} & \textbf{Time (sec)}\\
+\hline
+GD & bin & bin & & \\
+GD & bin & freq & & \\
+GD & multi & bin & & \\
+GD & multi & freq & & \\
+SSG & bin & bin & & \\
+SSG & bin & freq & & \\
+SSG & multi & bin & & \\
+SSG & multi & freq & & \\
+NM & bin & bin & & \\
+NM & bin & freq & & \\
+NM & multi & bin & & \\
+NM & multi & freq & & \\
+\end{tabular}
+\caption{Results from running algorithms on small (1000 data instances) cross validation set}
+\end{table}
 
 \subsection{Comparison to Proposal}
 We revised our proposal from focusing on solving the kaggle.com problem to using the dataset to explore different optimization techniques.  Our achievements did still align somewhat with what we initially planned to do, which was to first create a binary SVM classifier, then extend it to a multi-class SVM.  We created both successfully.  However, instead of exploring various feature representations of our data, we explored different primal optimization techniques.  Our goal was to implement three different algorithms, and we met this goal.  We did not generate results to submit to kaggle.com, preferring to evaluate our methods using 10-fold cross validation. 
