@@ -29,9 +29,7 @@ This paper examines the efficacy of different optimization techniques in a prima
 \end{abstract}
                                                                                                                                                                                                                                                                            
 \section{Introduction}
-Most SVM literature states the primal optimization, then proceeds to the dual formulation without providing significant detail on training an SVM using the primal optimization problem.  
-
-TODO moar
+Most SVM literature states the primal optimization, then proceeds to the dual formulation without providing significant detail on training an SVM using the primal optimization problem.  Learning an SVM is typically viewed as a constrained quadratic programming problem.
 
 Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Previous work in the area\cite{chapelle2007training} has used the USPS dataset, which is significantly smaller than our data set.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
 \begin{gather} min_{w,b} \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P\notag\\ 
@@ -39,13 +37,18 @@ Our goal is to analyze three different primal optimization methods in the contex
 
 We use a hard-margin SVM, where $C=0$
 
+The optimization algorithms we consider are gradient descent, Newton's method, and the Pegasos algorithm, which is an application of a stochastic sub gradient method.  Other algorithms that are related to these are the NORMA algorithm\cite{norma}, which is another application of stochastic gradient descent, and SGD-QN \cite{sgdqn}, which combines stochastic gradient descent with a quasi-Newton method.
+
 \section{Background}
 
 \subsection{Data}
-We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.\\
-\indent Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.  \\
-\indent In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ",", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions also collapsed our corpus from $\sim$18000 words to $\sim$16000 words.\\
-\indent When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than this.
+We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.
+
+ Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.  
+
+ In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ",", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions also collapsed our corpus from $\sim$18000 words to $\sim$16000 words.
+
+ When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than this.
 \begin{table}
 \centering
 \label{stats}
@@ -54,8 +57,8 @@ We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," fr
 \hline
 Number of data instances & 150606\\
 Number of distinct words & 18226\\
-Average number of words per phrase & 6.85\\
-Average number of phrases containing a word & 55.21
+Avg. freq. of words per phrase & 6.85\\
+Avg. freq. of phrases per word & 55.21
 \end{tabular}
 \caption{Data statistics on Sentiment Analysis on Movie Reviews dataset}
 \end{table}
@@ -73,7 +76,8 @@ SVMs are binary linear classifiers.  In training, they create a hyperplane betwe
 
 Our optimizers return the coefficients of the hyperplane that maximizes the margin, where we have as many coefficients as we do features.  The general objective function is of the form $f(w) = L(w) + r(w) $, where $L(w)$ is a convex measure of loss and $r(w)$ is a convex regularization, so our optimization goal is to minimize the loss function.
 
-\textbf{Basis} TODO
+\textbf{Basis} To calculate a basis, we take all data points that constitute support vectors (that is, whose margins are less than one), and calculate their average distance from the hyperplane described by the weights $w$.  We use the average distance, because it is a more robust measure for implementation; if we summed these values, we would overfit the data. %Taking just the sum of their distances would more accurately optimize the SVM equation, but can overfit the data - the average distance is a more robust measure. 
+
 
 \subsection{Multi-class SVM}
 In order to classify data into 5 classes, we needed to expand our SVM to handle more than just binary labels.  Since two-class problems are easier to solve, we will generate multiple pairwise SVMs for multi-class classification, using the "one against one" method \cite{milgram2006one}.
@@ -95,6 +99,7 @@ We examined three different optimization methods: gradient descent, Newton's app
 
 \subsection{Gradient Descent}
 
+We use gradient descent as a baseline with which to compare our two more complex methods.
 Gradient descent is a classical optimization technique, since the gradient of a function points in the direction of greatest increase, and therefore the negative gradient points in the direction of greatest decrease.  It uses the update step:
 \begin{equation}
 	w' = w - \eta\bigtriangledown L(x,y; w)
@@ -103,9 +108,8 @@ where $\eta$ is the learning rate, $L(x,y; w)$ is the loss function for a data p
 
 \textbf{Loss function} The loss function used is quadratic loss ( which is differentiable everywhere unlike the hinge loss), the $L_2$ penalization of training errors, $$ L(y_i, f(x_i)) = max (0, 1-y_if(x_i))^2 $$
 
-\textbf{Runtime}
+\textbf{Runtime} Gradient descent is linear in the number of training instances, iterations, and number of features, which in this case is quite large.
 
-We use gradient descent as a baseline with which to compare our two more complex methods.
 
 \subsection{Newton's Approximation}
 
