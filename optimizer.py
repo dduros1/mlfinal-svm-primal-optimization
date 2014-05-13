@@ -22,24 +22,17 @@ class Optimizer:
         self.weights = Feature()
 
     def calc_basis(self, instances):
-        #return 0
         count = 0.0
         val = 0.0
-        timeneeded = 0.0
         for inst in instances:
-            start = time.time()
             guess = inst.getFeature().dot(self.weights)
-            end = time.time()
-            timeneeded += (end - start)
             parity = inst.getLabel().getLabel()
             if parity == 0:
                 parity = -1
             if guess * parity < 1:
                 count += 1
                 val +=   parity - guess
-        #print ('%f seconds needed for dot' % timeneeded)
         return val / count
-        #return 0
 
 
 #############################################
@@ -89,16 +82,13 @@ class NewtonApproximation(Optimizer):
     #                                           #
     #############################################
     def train(self, instances):
-        start = time.time()
         beta = self.primalsvm(instances)
-        #weights = sum beta * inst
         for inst in instances:
             for word in inst.getWords():
                 try:
                     self.weights.add(word, self.weights.get(word) + beta[inst] * inst.getFeature().get(word))
                 except KeyError:
                     pass
-        end = time.time()
         return self.weights
 
     #############################################
@@ -111,10 +101,7 @@ class NewtonApproximation(Optimizer):
         sv = []
         if num > 1000:
             small_instances = instances[:num/2]
-            start = time.time()
             beta = self.primalsvm(small_instances)
-            end = time.time()
-            #print('Seconds for recursive call:', (end-start))
             for key, value in beta.iteritems():
                 if not value == 0:
                     sv.append(key)
@@ -124,26 +111,17 @@ class NewtonApproximation(Optimizer):
         oldsv = []
         loopcounter = 0
         while not oldsv == sv and not oldoldsv == sv and loopcounter < self.iterations:
-            loopstart = time.time()
             oldoldsv = copy.copy(oldsv)
             oldsv = copy.copy(sv)
-
-            start = time.time()
             kmatrix = self.form_matrix(sv)
-            end = time.time()
 
             for i in range(len(sv)):
                 kmatrix[(i,i)] += self.param
             inverse = kmatrix.I
             labels = self.form_label_vec(sv)
             beta = inverse.dot(labels)
-            start = time.time()
             sv = self.update(instances, beta, oldsv)
-            end = time.time()
-            loopend=time.time()
             loopcounter += 1
-            if loopcounter % 100 == 0:
-                print ('Iteration of loop:', loopcounter)
     
         return self.formdictionary(beta, sv)
 
@@ -262,8 +240,6 @@ class StochasticSubgradient(Optimizer):
     def train(self, instances):
         w = Feature()
         for t in range(1, self.iterations+1):
-            #if t % 10 == 0:
-            #    print('iteration', t)
             A = random.sample(instances, self.sample_portion)            
             newA = []            
             for inst in A:
