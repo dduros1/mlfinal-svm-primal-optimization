@@ -11,8 +11,9 @@
 \usepackage[noend]{algorithmic}
 \usepackage{cite}
 \setlength\titlebox{6.5cm}    % Expanding the titlebox
+\usepackage[numbers]{natbib}
 
-\title{Comparison of SVM Optimazation Techniques in the Primal}
+\title{Comparison of SVM Optimization Techniques in the Primal}
 \author{Diane Duros \\
 	Johns Hopkins University\\
 	dduros1@gmail.com
@@ -24,13 +25,15 @@
 \maketitle
 
 \begin{abstract}
-This paper examines the efficacy of different optimzation techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The dataset used to compare all three techniques was the Sentiment Analysis on Movie Reviews dataset, from kaggle.com.
+This paper examines the efficacy of different optimization techniques in a primal formulation of a support vector machine (SVM).  Three main techniques are compared.  The dataset used to compare all three techniques was the Sentiment Analysis on Movie Reviews dataset, from kaggle.com.
 \end{abstract}
                                                                                                                                                                                                                                                                            
 \section{Introduction}
 Most SVM literature states the primal optimization, then proceeds to the dual formulation without providing significant detail on training an SVM using the primal optimization problem.  
 
-Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Previous work in the area\cite{chapelle2007training} has used the USPS\textbf{cite{uspsdata}}, which is significantly smaller than our data set.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
+TODO moar
+
+Our goal is to analyze three different primal optimization methods in the context of a large, text-based dataset.  Previous work in the area\cite{chapelle2007training} has used the USPS dataset, which is significantly smaller than our data set.  Given a training set $\{ (x_i, y_i) \}_{1\le i\le n}, x_i \in \mathbb{R}, y_i \in \{1, -1\} $, the primal optimization problem is:
 \begin{gather} min_{w,b} \mid \mid w \mid \mid ^2 + C\sum_{i=1}^n \xi_i^P\notag\\ 
 \text{under constraints } y_i(w\cdot x_i + b) > 1; \xi_i, \xi_i > 0\label{primalobj}\end{gather}
 
@@ -39,12 +42,10 @@ We use a hard-margin SVM, where $C=0$
 \section{Background}
 
 \subsection{Data}
-We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.
-
-Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.
-
-In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ",", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions also collapsed our corpus from \~18000 words to \~16000 words.
-
+We retrieved our data from the problem "Sentiment Analysis on Movie Reviews," from kaggle.com.  The data originates from the Rotten Tomatoes dataset and consists of phrases that have been assigned sentiment labels, where the sentiment labels are \{ 0: negative, 1: somewhat negative, 2: neutral, 3: somewhat positive, 4: positive \}.\\
+\indent Initially, we collapsed the labels to binary labels, where an original label of 3 or 4 was considered positive, and 2 or below became a negative label.  Later, we created a MulticlassSVM to handle the non-binary labels.  \\
+\indent In addition to collapsing the labels, we also had a number of options for processing our data.  We ignored punctuation such as  ",", determining that it was unlikely to contribute significantly to the sentiment while appearing often in both positive and negative phrases.  We also ignored upper/lower case distinctions also collapsed our corpus from $\sim$18000 words to $\sim$16000 words.\\
+\indent When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than this.
 \begin{table}
 \centering
 \label{stats}
@@ -59,10 +60,9 @@ Average number of phrases containing a word & 55.21
 \caption{Data statistics on Sentiment Analysis on Movie Reviews dataset}
 \end{table}
 
-When we compare our data to that of the USPS dataset, USPS has 7291 data instances with 256 features, so our data is at least an order of magnitude larger than this.
 
 \subsection{Features}
-We generated features based on a bag of words model\textbf{need a citation for a bag of words model}.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the number of times a word appears in a phrase).
+We generated features based on a bag of words model, where a phrase is represented as the multiset of its words.  There are two options: binary features (where the feature indicates the existence of a word in a phrase) and continuous features (where the feature indicates the frequency of a word in a phrase).
 
 We have as many features for each instance as there are words in the corpus (18226), but each feature vector is sparse, as we can see in table \ref{stats}.  Since there's an average of 6.85 words per phrase (data instance), the other 18220 elements of the feature vector will be 0.  We did not implement feature selection to only utilize the most significant features.
 
@@ -71,12 +71,12 @@ We chose to approach this data set with SVMs, because they provide a framework f
 
 SVMs are binary linear classifiers.  In training, they create a hyperplane between two classes of data, where the hyperplane maximizes the margin between the two classes.  The main assumption that we have made about our data is that it is linearly separable.  Since our data is text-based, one example that could cause non-linear separability is sarcasm: suppose a reviewer uses a "positive" word sarcastically.
 
-Our optimizers return the coefficients of the hyperplane that maximizes the margin, where we have as many coefficients as we do features.
+Our optimizers return the coefficients of the hyperplane that maximizes the margin, where we have as many coefficients as we do features.  The general objective function is of the form $f(w) = L(w) + r(w) $, where $L(w)$ is a convex measure of loss and $r(w)$ is a convex regularization, so our optimization goal is to minimize the loss function.
 
 \textbf{Basis} TODO
 
 \subsection{Multi-class SVM}
-In order to classify data into 5 classes, we needed to expand our SVM to handle more than just binary labels.  Since two-class problems are easier to solve, we will generate multiple pairwise SVMs for multi-class classification, using the "one against one" method \textbf{citation needed}.
+In order to classify data into 5 classes, we needed to expand our SVM to handle more than just binary labels.  Since two-class problems are easier to solve, we will generate multiple pairwise SVMs for multi-class classification, using the "one against one" method \cite{milgram2006one}.
 
 To enforce ordinal ranking ($0 < 1 < 2 < 3 < 4$), instead of generating pairwise SVMs between all pairs, we only created pairwise SVMs for label pairs \{ (0,1), (1,2), (2,3), (3,4) \}.  This way, we never attempt to classify between classes that aren't directly related via the ranking inequality.
 
@@ -84,7 +84,7 @@ Once each pairwise SVM is trained, according to a user defined optimization meth
 
 This introduces the problem that, if we have never seen the true label and $S$ together, we will never be able to predict it.  In addition, if we train on a restricted dataset, it is possible that we will not see all possible values of S.  In this case, if we encounter a value of S that we didn't see in training, we classify based on the overall probability of the labels, given the training data (the probability is the proportion of times we've seen each label in training data to the number of all training instances.).
 
-For a multi-class SVM, we need to achieve accuracy above .2 to improve upon random chance.
+For this multi-class SVM, we need to achieve accuracy above .2 (1/5) to improve upon random chance, whereas we need to have accuracy greater than .5 for the binary SVM.
 
 \section{Primal Optimization Methods}
 Many SVM packages optimize the dual form of the SVM, but we chose to explore different methods for optimizing the primal problem.
@@ -95,17 +95,30 @@ We examined three different optimization methods: gradient descent, Newton's app
 
 \subsection{Gradient Descent}
 
+Gradient descent is a classical optimization technique, since the gradient of a function points in the direction of greatest increase, and therefore the negative gradient points in the direction of greatest decrease.  It uses the update step:
+\begin{equation}
+	w' = w - \eta\bigtriangledown L(x,y; w)
+\end{equation} 
+where $\eta$ is the learning rate, $L(x,y; w)$ is the loss function for a data point given the current hyperplane coefficients w.  We used a default step size (learning rate) of .001.  We sacrificed runtime and  used a small step size so that we wouldn't overshoot and miss the minimum.  In this method, we use the entire training set to compute the gradient.\cite{menon}
+
+\textbf{Loss function} The loss function used is quadratic loss ( which is differentiable everywhere unlike the hinge loss), the $L_2$ penalization of training errors, $$ L(y_i, f(x_i)) = max (0, 1-y_if(x_i))^2 $$
+
+\textbf{Runtime}
+
+We use gradient descent as a baseline with which to compare our two more complex methods.
+
 \subsection{Newton's Approximation}
 
-We can write \eqref{primalobj} as an unconstrained optimization function.
+As seen in \citeauthor{chapelle2007training}, we can write \eqref{primalobj} as an unconstrained optimization function:
+\begin{equation}
+	\lambda \beta^TK\beta + \sum_{i=1}^n L(y_i, K_i^T\beta)
+	\label{newton}
+\end{equation}
+ where $\lambda$ is a regularization parameter, L is the loss function, and $K_i$ is the ith column of a kernel K.
 
-Quadratic increase in time as recursive calls double data, means we're doubling number of support vectors too
+ \textbf{Loss Function}  The loss function used is quadratic loss, the $L_2$ penalization of training errors, $$ L(y_i, f(x_i)) = max (0, 1-y_if(x_i))^2 $$  If the loss on a point $x_i$ is nonzero, then $x_i$ is a support vector.  The gradient of \eqref{newton} with respect to $\beta$ is $$ \bigtriangledown = 2(\lambda K \beta + K I^0(K\beta -Y) ) $$ and the Hession is $$ H = 2(\lambda K + K^0 K) $$  We can combine these to see that after the Newton update step\footnote{This assumes that K is invertible.}, \begin{equation} \beta = (\lambda I_n + I^0K)^{-1}I^0Y  \end{equation}  If $K_{sv}$ is the sub matrix corresponding to the support vectors, then since $\lambda I_n + I^0 K = 0$, the final update is \begin{equation}  \beta = \begin{matrix} (\lambda I_{n_{sv}} + K_{sv})^-1 Y_{sv} \\ 0 \end{matrix}\end{equation}
 
-When we attempted to run our implementation of this method on our full training set, we realized that it would not terminate in a reasonable amount of time for this project.  Since the algorithm initially restricts data to 1000 samples, then recursively trains on double the data until finally training on the full dataset, there is a \textbf{check this} quadratic increase in time.  On our data, it would take 9 recursive calls to fully train the model.
-
-\textbf{Loss Function}
-
-\textbf{Algorithm}
+When we attempted to run our implementation of this method on our full training set, we realized that it would not terminate in a reasonable amount of time for this project.  Since the algorithm initially restricts data to 1000 samples, then recursively trains on double the data until finally training on the full dataset, there is a cubic increase in time if the number of support vectors increases with size of the dataset, which it does.  On our data, it would take 9 recursive calls to fully train the model.
 
 \begin{table}
 \centering
@@ -121,24 +134,59 @@ When we attempted to run our implementation of this method on our full training 
 \caption{Timing data for the recursive step of Newton's Approximation}
 \end{table}
 
-Since we could not train this model on our full dataset, we created a restricted dataset of 10000 instances for evaluation purposes.
+Since we could not train this model on our full dataset, we created a restricted dataset of 1000 instances for evaluation purposes.  We also restricted the number of iterations to 5, since Chapelle claims that the algorithm should converge to the solution within 5 iterations.
 
-\textbf{RBF Kernel}
+This method approximates the inverse Hessian, and uses it to scale the gradient at each iteration.  Methods like this tend to be avoided for large-scale, batch problems, because, as we have discovered, this method does not scale well to large data.
 
-\textbf{What is a kernel?}
+\textbf{Runtime}  The runtime depends on the complexity of one Newton step, $O(nn_{sv} + n^3_{sv})$, since we converge in a constant number of iterations.  
 
-Large sigma values produced poor results (on a pairwise SVM, accuracies were less than .5), but terminated quickly.  However, we did not have any terminating runs with small sigma values. \textbf{Hopefully until Monday night when we write more about this! TODO}
-
+\begin{algorithm}
+\caption{Newton's Approximation}
+\begin{algorithmic}
+\STATE function $\leftarrow$ primalsvm(Y, $\lambda$)
+\STATE n $\leftarrow$ length(X)
+\IF {$n > 1000$}
+\STATE $n_2 \leftarrow n/2$
+\STATE $\beta \leftarrow$ primalsvm($Y_{1\ldots n_2}$, $\lambda$)
+\STATE sv $\leftarrow$ non-zero components of $\beta$
+\ELSE
+\STATE sv $\leftarrow \{ 1, \ldots, n \}$
+\ENDIF
+\REPEAT
+\STATE $\beta_{sv} \leftarrow (K_{sv} + \lambda I_{n_{xv}})^{-1}Y_{sv}$
+\STATE Other components of $\beta \leftarrow 0$
+\STATE sv $\leftarrow$ indices $i$ such that $y_i[K\beta]_i < 1$
+\UNTIL {sv has not changed}
+\end{algorithmic}
+\end{algorithm}
+\textbf{RBF Kernel}  We used a radial basis function (RBF) kernel for this method, because that is the original kernel used by Chapelle.  $$ K(x, x') = exp(-\frac{\mid \mid x-x' \mid \mid^2_2 }{2\sigma^2}) $$After getting poor performance from this method, we further examined our kernel, and determined that we should not have used and RBF kernel for this problem. The RBF kernel acts as a Gaussian filter, which are often used for smoothing images, so the RBF kernel is a filter that selects smooth solutions.\footnote{http://charlesmartin14.wordpress.com/2012/02/06/kernels\_part\_1/ }  This doesn't make sense in the context of text data, because you can't view the data in terms of signals with a frequency domain.  This kernel was logical for the USPS dataset Chapelle used, because it is an image dataset.  A better kernel for us would have been the linear kernel.
 
 \subsection{Stochastic Subgradient}
+Stochastic gradient descent is significantly faster than methods like gradient descent that use the true gradient at each iteration.  Instead, it approximates the gradient on fewer training examples.  The stochastic sub gradient method we implemented is the Pegasos algorithm by \citeauthor{pegasos}, which is a stochastic gradient descent method that also has a projection step.  The objective to be minimized is \begin{equation} min_w \frac{\lambda}{2} \mid \mid w \mid \mid ^2 +\frac{1}{m} \sum_{(x, y) \in X} L(w; (x,y)) \end{equation}
 
-\textbf{Loss Function}
+At each iteration, we select a random subset of training examples, and update the weight vector with the subgradient of the objective function evaluated on the subset.  Then we project the vector onto a sphere with radius $1/\sqrt{\lambda}$, because the optimal weight vector must lie in this ball (see \citeauthor{menon}), due to the strong duality theorem.
 
-\textbf{Initialization}
+\begin{algorithm}
+\caption{Pegasos Stochastic Subgradient Method}
+\begin{algorithmic}
+	\FOR {$t = 1\ldots T$}
+		\STATE Pick random $A_t \subset T$ s.t. $\mid A_t \mid = k$
+		\STATE$ M \leftarrow \{ (x,y) \in A_t: 1-y(w\cdot x) >0 \}$
+		\STATE $\bigtriangledown_t \leftarrow \lambda w_t - \frac{1}{\mid M \mid} \sum_{(x,y) \in M} yx$
+		\STATE Update $w_{t+\frac{1}{2}} \leftarrow w_t - \frac{1}{\lambda t}\cdot\bigtriangledown_t$
+		\STATE Let $w_{t+1} \leftarrow min \left( 1, \frac{1}{\sqrt{\lambda} \mid \mid w_{t+1/2} \mid \mid} \right) w_{t+\frac{1}{2}}$
+	\ENDFOR
+	\RETURN $w_{T+1}$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Loss Function} The Pegasos algorithm uses the hinge loss function $$ L(w; x,y) = max\{0, 1-y\langle x, y\rangle\} $$
+
+\textbf{Runtime} The runtime is independent of the number of training examples, and the algorithm finds an $\epsilon$-accurate solution in $O(\frac{d}{\lambda \epsilon})$ time, where d is the number of non-zero features in each training example.
 
 
 \section{Code}
-We created an SVM framework in Python, as well as a custom DataParser.  Our SVM class takes an Optimizer object as input, where the Optimizer calculates weights \textbf{or support vectors??} for the SVM according to the optimization function encoded in the object. 
+We created an SVM framework in Python, as well as a custom DataParser.  Our SVM class takes an Optimizer object as input, where the Optimizer calculates weights for the SVM according to the optimization function encoded in the object.   We did not use any SVM packages, and only used the numpy package for evaluation purposes.
 
 \subsection{Evaluation}
 For evaluation, we created a CrossValidationTester, so that we could train and test on the training dataset from kaggle.com.  For each round, the CrossValidationTester randomly orders the data, then selects 10\% to be left out for testing purposes, while the rest is used for training the model; we used a default of 10 rounds, then averaged the accuracy and timing results across rounds.  The only model that we didn't use this for was the Newton approximation, because it took too long to run.
@@ -155,16 +203,13 @@ Things to discuss:
 \subsection{Crossvalidation Results}
 
 
-\subsection{Kaggle.com Results}
-
 \subsection{Comparison to Proposal}
-
-\section{Conclusion}
+We revised our proposal from focusing on solving the kaggle.com problem to using the dataset to explore different optimization techniques.  Our achievements did still align somewhat with what we initially planned to do, which was to first create a binary SVM classifier, then extend it to a multi-class SVM.  We created both successfully.  However, instead of exploring various feature representations of our data, we explored different primal optimization techniques.  Our goal was to implement three different algorithms, and we met this goal.  We did not generate results to submit to kaggle.com, preferring to evaluate our methods using 10-fold cross validation. 
 
 
 
 \nocite{*}
-\bibliographystyle{plain} 
+\bibliographystyle{plainnat} 
 \bibliography{writeup}
 
 \end{document}
