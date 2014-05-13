@@ -130,17 +130,9 @@ class MulticlassSVM(SVM):
 
         #Train classifiers for label pairs (1,2), (2,3), (3,4), (4,5)
         for insts in separated_instances:
-            start = time.time()
             self.weights.append(self.optimizer.train(insts))
-            next = time.time()
-            #print('weights: %f seconds' % (next -start))
             self.basises.append(self.optimizer.calc_basis(insts))
-            next2 = time.time()
-            #print('basis: %f seconds' % (next2 - next))
-            #self.basises.append(0)
             self.optimizer.clear()
-            end = time.time()
-            #print ('clear: %f seconds' % (end - next2))
         
         self.finish(instances)
 
