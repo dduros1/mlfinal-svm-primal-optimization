@@ -1,0 +1,59 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bordes et~al.(2009)Bordes, Bottou, and Gallinari]{sgdqn}
+Antoine Bordes, L\'{e}on Bottou, and Patrick Gallinari.
+\newblock Sgd-qn: Careful quasi-newton stochastic gradient descent.
+\newblock \emph{Journal of Machine Learning Research}, 10:\penalty0 1737--1754,
+  July 2009.
+\newblock URL \url{http://leon.bottou.org/papers/bordes-bottou-gallinari-2009}.
+
+\bibitem[Chapelle(2007)]{chapelle2007training}
+Olivier Chapelle.
+\newblock Training a support vector machine in the primal.
+\newblock \emph{Neural Computation}, 19\penalty0 (5):\penalty0 1155--1178,
+  2007.
+
+\bibitem[Kivinen et~al.(2002)Kivinen, Smola, and Williamson]{norma}
+Jyrki Kivinen, Alex~J Smola, and Robert~C Williamson.
+\newblock Online learning with kernels.
+\newblock \emph{Advances in neural information processing systems}, 1:\penalty0
+  785--792, 2002.
+
+\bibitem[Melacci and Belkin(2011)]{melacci2011laplacian}
+Stefano Melacci and Mikhail Belkin.
+\newblock Laplacian support vector machines trained in the primal.
+\newblock \emph{The Journal of Machine Learning Research}, 12:\penalty0
+  1149--1184, 2011.
+
+\bibitem[Menon()]{menon}
+Aditya~Krishna Menon.
+\newblock Large-scale support vector machines: Algorithms and theory.
+\newblock URL \url{http://cseweb.ucsd.edu/~akmenon/ResearchExam.pdf}.
+
+\bibitem[Milgram et~al.(2006)Milgram, Cheriet, Sabourin,
+  et~al.]{milgram2006one}
+Jonathan Milgram, Mohamed Cheriet, Robert Sabourin, et~al.
+\newblock “one against one” or “one against all”: Which one is better for
+  handwriting recognition with svms?
+\newblock In \emph{Tenth International Workshop on Frontiers in Handwriting
+  Recognition}, 2006.
+
+\bibitem[Rupnik(2008)]{rupnik2008stochastic}
+Jan Rupnik.
+\newblock \emph{Stochastic Subgradient Approach for Solving Linear Support
+  Vector Machines--An Overview}.
+\newblock SiKDD, 2008.
+
+\bibitem[Shalev-Shwartz et~al.(2007)Shalev-Shwartz, Singer, and
+  Srebro]{pegasos}
+Shai Shalev-Shwartz, Yoram Singer, and Nathan Srebro.
+\newblock Pegasos: Primal estimated sub-gradient solver for svm.
+\newblock In \emph{Proceedings of the 24th International Conference on Machine
+  Learning}, ICML '07, pages 807--814, New York, NY, USA, 2007. ACM.
+
+\end{thebibliography}
